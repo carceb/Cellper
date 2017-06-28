@@ -32,7 +32,7 @@
     <tr id="divlnkAtencionCallCenter" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
-      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;<ASP:HyperLink id="lnkRecepcionEquipos" runat="server" cssclass="izq2" navigateurl="CitaCola.aspx">Recepción de equipos</ASP:HyperLink></td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;<ASP:HyperLink id="lnkRecepcionEquipos" runat="server" cssclass="izq2" navigateurl="Recepcion.aspx">Recepción de equipos</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
     <tr id="divlnkHistoriaMedica" >

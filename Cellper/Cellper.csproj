@@ -183,6 +183,7 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\simpleAutoComplete.js" />
     <Content Include="js\Util.js" />
+    <Content Include="Vista\Recepcion.aspx" />
     <Content Include="Styles\estilo.css" />
     <Content Include="Styles\estiloindex.css" />
     <Content Include="Styles\estilos.css" />
@@ -233,6 +234,13 @@
     <Compile Include="Controlador\XmlUtils.cs" />
     <Compile Include="Modelo\CSeguridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Recepcion.aspx.cs">
+      <DependentUpon>Recepcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Recepcion.aspx.designer.cs">
+      <DependentUpon>Recepcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Autocomplete.aspx.cs">
       <DependentUpon>Autocomplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
