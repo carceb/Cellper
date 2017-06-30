@@ -14,7 +14,6 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCedula.Attributes.Add("onkeypress", "return ValidNum(event);");
             if (!IsPostBack)
             {
                 

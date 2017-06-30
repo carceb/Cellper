@@ -79,14 +79,34 @@ BODY {
 
     </script>
         
-<script language="javascript"  type="text/javascript" >
-    function ValidNum() {
-        if (event.keyCode < 48 || event.keyCode > 57) {
-            event.returnValue = false;
+ <script type="text/javascript">
+        $(function () {
+        $('#txtCedula').keydown(function (e) {
+        if (e.shiftKey || e.ctrlKey || e.altKey) {
+        e.preventDefault();
+        } else {
+        var key = e.keyCode;
+        if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+        e.preventDefault();
         }
-}
+        }
+        });
+    });
 </script>
-
+ <script type="text/javascript">
+        $(function () {
+        $('#txtTelefono').keydown(function (e) {
+        if (e.shiftKey || e.ctrlKey || e.altKey) {
+        e.preventDefault();
+        } else {
+        var key = e.keyCode;
+        if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+        e.preventDefault();
+        }
+        }
+        });
+    });
+</script>
 </head>
   
   <body>
