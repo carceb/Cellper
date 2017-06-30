@@ -67,6 +67,15 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.HiddenField hdnCedula;
         
         /// <summary>
+        /// hdnClienteID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnClienteID;
+        
+        /// <summary>
         /// rqrvalidaCedula control.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,33 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrvalidaDireccion;
         
         /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// ddlTipoEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEquipo;
+        
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
         /// ddlTipoCelular control.
         /// </summary>
         /// <remarks>
@@ -164,6 +200,15 @@ namespace Cellper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoCelular;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
         /// ddlModeloCelular control.
@@ -175,6 +220,15 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.DropDownList ddlModeloCelular;
         
         /// <summary>
+        /// hdnCodigoModelo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCodigoModelo;
+        
+        /// <summary>
         /// txtIMEI control.
         /// </summary>
         /// <remarks>
@@ -184,13 +238,49 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.TextBox txtIMEI;
         
         /// <summary>
-        /// TextBox1 control.
+        /// rqrvalidaIMEI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrvalidaIMEI;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// ddlFalla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFalla;
+        
+        /// <summary>
+        /// txtObservaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
+        
+        /// <summary>
+        /// rqrvalidaObservaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrvalidaObservaciones;
         
         /// <summary>
         /// ddlTecnico control.
@@ -211,22 +301,22 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// btnResuelto control.
+        /// btnLimpiar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResuelto;
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
-        /// btnGuardaLista control.
+        /// ButtonTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardaLista;
+        protected global::System.Web.UI.WebControls.Button ButtonTest;
         
         /// <summary>
         /// gridDetalle control.

@@ -12,9 +12,9 @@ namespace Admin
             if (Request.QueryString["query"] != "")
             {
 
-                if (Request.QueryString["identifier"] == "Medicos")
+                if (Request.QueryString["identifier"] == "Clientes")
                 {
-                    DataSet ds = Autocomplete.ObtenerMedicos(Request.QueryString["query"],false);
+                    DataSet ds = Autocomplete.ObtenerClientes(Request.QueryString["query"]);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         Response.Write("<ul>" + "\n");
@@ -22,130 +22,15 @@ namespace Admin
                         foreach (DataRow dr in ds.Tables[0].Rows)
                         {
                             item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreMedico"].ToString();
-                            item.id = dr["MedicoID"].ToString();
+                            item.value = dr["DatosCliente"].ToString();
+                            item.id = dr["CedulaCliente"].ToString();
                             item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreMedico"].ToString() + "_" + dr["MedicoID"].ToString() + "_" + dr["SexoMedico"].ToString() + "_" + dr["RIFMedico"].ToString() + "_" + dr["MSAS"].ToString() + "_" + dr["ColegioMedico"].ToString() + "_" + dr["EspecialidadMedicaID"].ToString() + "_" + dr["DescripcionEspecialidad"].ToString() + "_" + dr["CelularMedico"].ToString() + "_" + dr["EmailMedico"].ToString() + "_" + dr["CedulaMedico"].ToString() + "'>" + item.value + "</li>" + "\n");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreCliente"].ToString() + "_" + dr["CedulaCliente"].ToString() + "_" + dr["TelefonoCliente"].ToString() + "_" + dr["DireccionCliente"].ToString() + "_" + dr["EMailCliente"].ToString() + "_" + dr["ClienteID"].ToString() + "'>" + item.value + "</li>" + "\n");
                         }
                         Response.Write("</ul>");
                         Response.End();
                     }
                 }
-                if (Request.QueryString["identifier"] == "MedicosNombre")
-                {
-                    DataSet ds = Autocomplete.ObtenerMedicos(Request.QueryString["query"], true);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreMedico"].ToString();
-                            item.id = dr["MedicoID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreMedico"].ToString() + "_" + dr["MedicoID"].ToString() + "_" + dr["SexoMedico"].ToString() + "_" + dr["RIFMedico"].ToString() + "_" + dr["MSAS"].ToString() + "_" + dr["ColegioMedico"].ToString() + "_" + dr["EspecialidadMedicaID"].ToString() + "_" + dr["DescripcionEspecialidad"].ToString() + "_" + dr["CelularMedico"].ToString() + "_" + dr["EmailMedico"].ToString() + "_" + dr["CedulaMedico"].ToString() + "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-                if (Request.QueryString["identifier"] == "Consultorios")
-                {
-                    DataSet ds = Autocomplete.ObtenerConsultorios(Request.QueryString["query"]);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreConsultorio"].ToString();
-                            item.id = dr["ConsultorioID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreConsultorio"].ToString() + "_" + dr["ConsultorioID"].ToString() + "_" + dr["RIFConsultorio"].ToString() + "_" + dr["DireccionConsultorio"].ToString() + "_" + dr["TelefonoConsultorio"].ToString() + "_" + dr["EmailConsultorio"].ToString() + "_" + dr["EstadoID"].ToString() + "_" + dr["CiudadID"].ToString() + "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-                if (Request.QueryString["identifier"] == "ConsultoriosMedicos")
-                {
-                    DataSet ds = Autocomplete.ObtenerMedicoConsultorios(Request.QueryString["query"]);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["DatosLargos"].ToString();
-                            item.id = dr["ConsultorioID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreConsultorio"].ToString() + "_" + dr["ConsultorioID"].ToString() + "_" + dr["MedicoConsultorioID"].ToString() + "_" + dr["DireccionConsultorio"].ToString() + "_" + dr["TelefonoConsultorio"].ToString() + "_" + dr["EmailConsultorio"].ToString() + "_" + dr["EstadoID"].ToString() + "_" + dr["CiudadID"].ToString() + "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-                if (Request.QueryString["identifier"] == "Usuarios")
-                {
-                    DataSet ds = Autocomplete.ObtenerUsuarios(Request.QueryString["query"]);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreCompleto"].ToString();
-                            item.id = dr["SeguridadUsuarioDatosID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreCompleto"].ToString() + "_" + dr["LoginUsuario"].ToString() + "_" + dr["ClaveUsuario"].ToString() + "_" + dr["DescripcionUsuario"].ToString() + "_" + dr["SeguridadGrupoID"].ToString() + "_" + dr["UsuarioTecnico"].ToString()  + "_" + dr["EstatusUsuario"].ToString() + "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-                if (Request.QueryString["identifier"] == "Grupos")
-                {
-                    DataSet ds = Autocomplete.ObtenerGrupos(Request.QueryString["query"]);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreGrupo"].ToString();
-                            item.id = dr["SeguridadGrupoID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreGrupo"].ToString() + "_" + dr["DescripcionGrupo"].ToString() + "_" + dr["SeguridadGrupoID"].ToString() + "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-                if (Request.QueryString["identifier"] == "Objetos")
-                {
-                    DataSet ds = Autocomplete.ObtenerObjetos(Request.QueryString["query"]);
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        Response.Write("<ul>" + "\n");
-                        paginaBase.AutoCompleteResult item;
-                        foreach (DataRow dr in ds.Tables[0].Rows)
-                        {
-                            item = new paginaBase.AutoCompleteResult();
-                            item.value = dr["NombreObjeto"].ToString();
-                            item.id = dr["SeguridadObjetoID"].ToString();
-                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreObjeto"].ToString() + "_" + dr["SeguridadObjetoID"].ToString() +  "'>" + item.value + "</li>" + "\n");
-                        }
-                        Response.Write("</ul>");
-                        Response.End();
-                    }
-                }
-
             }
         }
     }
