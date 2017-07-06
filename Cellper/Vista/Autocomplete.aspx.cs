@@ -31,6 +31,25 @@ namespace Admin
                         Response.End();
                     }
                 }
+                if (Request.QueryString["identifier"] == "Marcas")
+                {
+                    DataSet ds = Autocomplete.ObtenerTipoCelular(Request.QueryString["query"]);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<ul>" + "\n");
+                        paginaBase.AutoCompleteResult item;
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            item = new paginaBase.AutoCompleteResult();
+                            item.value = dr["NombreTipoCelular"].ToString();
+                            item.id = dr["TipoCelularID"].ToString();
+                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreTipoCelular"].ToString() + "_" + dr["TipoCelularID"].ToString() + "_" + dr["TipoEquipoID"].ToString()  + "'>" + item.value + "</li>" + "\n");
+                        }
+                        Response.Write("</ul>");
+                        Response.End();
+                    }
+                }
             }
         }
     }

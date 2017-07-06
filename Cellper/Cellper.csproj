@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\TipoCelular.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -205,6 +206,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\CTipoCelular.cs" />
+    <Compile Include="Controlador\TipoCelular.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\TipoCelular.aspx.cs">
+      <DependentUpon>TipoCelular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\TipoCelular.aspx.designer.cs">
+      <DependentUpon>TipoCelular.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\CCliente.cs" />
     <Compile Include="Controlador\Autocomplete.cs">
       <SubType>ASPXCodeBehind</SubType>

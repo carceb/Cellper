@@ -68,21 +68,41 @@
         <ASP:Label id="lblOpciones" runat="server">Opciones Especiales:</ASP:Label></td>
       <td height="20">&nbsp;</td>
     </tr>
-    <tr id="divlnkMedicos" >
+    <tr id="divlnkInventario" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
         <ASP:HyperLink id="lnkInventario" runat="server" cssclass="izq2" navigateurl="Medicos.aspx">Inventario</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
-    <tr id="divlnkConsultorio" >
+    <tr id="divlnkClientes" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
         <ASP:HyperLink id="lnkClientes" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Clientes</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
-
+    <tr id="divlnkMarcaEquipo" >
+      <td height="20">&nbsp;</td>
+      <td width="4" bgcolor="#949494">&nbsp;</td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
+        <ASP:HyperLink id="lnkMarca" runat="server" cssclass="izq2" navigateurl="TipoCelular.aspx">Tipo equipo</ASP:HyperLink></td>
+      <td height="20">&nbsp;</td>
+    </tr>
+    <tr id="divlnkModeloEquipo" >
+      <td height="20">&nbsp;</td>
+      <td width="4" bgcolor="#949494">&nbsp;</td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
+        <ASP:HyperLink id="lnkModelo" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Modelo equipo</ASP:HyperLink></td>
+      <td height="20">&nbsp;</td>
+    </tr>
+        <tr id="divlnkTecnico" >
+      <td height="20">&nbsp;</td>
+      <td width="4" bgcolor="#949494">&nbsp;</td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
+        <ASP:HyperLink id="lnkTecnico" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Modelo equipo</ASP:HyperLink></td>
+      <td height="20">&nbsp;</td>
+    </tr>
    <%-- ************************************************************************************************************************************--%>
 
 
@@ -133,10 +153,12 @@
           document.getElementById('divlnkAddProducto').style.display = cad;
 
           document.getElementById('divlblOpciones').style.display = cad;
-          document.getElementById('divlnkMedicos').style.display = cad;
-          document.getElementById('divlnkConsultorio').style.display = cad;
-
-
+          document.getElementById('divlnkInventario').style.display = cad;
+          document.getElementById('divlnkClientes').style.display = cad;
+          document.getElementById('divlnkMarcaEquipo').style.display = cad;
+          document.getElementById('divlnkModeloEquipo').style.display = cad;
+          document.getElementById('divlnkTecnico').style.display = cad;
+          
           
           document.getElementById('divlnkSeguridad').style.display = cad;
           document.getElementById('divlnkChangePassword').style.display = cad;

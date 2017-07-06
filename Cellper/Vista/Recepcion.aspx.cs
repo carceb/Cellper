@@ -16,11 +16,10 @@ namespace Cellper
         {
             if (!IsPostBack)
             {
-                
                 CargarTecnico();
                 CargarFalla();
-                CargarTipoCelular();
                 CargarTipoEquipo();
+                CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
                 CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
             }
         }
@@ -48,14 +47,17 @@ namespace Cellper
                 }
             }
         }
-        private void CargarTipoCelular()
+        private void CargarTipoCelular(int tipoEquipoID)
         {
+            ddlTipoCelular.Items.Clear();
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "select * From TipoCelular ORDER BY TipoCelularID";
-
+            if(tipoEquipoID != 0)
+            {
+                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY TipoCelularID";
+            }
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -105,16 +107,10 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            if (Convert.ToInt32(hdnCodigoModelo.Value) == 0)
+            if (tipoCelularID != 0)
             {
                 strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID;
             }
-            else
-            {
-                strQuery = "select * From ModeloCelular Where EstadoID = " + tipoCelularID + " AND CiudadID = " + hdnCodigoModelo.Value;
-            }
-
-
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -131,6 +127,8 @@ namespace Cellper
                 }
             }
         }
+
+
 
         private void CargarTipoEquipo()
         {
@@ -180,7 +178,6 @@ namespace Cellper
                 }
             }
         }
-
 
         protected void ddlTipoCelular_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -275,6 +272,12 @@ namespace Cellper
         protected void ButtonTest_Click(object sender, EventArgs e)
         {
             CargarDetalleServicio(true);
+        }
+
+        protected void ddlTipoEquipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
+            CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
         }
     }
 }

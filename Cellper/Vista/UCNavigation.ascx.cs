@@ -44,6 +44,9 @@ namespace Teach
                     this.lblOpciones.CssClass = "izq";
                     this.lnkInventario.CssClass = "izq";
                     this.lnkClientes.CssClass = "izq";
+                    this.lnkMarca.CssClass = "izq";
+                    this.lnkModelo.CssClass = "izq";
+                    this.lnkTecnico.CssClass = "izq";
                 }
                 else
                 {
@@ -77,6 +80,47 @@ namespace Teach
                         this.lnkClientesAtendidos.Visible = false;
                     }
 
+                    //MENU OPCIONES ESPECIALES
+                    if (objetoSeguridad.EsAccesoPermitido(3) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkInventario.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkInventario.Visible = false;
+                    }
+                    if (objetoSeguridad.EsAccesoPermitido(4) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkClientes.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkClientes.Visible = false;
+                    }
+                    if (objetoSeguridad.EsAccesoPermitido(4) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkMarca.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkMarca.Visible = false;
+                    }
+                    if (objetoSeguridad.EsAccesoPermitido(5) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkModelo.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkModelo.Visible = false;
+                    }
                 }
 
             }

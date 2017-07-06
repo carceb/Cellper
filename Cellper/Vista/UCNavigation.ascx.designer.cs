@@ -112,6 +112,33 @@ namespace Teach {
         protected global::System.Web.UI.WebControls.HyperLink lnkClientes;
         
         /// <summary>
+        /// lnkMarca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMarca;
+        
+        /// <summary>
+        /// lnkModelo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkModelo;
+        
+        /// <summary>
+        /// lnkTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkTecnico;
+        
+        /// <summary>
         /// lnkSeguridad control.
         /// </summary>
         /// <remarks>

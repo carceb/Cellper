@@ -17,5 +17,13 @@ namespace Admin
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerClientes", dbParams);
         }
+        public static DataSet ObtenerTipoCelular(string sQuery)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                };
+            return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerTipoCelular", dbParams);
+        }
     }
 }

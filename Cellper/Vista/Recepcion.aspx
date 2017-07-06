@@ -172,7 +172,7 @@ BODY {
                         <asp:Label Text="Tipo equipo" ID="Label6" runat="server" />
                     </td>
                     <td class="auto-style2">
-                        <asp:DropDownList ID="ddlTipoEquipo" runat="server"  Width="520"   >
+                        <asp:DropDownList ID="ddlTipoEquipo" runat="server"  Width="520" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoEquipo_SelectedIndexChanged"   >
                         </asp:DropDownList> 
                     </td>
                 </tr>
