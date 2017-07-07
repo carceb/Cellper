@@ -42,16 +42,15 @@ namespace Teach
                     this.lnkSeguridad.CssClass = "izq";
 
                     this.lblOpciones.CssClass = "izq";
-                    this.lnkInventario.CssClass = "izq";
-                    this.lnkClientes.CssClass = "izq";
                     this.lnkMarca.CssClass = "izq";
                     this.lnkModelo.CssClass = "izq";
                     this.lnkFalla.CssClass = "izq";
+                    this.lnkTecnicos.CssClass = "izq";
                 }
                 else
                 {
                      this.lnkSeguridad.Visible = false;
-                    //MENU ATENCION VISITAS
+                    //MENU SERVICIO TECNICO
                     if (objetoSeguridad.EsAccesoPermitido(1) == true)
                     {
                         this.lblVentas.CssClass = "izq";
@@ -84,22 +83,22 @@ namespace Teach
                     if (objetoSeguridad.EsAccesoPermitido(3) == true)
                     {
                         this.lblOpciones.CssClass = "izq";
-                        this.lnkInventario.CssClass = "izq";
+
                     }
                     else
                     {
                         this.lblOpciones.Visible = false;
-                        this.lnkInventario.Visible = false;
+
                     }
                     if (objetoSeguridad.EsAccesoPermitido(4) == true)
                     {
                         this.lblOpciones.CssClass = "izq";
-                        this.lnkClientes.CssClass = "izq";
+
                     }
                     else
                     {
                         this.lblOpciones.Visible = false;
-                        this.lnkClientes.Visible = false;
+
                     }
                     if (objetoSeguridad.EsAccesoPermitido(4) == true)
                     {
@@ -130,6 +129,16 @@ namespace Teach
                     {
                         this.lblOpciones.Visible = false;
                         this.lnkFalla.Visible = false;
+                    }
+                    if (objetoSeguridad.EsAccesoPermitido(7) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkTecnicos.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkTecnicos.Visible = false;
                     }
                 }
 

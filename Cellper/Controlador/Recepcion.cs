@@ -68,5 +68,24 @@ namespace Cellper
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Recepcion_EliminarRecepcion", dbParams));
         }
 
+        public static DataSet ObtenerColaEquipos()
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+
+                };
+
+            return DBHelper.ExecuteDataSet("usp_ColaEquipos_ObtenerColaEquipos", dbParams);
+        }
+        public static int ActualizarLista(CRecepcion objetoRecepcion)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, objetoRecepcion.RecepcionEquipoID),
+                DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, objetoRecepcion.EstatusEquipoID),
+                DBHelper.MakeParam("@FechaAsignacionEstatus", SqlDbType.SmallDateTime, 0, objetoRecepcion.FechaAsignacionEstatus)
+                };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_ColaEquipos_ActualizarLista", dbParams));
+        }
     }
 }

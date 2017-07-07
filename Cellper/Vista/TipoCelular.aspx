@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>| Sistema Call Center | Objetos|</title>
+    <title>| Cellper | Marcas|</title>
 	
 	<link rel="stylesheet" href="../Styles/estilo.css" type="text/css"/>
 	<script src="../js/Util.js" type="text/javascript"></script>

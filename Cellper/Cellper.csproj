@@ -94,6 +94,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\Tecnicos.aspx" />
+    <Content Include="Vista\ColaEquipos.aspx" />
     <Content Include="Vista\FallaCelular.aspx" />
     <Content Include="Vista\ModeloCelular.aspx" />
     <Content Include="Vista\TipoCelular.aspx" />
@@ -208,6 +210,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\CTecnicos.cs" />
+    <Compile Include="Controlador\Tecnicos.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Tecnicos.aspx.cs">
+      <DependentUpon>Tecnicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Tecnicos.aspx.designer.cs">
+      <DependentUpon>Tecnicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ColaEquipos.aspx.cs">
+      <DependentUpon>ColaEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ColaEquipos.aspx.designer.cs">
+      <DependentUpon>ColaEquipos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\FallaCelular.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

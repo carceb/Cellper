@@ -7,25 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace Cellper
 {
-    public partial class FallaCelular : System.Web.UI.Page
+    public partial class Tecnicos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            ProcesoInsertar();
-        }
         private void ProcesoInsertar()
         {
-            CFallaCelular objetoFallaCelular = new CFallaCelular();
+            CTecnicos objetoTecnicos = new CTecnicos();
 
-            objetoFallaCelular.FallaCelularID = Convert.ToInt32(hdnFallaCelularID.Value);
-            objetoFallaCelular.NombreFallaCelular = txtNombre.Text.ToUpper();
+            objetoTecnicos.TecnicoID = Convert.ToInt32(hdnTecnicoID.Value);
+            objetoTecnicos.NombreTecnico = txtNombre.Text.ToUpper();
+            objetoTecnicos.CedulaTecnico = Convert.ToInt32(txtCedula.Text);
 
-            if (FallaCelular.InserFallaCelular(objetoFallaCelular) > 0)
+            if (Tecnicos.InserTecnico(objetoTecnicos) > 0)
             {
                 messageBox.ShowMessage("Registro actualzado.");
                 NuevoRegistro();
@@ -37,8 +33,13 @@ namespace Cellper
         }
         private void NuevoRegistro()
         {
-            hdnFallaCelularID.Value = "0";
+            hdnTecnicoID.Value = "0";
             txtNombre.Text = "";
+            txtCedula.Text = "";
+        }
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ProcesoInsertar();
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)

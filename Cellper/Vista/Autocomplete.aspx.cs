@@ -88,6 +88,25 @@ namespace Admin
                         Response.End();
                     }
                 }
+                if (Request.QueryString["identifier"] == "Tecnicos")
+                {
+                    DataSet ds = Autocomplete.ObtenerTecnicos(Request.QueryString["query"]);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<ul>" + "\n");
+                        paginaBase.AutoCompleteResult item;
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            item = new paginaBase.AutoCompleteResult();
+                            item.value = dr["NombreTecnico"].ToString();
+                            item.id = dr["TecnicoID"].ToString();
+                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreTecnico"].ToString() + "_" + dr["TecnicoID"].ToString() + "_" + dr["CedulaTecnico"].ToString() + "'>" + item.value + "</li>" + "\n");
+                        }
+                        Response.Write("</ul>");
+                        Response.End();
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModeloCelular.aspx.cs" Inherits="Cellper.ModeloCelular" %>
-
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tecnicos.aspx.cs" Inherits="Cellper.Tecnicos" %>
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 <%@ Register TagPrefix="uc1" TagName="UCNavigation" Src="~/Vista/UCNavigation.ascx" %>
@@ -7,7 +6,7 @@
 
 <html>
 <head>
-    <title>| Cellper | Objetos|</title>
+    <title>| Cellper | Tecnicos|</title>
 	
 	<link rel="stylesheet" href="../Styles/estilo.css" type="text/css"/>
 	<script src="../js/Util.js" type="text/javascript"></script>
@@ -43,18 +42,15 @@ BODY {
                 autoCompleteClassName: 'autocomplete',
                 selectedClassName: 'sel',
                 attrCallBack: 'rel',
-                identifier: 'Modelos'
+                identifier: 'Tecnicos'
             }, fnPersonalCallBack);
 
         });
 
         function fnPersonalCallBack(par) {
-            document.getElementById("hdnModeloCelularID").value = par[0];
-            document.getElementById("hdnTipoCelularID").value = par[3];
-            document.getElementById("hdnTipoEquipoID").value = par[4];
+            document.getElementById("hdnTecnicoID").value = par[0];
             document.getElementById("txtNombre").value = par[1];
-            $("#ddlTipoEquipo").val(par[4]);
-            $("#ddlTipoCelular").val(par[3]);
+            document.getElementById("txtCedula").value = par[3];
         }
 
     </script>
@@ -70,7 +66,7 @@ BODY {
     </tr>
     <tr>
       <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
-	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Agregar/Modificar Modelo Equipo</h2></td>
+	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Agregar/Modificar Tecnico</h2></td>
     </tr>
     <tr>
       <td width="10" height="350" valign="top">&nbsp;</td>
@@ -79,39 +75,29 @@ BODY {
           <table>
                 <tr>
                     <td class="auto-style2">
-                        Tipo
-                        Equipo</td>
+                        <asp:Label Text="Cedula" ID="Label1" runat="server" />
+                    </td>
                     <td class="auto-style2">
-                        <asp:DropDownList ID="ddlTipoEquipo" runat="server"  Width="520" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoEquipo_SelectedIndexChanged" >
-                        </asp:DropDownList> 
-                        <asp:HiddenField runat ="server" ID ="hdnTipoEquipoID"  Value="0"/>
+                        <asp:TextBox runat="server" ID="txtCedula" MaxLength="100" onkeypress="return event.keyCode!=13;" Width ="520"/> 
+                        <ASP:RequiredFieldValidator id="rqrValidaCedula" runat="server" errormessage="Debe colocar la cedula del técnico" width="132px" controltovalidate="txtCedula" display="Dynamic"></ASP:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label Text="Marca equipo" ID="Label7" runat="server" />
-                        </td>
-                            <td class="auto-style2">
-                            <asp:DropDownList ID="ddlTipoCelular" runat="server"  Width="520" AppendDataBoundItems="True"  >
-                            </asp:DropDownList>
-                             <asp:HiddenField runat ="server" ID ="hdnTipoCelularID"  Value="0"/>
-                        </td>
-                    </tr>
-                <tr>
-                    <td class="auto-style2">
-                        Modelo</td>
+                        <asp:Label Text="Nombre" ID="Label6" runat="server" />
+                    </td>
                     <td class="auto-style2">
                         <asp:TextBox runat="server" ID="txtNombre" MaxLength="100" onkeypress="return event.keyCode!=13;" Width ="520"/> 
-                        <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del modelo" width="132px" controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
-                           <asp:HiddenField runat ="server" ID ="hdnModeloCelularID"  Value="0"/>
+                        <asp:HiddenField runat ="server" ID ="hdnTecnicoID"  Value="0"/>
+                        <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del técnico" width="132px" controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
                     </td>
                 </tr>
                <tr>
                     <td class="auto-style3">
-                        <asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="boton_formulario" OnClick="btnGuardar_Click" />
+                        <asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="boton_formulario" OnClick="btnGuardar_Click"  />
                     </td>
                     <td class="auto-style3">
-                         <asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo"  CssClass ="boton_formulario" OnClick="btnNuevo_Click" />
+                         <asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo"  CssClass ="boton_formulario" OnClick="btnNuevo_Click"  />
                     </td>
                 </tr>
           </table>
@@ -125,6 +111,9 @@ BODY {
       <td width="20" bgcolor="#d2d2c6">&nbsp;</td>
     </tr>
   </table>
+   
+  
     </form>
 </body>
 </html>
+

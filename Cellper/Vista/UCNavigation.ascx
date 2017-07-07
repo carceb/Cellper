@@ -29,16 +29,16 @@
         <ASP:Label id="lblVentas" runat="server">Servicio técnico:</ASP:Label></td>
       <td height="20" style="HEIGHT: 21px">&nbsp;</td>
     </tr>
-    <tr id="divlnkAtencionCallCenter" >
+    <tr id="divlnkRecepcionEquipos" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;<ASP:HyperLink id="lnkRecepcionEquipos" runat="server" cssclass="izq2" navigateurl="Recepcion.aspx">Recepción de equipos</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
-    <tr id="divlnkHistoriaMedica" >
+    <tr id="divlnkColaServicios" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
-      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;<ASP:HyperLink id="lnkColaDeServicios" runat="server" cssclass="izq2" navigateurl="AtencionVisita.aspx">Cola de servicios</ASP:HyperLink></td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;<ASP:HyperLink id="lnkColaDeServicios" runat="server" cssclass="izq2" navigateurl="ColaEquipos.aspx">Cola de servicios</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
 
@@ -68,20 +68,6 @@
         <ASP:Label id="lblOpciones" runat="server">Opciones Especiales:</ASP:Label></td>
       <td height="20">&nbsp;</td>
     </tr>
-    <tr id="divlnkInventario" >
-      <td height="20">&nbsp;</td>
-      <td width="4" bgcolor="#949494">&nbsp;</td>
-      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
-        <ASP:HyperLink id="lnkInventario" runat="server" cssclass="izq2" navigateurl="Medicos.aspx">Inventario</ASP:HyperLink></td>
-      <td height="20">&nbsp;</td>
-    </tr>
-    <tr id="divlnkClientes" >
-      <td height="20">&nbsp;</td>
-      <td width="4" bgcolor="#949494">&nbsp;</td>
-      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
-        <ASP:HyperLink id="lnkClientes" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Clientes</ASP:HyperLink></td>
-      <td height="20">&nbsp;</td>
-    </tr>
     <tr id="divlnkMarcaEquipo" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
@@ -96,11 +82,18 @@
         <ASP:HyperLink id="lnkModelo" runat="server" cssclass="izq2" navigateurl="ModeloCelular.aspx">Modelo equipo</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
-        <tr id="divlnkFalla" >
+    <tr id="divlnkFalla" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
         <ASP:HyperLink id="lnkFalla" runat="server" cssclass="izq2" navigateurl="FallaCelular.aspx">Fallas</ASP:HyperLink></td>
+      <td height="20">&nbsp;</td>
+    </tr>
+    <tr id="divlnkTecnicos" >
+      <td height="20">&nbsp;</td>
+      <td width="4" bgcolor="#949494">&nbsp;</td>
+      <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
+        <ASP:HyperLink id="lnkTecnicos" runat="server" cssclass="izq2" navigateurl="Tecnicos.aspx">Tecnicos</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
    <%-- ************************************************************************************************************************************--%>
@@ -146,18 +139,17 @@
 
           document.getElementById('divlnkHome').style.display = cad;
           document.getElementById('divlblVentas').style.display = cad;
-          document.getElementById('divlnkAtencionCallCenter').style.display = cad;
-          document.getElementById('divlnkHistoriaMedica').style.display = cad;
+          document.getElementById('divlnkRecepcionEquipos').style.display = cad;
+          document.getElementById('divlnkColaServicios').style.display = cad;
 
           document.getElementById('divlblProductos').style.display = cad;
           document.getElementById('divlnkAddProducto').style.display = cad;
 
           document.getElementById('divlblOpciones').style.display = cad;
-          document.getElementById('divlnkInventario').style.display = cad;
-          document.getElementById('divlnkClientes').style.display = cad;
           document.getElementById('divlnkMarcaEquipo').style.display = cad;
           document.getElementById('divlnkModeloEquipo').style.display = cad;
           document.getElementById('divlnkFalla').style.display = cad;
+          document.getElementById('divlnkTecnicos').style.display = cad;
           
           
           document.getElementById('divlnkSeguridad').style.display = cad;

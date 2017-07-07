@@ -235,7 +235,6 @@ BODY {
                           <asp:Button Text="Enviar a servicio" runat="server" ID ="btnGuardar"  CssClass ="boton_formulario" OnClick="btnGuardar_Click" />
                           <asp:Button Text="Nuevo registro" runat="server" ID ="btnLimpiar"  CssClass ="boton_formulario" OnClick="btnLimpiar_Click" CausesValidation="False"  />
                           <asp:Button Text="TEST" runat="server" ID ="ButtonTest"  style="display:none" CssClass ="boton_formulario" OnClick="ButtonTest_Click" CausesValidation="False" />
-<%--                          <asp:Button Text="TEST2" runat="server" ID ="ButtonTest2"   style="display:none" CssClass ="boton_formulario" CausesValidation="False" OnClick="ButtonTest2_Click" />--%>
                       </td>
                   </tr>
                     
@@ -310,7 +309,7 @@ BODY {
     <tr>
       <td width="200" height="30" bgcolor="#d2d2c6">&nbsp;</td>
       <td width="10" bgcolor="#d2d2c6">&nbsp;</td>
-      <td bgcolor="#d2d2c6" align="center" style="font-size: medium" class="auto-style5" >Sistema Atención al Visitante Usuario: al Visitante Usuario: <%:Session["NombreCompletoUsuario"]%>
+      <td bgcolor="#d2d2c6" align="center" style="font-size: medium" class="auto-style5" >Seguimiento y control de equipos [Cellper] Usuario: <%:Session["NombreCompletoUsuario"]%>
       <td width="20" bgcolor="#d2d2c6">&nbsp;</td>
     </tr>
   </table>
