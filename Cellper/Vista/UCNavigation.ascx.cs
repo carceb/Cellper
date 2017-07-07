@@ -46,7 +46,7 @@ namespace Teach
                     this.lnkClientes.CssClass = "izq";
                     this.lnkMarca.CssClass = "izq";
                     this.lnkModelo.CssClass = "izq";
-                    this.lnkTecnico.CssClass = "izq";
+                    this.lnkFalla.CssClass = "izq";
                 }
                 else
                 {
@@ -120,6 +120,16 @@ namespace Teach
                     {
                         this.lblOpciones.Visible = false;
                         this.lnkModelo.Visible = false;
+                    }
+                    if (objetoSeguridad.EsAccesoPermitido(6) == true)
+                    {
+                        this.lblOpciones.CssClass = "izq";
+                        this.lnkFalla.CssClass = "izq";
+                    }
+                    else
+                    {
+                        this.lblOpciones.Visible = false;
+                        this.lnkFalla.Visible = false;
                     }
                 }
 

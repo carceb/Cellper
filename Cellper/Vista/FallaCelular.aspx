@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TipoCelular.aspx.cs" Inherits="Cellper.TipoCelular" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FallaCelular.aspx.cs" Inherits="Cellper.FallaCelular" %>
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 <%@ Register TagPrefix="uc1" TagName="UCNavigation" Src="~/Vista/UCNavigation.ascx" %>
@@ -42,16 +42,14 @@ BODY {
                 autoCompleteClassName: 'autocomplete',
                 selectedClassName: 'sel',
                 attrCallBack: 'rel',
-                identifier: 'Marcas'
+                identifier: 'Fallas'
             }, fnPersonalCallBack);
 
         });
 
         function fnPersonalCallBack(par) {
-            document.getElementById("hdnTipoCelularID").value = par[0]; 
-            document.getElementById("hdnTipoEquipoID").value = par[3];
+            document.getElementById("hdnFallaCelularID").value = par[0];
             document.getElementById("txtNombre").value = par[1];
-            $("#ddlTipoEquipo").val(par[3]);
         }
 
     </script>
@@ -67,7 +65,7 @@ BODY {
     </tr>
     <tr>
       <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
-	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Agregar/Modificar Marca de Equipo</h2></td>
+	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Agregar/Modificar Falla</h2></td>
     </tr>
     <tr>
       <td width="10" height="350" valign="top">&nbsp;</td>
@@ -76,22 +74,12 @@ BODY {
           <table>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label Text="Tipo equipo" ID="Label1" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:DropDownList ID="ddlTipoEquipo" runat="server"  Width="520"  >
-                        </asp:DropDownList> 
-                        <asp:HiddenField runat ="server" ID ="hdnTipoEquipoID"  Value="0"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
                         <asp:Label Text="Nombre" ID="Label6" runat="server" />
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox runat="server" ID="txtNombre" MaxLength="100" onkeypress="return event.keyCode!=13;" Width ="520"/> 
-                        <asp:HiddenField runat ="server" ID ="hdnTipoCelularID"  Value="0"/>
-                        <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre de la marca" width="132px" controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
+                        <asp:HiddenField runat ="server" ID ="hdnFallaCelularID"  Value="0"/>
+                        <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre de la falla" width="132px" controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
                     </td>
                 </tr>
                <tr>
@@ -118,6 +106,3 @@ BODY {
     </form>
 </body>
 </html>
-
-
-

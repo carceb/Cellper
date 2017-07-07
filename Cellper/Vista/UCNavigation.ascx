@@ -86,21 +86,21 @@
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
-        <ASP:HyperLink id="lnkMarca" runat="server" cssclass="izq2" navigateurl="TipoCelular.aspx">Tipo equipo</ASP:HyperLink></td>
+        <ASP:HyperLink id="lnkMarca" runat="server" cssclass="izq2" navigateurl="TipoCelular.aspx">Marca equipo</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
     <tr id="divlnkModeloEquipo" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
-        <ASP:HyperLink id="lnkModelo" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Modelo equipo</ASP:HyperLink></td>
+        <ASP:HyperLink id="lnkModelo" runat="server" cssclass="izq2" navigateurl="ModeloCelular.aspx">Modelo equipo</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
-        <tr id="divlnkTecnico" >
+        <tr id="divlnkFalla" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#949494">&nbsp;</td>
       <td height="20" bgcolor="#949494">&nbsp;&nbsp;&nbsp;&nbsp;
-        <ASP:HyperLink id="lnkTecnico" runat="server" cssclass="izq2" navigateurl="Consultorio.aspx">Modelo equipo</ASP:HyperLink></td>
+        <ASP:HyperLink id="lnkFalla" runat="server" cssclass="izq2" navigateurl="FallaCelular.aspx">Fallas</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
    <%-- ************************************************************************************************************************************--%>
@@ -157,7 +157,7 @@
           document.getElementById('divlnkClientes').style.display = cad;
           document.getElementById('divlnkMarcaEquipo').style.display = cad;
           document.getElementById('divlnkModeloEquipo').style.display = cad;
-          document.getElementById('divlnkTecnico').style.display = cad;
+          document.getElementById('divlnkFalla').style.display = cad;
           
           
           document.getElementById('divlnkSeguridad').style.display = cad;

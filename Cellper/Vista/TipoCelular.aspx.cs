@@ -62,7 +62,25 @@ namespace Cellper
             {
                 objetoTipoCelular.TipoEquipoID = Convert.ToInt32(hdnTipoEquipoID.Value);
             }
-            TipoCelular.InserTipoCelular(objetoTipoCelular);
+
+            if(TipoCelular.InserTipoCelular(objetoTipoCelular) > 0)
+            {
+                messageBox.ShowMessage("Registro actualizado.");
+                NuevoRegistro();
+            }
+            else
+            {
+                messageBox.ShowMessage("Ocurrió un error, no se actualzaron los registros");
+            }
+        }
+        private void NuevoRegistro()
+        {
+            txtNombre.Text = "";
+            CargarTipoEquipo();
+        }
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            NuevoRegistro();
         }
     }
 }

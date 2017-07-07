@@ -176,14 +176,15 @@ BODY {
                         </asp:DropDownList> 
                     </td>
                 </tr>
+                <tr>
                     <td class="auto-style2">
                         <asp:Label Text="Marca equipo" ID="Label7" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:DropDownList ID="ddlTipoCelular" runat="server"  Width="520" AutoPostBack = "true" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlTipoCelular_SelectedIndexChanged" >
-                        </asp:DropDownList>
-                    </td>
-                </tr>
+                        </td>
+                            <td class="auto-style2">
+                            <asp:DropDownList ID="ddlTipoCelular" runat="server"  Width="520" AutoPostBack = "true" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlTipoCelular_SelectedIndexChanged" >
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
                 <tr>
                     <td class="auto-style2">
                         <asp:Label Text="Modelo" ID="Label3" runat="server" />

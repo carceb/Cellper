@@ -7,171 +7,126 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Teach {
+namespace Cellper {
     
     
-    public partial class UCNavigation {
+    public partial class ModeloCelular {
         
         /// <summary>
-        /// divLogin control.
+        /// messageBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow divLogin;
+        protected global::Teach.UCMessageBox messageBox;
         
         /// <summary>
-        /// lnkCRM control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCRM;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lnkHome control.
+        /// UserControl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHome;
+        protected global::Teach.UCNavigation UserControl2;
         
         /// <summary>
-        /// lblVentas control.
+        /// ddlTipoEquipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVentas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEquipo;
         
         /// <summary>
-        /// lnkRecepcionEquipos control.
+        /// hdnTipoEquipoID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkRecepcionEquipos;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTipoEquipoID;
         
         /// <summary>
-        /// lnkColaDeServicios control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkColaDeServicios;
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// lblConsultas control.
+        /// ddlTipoCelular control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConsultas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCelular;
         
         /// <summary>
-        /// lnkClientesAtendidos control.
+        /// hdnTipoCelularID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkClientesAtendidos;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTipoCelularID;
         
         /// <summary>
-        /// lblOpciones control.
+        /// txtNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOpciones;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// lnkInventario control.
+        /// rqrValidaNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkInventario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrValidaNombre;
         
         /// <summary>
-        /// lnkClientes control.
+        /// hdnModeloCelularID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkClientes;
+        protected global::System.Web.UI.WebControls.HiddenField hdnModeloCelularID;
         
         /// <summary>
-        /// lnkMarca control.
+        /// btnGuardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkMarca;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// lnkModelo control.
+        /// btnNuevo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkModelo;
-        
-        /// <summary>
-        /// lnkFalla control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFalla;
-        
-        /// <summary>
-        /// lnkSeguridad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSeguridad;
-        
-        /// <summary>
-        /// lnkChangePassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkChangePassword;
-        
-        /// <summary>
-        /// lnkLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
-        
-        /// <summary>
-        /// trTipoSitio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trTipoSitio;
+        protected global::System.Web.UI.WebControls.Button btnNuevo;
     }
 }

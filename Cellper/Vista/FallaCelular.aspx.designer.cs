@@ -10,7 +10,7 @@
 namespace Cellper {
     
     
-    public partial class TipoCelular {
+    public partial class FallaCelular {
         
         /// <summary>
         /// messageBox control.
@@ -40,33 +40,6 @@ namespace Cellper {
         protected global::Teach.UCNavigation UserControl2;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// ddlTipoEquipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEquipo;
-        
-        /// <summary>
-        /// hdnTipoEquipoID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnTipoEquipoID;
-        
-        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>
@@ -85,13 +58,13 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// hdnTipoCelularID control.
+        /// hdnFallaCelularID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnTipoCelularID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnFallaCelularID;
         
         /// <summary>
         /// rqrValidaNombre control.

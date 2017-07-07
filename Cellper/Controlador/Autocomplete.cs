@@ -25,5 +25,21 @@ namespace Admin
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerTipoCelular", dbParams);
         }
+        public static DataSet ObtenerModeloCelular(string sQuery)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                };
+            return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerModeloCelular", dbParams);
+        }
+        public static DataSet ObtenerFallaCelular(string sQuery)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                };
+            return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerFallaCelular", dbParams);
+        }
     }
 }
