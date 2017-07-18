@@ -266,7 +266,6 @@ namespace Cellper
 
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
             }
-
         }
 
         protected void ButtonTest_Click(object sender, EventArgs e)

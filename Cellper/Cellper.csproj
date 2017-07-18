@@ -94,6 +94,32 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ie8.css" />
+    <Content Include="assets\css\ie9.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\ie\html5shiv.js" />
+    <Content Include="assets\js\ie\respond.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
+    <Content Include="Index.aspx" />
+    <Content Include="loginassets\css\font-awesome.min.css" />
+    <Content Include="loginassets\css\ie8.css" />
+    <Content Include="loginassets\css\ie9.css" />
+    <Content Include="loginassets\css\images\overlay.png" />
+    <Content Include="loginassets\css\main.css" />
+    <Content Include="loginassets\css\noscript.css" />
+    <Content Include="loginassets\fonts\fontawesome-webfont.svg" />
+    <Content Include="loginassets\js\html5shiv.js" />
+    <Content Include="loginassets\js\PIE.htc" />
+    <Content Include="loginassets\js\respond.min.js" />
+    <Content Include="images\avatar.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="Vista\RecepcionEquipo.aspx" />
+    <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\Tecnicos.aspx" />
     <Content Include="Vista\ColaEquipos.aspx" />
     <Content Include="Vista\FallaCelular.aspx" />
@@ -103,6 +129,60 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="loginassets\fonts\fontawesome-webfont.eot" />
+    <Content Include="loginassets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="loginassets\fonts\fontawesome-webfont.woff" />
+    <Content Include="loginassets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="loginassets\fonts\FontAwesome.otf" />
+    <Content Include="loginassets\sass\base\_page.scss" />
+    <Content Include="loginassets\sass\base\_typography.scss" />
+    <Content Include="loginassets\sass\components\_button.scss" />
+    <Content Include="loginassets\sass\components\_form.scss" />
+    <Content Include="loginassets\sass\components\_icon.scss" />
+    <Content Include="loginassets\sass\components\_list.scss" />
+    <Content Include="loginassets\sass\ie8.scss" />
+    <Content Include="loginassets\sass\ie9.scss" />
+    <Content Include="loginassets\sass\layout\_footer.scss" />
+    <Content Include="loginassets\sass\layout\_main.scss" />
+    <Content Include="loginassets\sass\layout\_wrapper.scss" />
+    <Content Include="loginassets\sass\libs\_functions.scss" />
+    <Content Include="loginassets\sass\libs\_mixins.scss" />
+    <Content Include="loginassets\sass\libs\_skel.scss" />
+    <Content Include="loginassets\sass\libs\_vars.scss" />
+    <Content Include="loginassets\sass\main.scss" />
+    <Content Include="loginassets\sass\noscript.scss" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\sass\base\_page.scss" />
+    <Content Include="assets\sass\base\_typography.scss" />
+    <Content Include="assets\sass\components\_box.scss" />
+    <Content Include="assets\sass\components\_button.scss" />
+    <Content Include="assets\sass\components\_features.scss" />
+    <Content Include="assets\sass\components\_form.scss" />
+    <Content Include="assets\sass\components\_icon.scss" />
+    <Content Include="assets\sass\components\_image.scss" />
+    <Content Include="assets\sass\components\_list.scss" />
+    <Content Include="assets\sass\components\_mini-posts.scss" />
+    <Content Include="assets\sass\components\_posts.scss" />
+    <Content Include="assets\sass\components\_section.scss" />
+    <Content Include="assets\sass\components\_table.scss" />
+    <Content Include="assets\sass\ie8.scss" />
+    <Content Include="assets\sass\ie9.scss" />
+    <Content Include="assets\sass\layout\_banner.scss" />
+    <Content Include="assets\sass\layout\_footer.scss" />
+    <Content Include="assets\sass\layout\_header.scss" />
+    <Content Include="assets\sass\layout\_main.scss" />
+    <Content Include="assets\sass\layout\_menu.scss" />
+    <Content Include="assets\sass\layout\_sidebar.scss" />
+    <Content Include="assets\sass\layout\_wrapper.scss" />
+    <Content Include="assets\sass\libs\_functions.scss" />
+    <Content Include="assets\sass\libs\_mixins.scss" />
+    <Content Include="assets\sass\libs\_skel.scss" />
+    <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="assets\sass\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,9 +290,30 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\CTecnicos.cs" />
     <Compile Include="Controlador\Tecnicos.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RecepcionEquipo.aspx.cs">
+      <DependentUpon>RecepcionEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RecepcionEquipo.aspx.designer.cs">
+      <DependentUpon>RecepcionEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Tecnicos.aspx.cs">
       <DependentUpon>Tecnicos.aspx</DependentUpon>
