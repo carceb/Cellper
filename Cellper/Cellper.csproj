@@ -105,6 +105,7 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\skel.min.js" />
     <Content Include="assets\js\util.js" />
+    <Content Include="Vista\ColaDeEquipos.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="loginassets\css\font-awesome.min.css" />
     <Content Include="loginassets\css\ie8.css" />
@@ -290,6 +291,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\ColaDeEquipos.aspx.cs">
+      <DependentUpon>ColaDeEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ColaDeEquipos.aspx.designer.cs">
+      <DependentUpon>ColaDeEquipos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

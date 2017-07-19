@@ -5,17 +5,24 @@
 
 <html>
 	<head>
-		<title>Generic - Editorial by HTML5 UP</title>
+		<title>Cellper | Recepción de Equipos</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<%--        SCRIPTS--%>
+        <link rel="stylesheet"  href="../Styles/jquery-ui-1.8rc3.custom.css"  />
+        <script src="../assets/js/jquery.min.js"></script>
 		<link rel="stylesheet" href="../assets/css/main.css" />
-
+        <link rel="stylesheet" href="../Styles/simpleAutoComplete.css"  />
 	    <script src="../js/Util.js" type="text/javascript"></script>
-        <script src="../js/jquery.js"></script>
-        <script src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
-        <link href="../Styles/simpleAutoComplete.css" rel="stylesheet" />
-        <link href="../Styles/jquery-ui-1.8rc3.custom.css" rel="stylesheet" />
+<%--        <script src="../js/jquery.js"></script>--%>
+        <script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/skel.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>         
 
+<%--------------------------%>
 
     <script type="text/javascript">
 
@@ -123,7 +130,10 @@
 									        </div>
                                             <div class="6u 12u$(xsmall)">
                                                 <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlTipoEquipo" runat="server"   AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoEquipo_SelectedIndexChanged" ></asp:DropDownList>
+                                                    
+                                                    <asp:DropDownList ID="ddlTipoEquipo" runat="server"   AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoEquipo_SelectedIndexChanged" >
+                                                        
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>
                                             <div class="6u 12u$(xsmall)">
@@ -215,7 +225,7 @@
                                                                   <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("NombreFallaCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100px">
+                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                               </ItemTemplate>
@@ -246,8 +256,8 @@
 										<li>
 											<span class="opener">Servicio Técnico</span>
 											<ul>
-												<li><a href="Recepcion.aspx">Recepción de equipos</a></li>
-												<li><a href="#">Cola de servicios</a></li>
+												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
+												<li><a href="ColaDeEquipos.aspx">Cola de equipos</a></li>
 											</ul>
 										</li>
 
@@ -282,11 +292,8 @@
 
 			</div>
 		<!-- Scripts -->
-<%--			<script src="../assets/js/jquery.min.js"></script>--%>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
 
+<%--        SE COLOCARON EN EL HEADER --%>
 
 	</body>
 </html>

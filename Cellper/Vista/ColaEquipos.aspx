@@ -41,43 +41,8 @@ BODY {
                                                                               .auto-style6 {
                                                                                   height: 160px;
                                                                               }
-                                                                              </style>
-    <script>
+                                                               </style>
 
-        $(function () {
-            $('#txtCedula').simpleAutoComplete('Autocomplete.aspx', {
-                autoCompleteClassName: 'autocomplete',
-                selectedClassName: 'sel',
-                attrCallBack: 'rel',
-                identifier: 'Clientes'
-            }, fnPersonalCallBack);
-
-        });
-
-        function fnPersonalCallBack(par) {
-            document.getElementById("hdnCedula").value = par[0]; 
-            document.getElementById("txtCedula").value = par[0]; 
-            document.getElementById("txtNombre").value = par[1];
-            document.getElementById("txtTelefono").value = par[3];
-            document.getElementById("txtDireccion").value = par[4]; 
-            document.getElementById("hdnClienteID").value = par[6];
-
-            var bt = document.getElementById("ButtonTest");
-            bt.click();
-        }
-
-        function Confirmacion() {
-
-            return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
-        }
-        function LimpiarTextos() {
-            document.getElementById("hdnCedula").value = "0";
-            document.getElementById("txtCedula").value = "";
-            document.getElementById("txtNombre").value = "";
-            document.getElementById("txtTelefono").value = "";
-        }
-
-    </script>
 </head>
   
   <body>

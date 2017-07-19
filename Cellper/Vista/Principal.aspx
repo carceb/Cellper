@@ -18,7 +18,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<a href="index.html" class="logo"><strong>Cellper</strong></a>
 									<ul class="icons">
 										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -33,15 +33,13 @@
 									<div class="content">
 										<header>
 											<h1>Hola, bienvenido a Cellper control de equipos<br /></h1>
-											<p>La mas simple manera de llevar tu empresa</p>
+											<p>La mas simple manera de controlar tu empresa</p>
 										</header>
 										
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
+
 									</div>
 									<span class="image object">
-										<img src="../images/pic10.jpg" alt="" />
+										<img src="../images/top_call_center.jpg" alt="" />
 									</span>
 								</section>
 
@@ -83,7 +81,7 @@
 											<span class="opener">Servicio Técnico</span>
 											<ul>
 												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="#">Cola de servicios</a></li>
+												<li><a href="ColaDeEquipos.aspx">Cola de equipos</a></li>
 											</ul>
 										</li>
 

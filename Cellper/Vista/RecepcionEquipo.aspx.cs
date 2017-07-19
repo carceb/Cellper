@@ -19,12 +19,14 @@ namespace Cellper
                 CargarTecnico();
                 CargarFalla();
                 CargarTipoEquipo();
-                CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
-                CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
+                ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
+                ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             }
         }
         private void CargarTipoEquipo()
         {
+            ddlTipoEquipo.Items.Clear();
+            ddlTipoEquipo.Items.Add(new ListItem("--Seleccione el tipo de equipo--", ""));
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
@@ -52,6 +54,7 @@ namespace Cellper
         private void CargarTipoCelular(int tipoEquipoID)
         {
             ddlTipoCelular.Items.Clear();
+            ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
@@ -79,6 +82,7 @@ namespace Cellper
         private void CargarModeloCelular(int tipoCelularID)
         {
             ddlModeloCelular.Items.Clear();
+            ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
@@ -105,6 +109,8 @@ namespace Cellper
         }
         private void CargarFalla()
         {
+            ddlFalla.Items.Clear();
+            ddlFalla.Items.Add(new ListItem("--Seleccione el tipo de falla--", ""));
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
@@ -129,6 +135,8 @@ namespace Cellper
         }
         private void CargarTecnico()
         {
+            ddlTecnico.Items.Clear();
+            ddlTecnico.Items.Add(new ListItem("--Seleccione el técnico--", ""));
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
@@ -178,15 +186,32 @@ namespace Cellper
 
         protected void ddlTipoEquipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
-            if (ddlTipoCelular.SelectedIndex >= 0)
+            if (ddlTipoEquipo.SelectedValue != "")
             {
-                CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
+                CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
+                if (ddlTipoCelular.SelectedIndex >= 0)
+                {
+                    if(ddlTipoCelular.SelectedValue != "")
+                    {
+                        CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
+                    }else
+                    {
+                        ddlModeloCelular.Items.Clear();
+                        ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
+                    }
+
+                }
+                else
+                {
+                    CargarModeloCelular(0);
+                }
             }
             else
             {
-                CargarModeloCelular(0);
+                ddlTipoCelular.Items.Clear();
+                ddlModeloCelular.Items.Clear();
             }
+
         }
 
         protected void ddlTipoCelular_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,6 +300,13 @@ namespace Cellper
             hdnCodigoModelo.Value = "0";
             gridDetalle.DataSource = null;
             gridDetalle.DataBind();
+            CargarTipoEquipo();
+            CargarTecnico();
+            CargarFalla();
+            ddlTipoCelular.Items.Clear();
+            ddlModeloCelular.Items.Clear();
+            ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
+            ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             txtCedula.Focus();
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
