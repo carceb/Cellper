@@ -32,14 +32,14 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>Hola, bienvenido a Cellper control de equipos<br /></h1>
-											<p>La mas simple manera de controlar tu empresa</p>
+											<h1>Bienvenido al sistema Cellper.<br /></h1>
+											<p>La manera mas simple de tener el control de los servicios técnicos</p>
 										</header>
 										
 
 									</div>
 									<span class="image object">
-										<img src="../images/top_call_center.jpg" alt="" />
+										<img src="../images/bienvenida.jpg" alt="" />
 									</span>
 								</section>
 
@@ -47,8 +47,20 @@
 								<section>
 
 									<div class="features">
-
-
+										<article>
+											<span class="icon fa-diamond"></span>
+											<div class="content">
+												<h3>Recepción de equipos</h3>
+												<p>Ingrese al cliente, los datos del equipo el tipo de falla y envíe a la cola de servicios para su reparación.</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon fa-paper-plane"></span>
+											<div class="content">
+												<h3>Cola de soporte técnico</h3>
+												<p>Los técnicos podrán consultar en tiempo real sus asignaciones y asignarán los estatus correspondientes al equipo que estén reparando.</p>
+											</div>
+										</article>
 									</div>
 								</section>
 
@@ -94,12 +106,13 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
-												<li><a href="#">Marca equipo</a></li>
-                                                <li><a href="#">Modelo equipo</a></li>
-                                                <li><a href="#">Fallas</a></li>
-                                                <li><a href="#">Técnicos</a></li>
+												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
+                                                <li><a href="ModeloEquipo.aspx">Modelo equipo</a></li>
+                                                <li><a href="FallaEquipo.aspx">Fallas</a></li>
+                                                <li><a href="Tecnico.aspx">Técnicos</a></li>
 											</ul>
 										</li>
+                                        <li><a href="Logout.aspx">Salir</a></li>
 									</ul>
 								</nav>
 

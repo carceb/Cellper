@@ -153,7 +153,7 @@
                                             </div>
                                             <div class="6u 12u$(xsmall)">
                                                 <div class="select-wrapper">
-                                                     <asp:DropDownList ID="ddlFalla" runat="server"></asp:DropDownList> 
+                                                     <asp:DropDownList ID="ddlFalla" runat="server"  AppendDataBoundItems="True" ></asp:DropDownList> 
                                                 </div>
                                             </div>
                                             <div class="6u 12u$(xsmall)">
@@ -162,7 +162,7 @@
                                             </div>
                                             <div class="6u 12u$(xsmall)">
                                                 <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlTecnico" runat="server" ></asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlTecnico" runat="server"  AppendDataBoundItems="True"  ></asp:DropDownList>
                                                 </div>
                                             </div>
 										    <div class="12u$">
@@ -234,8 +234,6 @@
                                                   </asp:GridView>
                                             </div>
                                         </div>
-
-
                                     </form>
 								</section>
 
@@ -270,12 +268,13 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
-												<li><a href="#">Marca equipo</a></li>
-                                                <li><a href="#">Modelo equipo</a></li>
-                                                <li><a href="#">Fallas</a></li>
-                                                <li><a href="#">Técnicos</a></li>
+												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
+                                                <li><a href="ModeloEquipo">Modelo equipo</a></li>
+                                                <li><a href="FallaEquipo.aspx">Fallas</a></li>
+                                                <li><a href="Tecnico.aspx">Técnicos</a></li>
 											</ul>
 										</li>
+                                        <li><a href="Logout.aspx">Salir</a></li>
 									</ul>
 								</nav>
 

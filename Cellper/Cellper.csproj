@@ -105,6 +105,10 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\skel.min.js" />
     <Content Include="assets\js\util.js" />
+    <Content Include="Vista\Tecnico.aspx" />
+    <Content Include="Vista\FallaEquipo.aspx" />
+    <Content Include="Vista\ModeloEquipo.aspx" />
+    <Content Include="Vista\MarcaEquipo.aspx" />
     <Content Include="Vista\ColaDeEquipos.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="loginassets\css\font-awesome.min.css" />
@@ -291,6 +295,34 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\Tecnico.aspx.cs">
+      <DependentUpon>Tecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Tecnico.aspx.designer.cs">
+      <DependentUpon>Tecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FallaEquipo.aspx.cs">
+      <DependentUpon>FallaEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\FallaEquipo.aspx.designer.cs">
+      <DependentUpon>FallaEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ModeloEquipo.aspx.cs">
+      <DependentUpon>ModeloEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ModeloEquipo.aspx.designer.cs">
+      <DependentUpon>ModeloEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\MarcaEquipo.aspx.cs">
+      <DependentUpon>MarcaEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\MarcaEquipo.aspx.designer.cs">
+      <DependentUpon>MarcaEquipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ColaDeEquipos.aspx.cs">
       <DependentUpon>ColaDeEquipos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

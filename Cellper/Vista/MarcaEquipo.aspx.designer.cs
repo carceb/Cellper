@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Seguridad {
+namespace Cellper {
     
     
-    public partial class Index {
+    public partial class MarcaEquipo {
         
         /// <summary>
         /// messageBox control.
@@ -22,57 +22,75 @@ namespace Seguridad {
         protected global::Teach.UCMessageBox messageBox;
         
         /// <summary>
-        /// w control.
+        /// principal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm w;
+        protected global::System.Web.UI.HtmlControls.HtmlForm principal;
         
         /// <summary>
-        /// txtLogin control.
+        /// ddlTipoEquipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogin;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEquipo;
         
         /// <summary>
-        /// chkUserID control.
+        /// hdnTipoEquipoID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator chkUserID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTipoEquipoID;
         
         /// <summary>
-        /// txtClave control.
+        /// txtNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClave;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// chkClave control.
+        /// hdnTipoCelularID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator chkClave;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTipoCelularID;
         
         /// <summary>
-        /// btnAceptar control.
+        /// rqrValidaNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrValidaNombre;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        
+        /// <summary>
+        /// btnNuevo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNuevo;
     }
 }

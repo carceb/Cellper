@@ -80,29 +80,23 @@
                                                                   <asp:Label runat="server" ID="lblCaso" Text='<%# Eval("RecepcionEquipoID") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Cliente" HeaderStyle-Width="130 ">
-                                                              <ItemTemplate>
-                                                                  <asp:Label runat="server" ID="lblSolicitante"  Text= '<%# Eval("NombreCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>' ></asp:Label>
-                                                              </ItemTemplate>
-                                                          </asp:TemplateField>
-
-                                                          <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="150px">
+                                                          <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="80">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblTipo" Text='<%# Eval("NombreTipoEquipo")  %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="100">
+                                                          <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="60">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblMarca" Text='<%# Eval("NombreTipoCelular")  %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Modelo" HeaderStyle-Width="50">
+                                                           <asp:TemplateField HeaderText="Modelo" HeaderStyle-Width="60">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblModelo"   Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
 
-                                                          <asp:TemplateField HeaderText="IMEI" HeaderStyle-Width="60">
+                                                          <asp:TemplateField HeaderText="IMEI" HeaderStyle-Width="30">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
                                                               </ItemTemplate>
@@ -189,12 +183,13 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
-												<li><a href="#">Marca equipo</a></li>
-                                                <li><a href="#">Modelo equipo</a></li>
-                                                <li><a href="#">Fallas</a></li>
-                                                <li><a href="#">Técnicos</a></li>
+												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
+                                                <li><a href="ModeloEquipo.aspx">Modelo equipo</a></li>
+                                                <li><a href="FallaEquipo.aspx">Fallas</a></li>
+                                                <li><a href="Tecnico.aspx">Técnicos</a></li>
 											</ul>
 										</li>
+                                        <li><a href="Logout.aspx">Salir</a></li>
 									</ul>
 								</nav>
 

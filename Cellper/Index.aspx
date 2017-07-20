@@ -29,23 +29,36 @@
 				<!-- Main -->
 					<section id="main">
 						<header>
-							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+							<span class="avatar"><img src="images/avatar.png" alt="" /></span>
 							<h1>BIenvenido al sistema Cellper</h1>
 							<p>Indique sus credenciales de acceso</p>
 						</header>
 
 						<footer>
-                            <form id ="w" runat ="server">
-							    <ul class="icons">
-								    <li><asp:Label runat="server" ID ="lblLogin" Text ="Usuario" Width="80"></asp:Label></li>
-								    <li><asp:TextBox runat="server" ID ="txtLogin" Text ="" Width="132px"></asp:TextBox></li>
-                                    <ASP:RequiredFieldValidator id="chkUserID" runat="server" errormessage="* Debe colocar el nombre de usuario" width="132px" controltovalidate="txtLogin" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
-								    <li><asp:Label runat="server" ID ="lblClave" Text ="Clave" Width="132px"></asp:Label></li>
-                                    <li><asp:TextBox runat="server" ID ="txtClave" Text ="" Width="132px" textmode="Password" maxlength="25"></asp:TextBox></li>
-                                    <ASP:RequiredFieldValidator id="chkClave" runat="server" errormessage="* Debe colocar la clave" width="132px" controltovalidate="txtClave" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
-							    </ul>
-                                <p><asp:Button runat="server" ID ="btnAceptar"   class="button big"  Text ="Aceptar" OnClick="btnAceptar_Click" ></asp:Button></p>
-                            </form>
+                            <div class="row uniform">
+                                <form id ="w" runat ="server">
+                                    <div class="6u 12u$(xsmall)">
+                                        <asp:TextBox runat="server" ID ="txtLogin"   placeholder="Nombre de usuario"></asp:TextBox>
+                                        <ASP:RequiredFieldValidator id="chkUserID" runat="server" errormessage="* Debe colocar el nombre de usuario" width="132px" controltovalidate="txtLogin" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                        -
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                        <asp:TextBox runat="server" ID ="txtClave"   textmode="Password" maxlength="25" placeholder ="Clave"></asp:TextBox>
+                                        <ASP:RequiredFieldValidator id="chkClave" runat="server" errormessage="* Debe colocar la clave" width="132px" controltovalidate="txtClave" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                        -
+                                    </div>
+									<div class="12u$">
+										<ul class="actions">
+                                            <li><asp:Button runat="server" ID ="btnAceptar"   class="button big"  Text ="Aceptar" OnClick="btnAceptar_Click" ></asp:Button></li>
+										</ul>
+									</div>
+
+                                </form>
+                            </div>
 						</footer>
 					</section>
 
