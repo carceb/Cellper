@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title>Cellper | Marca de Equipo</title>
+		<title>Cellper | Modelo de Equipo</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -86,7 +86,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Marca de Equipo</strong></a>
+									<a class="logo"><strong>Modelo de Equipo</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -155,6 +155,7 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
+                                                <li><a href="Inventario.aspx.aspx">Inventario</a></li>
 												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
                                                 <li><a href="ModeloEquipo.aspx">Modelo equipo</a></li>
                                                 <li><a href="FallaEquipo.aspx">Fallas</a></li>

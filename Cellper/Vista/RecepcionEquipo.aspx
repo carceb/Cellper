@@ -268,6 +268,7 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
+                                                <li><a href="Inventario">Inventario</a></li>
 												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
                                                 <li><a href="ModeloEquipo">Modelo equipo</a></li>
                                                 <li><a href="FallaEquipo.aspx">Fallas</a></li>

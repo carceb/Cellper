@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tecnico.aspx.cs" Inherits="Cellper.Tecnico" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inventario.aspx.cs" Inherits="Cellper.Inventario" %>
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 
 <!DOCTYPE HTML>
 
 <html>
 	<head>
-		<title>Cellper | Técnico</title>
+		<title>Cellper | Actualizar Inventario</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -31,16 +30,19 @@
                 autoCompleteClassName: 'autocomplete',
                 selectedClassName: 'sel',
                 attrCallBack: 'rel',
-                identifier: 'Tecnicos'
+                identifier: 'Inventario'
             }, fnPersonalCallBack);
 
         });
 
         function fnPersonalCallBack(par) {
-            document.getElementById("hdnTecnicoID").value = par[0];
-            document.getElementById("txtNombre").value = par[1];
-            document.getElementById("txtCedula").value = par[3];
+            document.getElementById("hdnInventarioID").value = par[0];
+            document.getElementById("txtCantidad").value = par[3];
+            var number = par[4];
+            document.getElementById("txtCosto").value = new Intl.NumberFormat("de-DE").format(number);
+            document.getElementById("txtSerial").value = par[5];
         }
+
     </script>
 	</head>
 	<body>
@@ -54,7 +56,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Técnico</strong></a>
+									<a class="logo"><strong>Actualizar Inventario</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -65,13 +67,20 @@
                                     <form runat ="server" id ="principal">
                                         <div class="row uniform">
 									        <div class="6u 12u$(xsmall)">
-                                                <asp:TextBox runat="server" ID="txtCedula" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Cédula Técnico"/> 
-                                                <ASP:RequiredFieldValidator id="rqrValidaCedula" runat="server" errormessage="Debe colocar la cedula del técnico"  controltovalidate="txtCedula" display="Dynamic"></ASP:RequiredFieldValidator>
+                                                <asp:TextBox runat="server" ID="txtNombre" MaxLength="150" onkeypress="return event.keyCode!=13;" placeholder ="Nombre del producto"/> 
+                                                <asp:HiddenField runat ="server" ID ="hdnInventarioID"  Value="0"/>
+                                                <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del producto"  controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
 									        </div>
                                             <div class="6u 12u$(xsmall)"> 
-                                                <asp:TextBox runat="server" ID="txtNombre" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Nombre del técnico"/> 
-                                                <asp:HiddenField runat ="server" ID ="hdnTecnicoID"  Value="0"/>
-                                                <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del técnico"  controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
+                                                <asp:TextBox runat="server" ID="txtCantidad" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Cantidad"/> 
+                                                <ASP:RequiredFieldValidator id="rqrValidaCantidad" runat="server" errormessage="Debe colocar la cantidad"  controltovalidate="txtCantidad" display="Dynamic"></ASP:RequiredFieldValidator>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:TextBox runat="server" ID="txtCosto" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Costo"/> 
+                                                <ASP:RequiredFieldValidator id="rqrValidaCosto" runat="server" errormessage="Debe colocar el costo"  controltovalidate="txtCosto" display="Dynamic"></ASP:RequiredFieldValidator>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:TextBox runat="server" ID="txtSerial" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Serial"/> 
                                             </div>
 										    <div class="12u$">
 											    <ul class="actions">
@@ -142,4 +151,5 @@
 
 	</body>
 </html>
+
 
