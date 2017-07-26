@@ -53,80 +53,79 @@
 								</header>
 
 							<!-- Content -->
+                             <form runat ="server" id ="principal">
 								<section>
-                                    <form runat ="server" id ="principal">
+                                        <p></p>
                                         <div class="row uniform">
-
 										    <div class="12u$">
 											    <ul class="actions">
                                                     <li><asp:Button Text="Actualizar lista" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click" /></li>
 											    </ul>
 										    </div>
                                             <div class="table-wrapper">
-
                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
                                                       GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
-                                                        <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
-                                                        <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
-                                                          <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
+                                                        <HeaderStyle Font-Size="10px" />
+                                                        <AlternatingRowStyle  Font-Size="10px" />
+                                                          <RowStyle  Font-Size="10px" />
                                                       <Columns>
-                                                          <asp:TemplateField HeaderText="Fecha Solicitud" HeaderStyle-Width="60">
+                                                          <asp:TemplateField HeaderText="Fecha Solicitud">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="N° Caso" HeaderStyle-Width="40">
+                                                          <asp:TemplateField HeaderText="N° Caso">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCaso" Text='<%# Eval("RecepcionEquipoID") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="80">
+                                                          <asp:TemplateField HeaderText="Tipo equipo" >
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblTipo" Text='<%# Eval("NombreTipoEquipo")  %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="60">
+                                                          <asp:TemplateField HeaderText="Marca" >
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblMarca" Text='<%# Eval("NombreTipoCelular")  %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Modelo" HeaderStyle-Width="60">
+                                                           <asp:TemplateField HeaderText="Modelo    ">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblModelo"   Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
 
-                                                          <asp:TemplateField HeaderText="IMEI" HeaderStyle-Width="30">
+                                                          <asp:TemplateField HeaderText="IMEI" >
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Falla" HeaderStyle-Width="100px">
+                                                          <asp:TemplateField HeaderText="Falla">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("NombreFallaCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Observaciones" HeaderStyle-Width="100px">
+                                                          <asp:TemplateField HeaderText="Observaciones" >
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObservaciones" Text='<%# Eval("Observaciones") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Tecnico" HeaderStyle-Width="60">
+                                                          <asp:TemplateField HeaderText="Tecnico">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblTecnico" Text='<%# Eval("NombreTecnico") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
+                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="200 ">
                                                               <ItemTemplate>
                                                                   <div class="select-wrapper">
-                                                                  <asp:DropDownList runat="server" ID="ddlEstatus"
-                                                                        DataSourceID="SqlDataSource4" 
-                                                                        DataTextField ="NombreEstatusEquipo"
-                                                                        DataValueField ="EstatusEquipoID"
-                                                                        SelectedValue ='<%# Bind("EstatusEquipoID") %>'
-                                                                        Width="100px">
-                                                                  </asp:DropDownList>
-                                                                      </div>
+                                                                      <asp:DropDownList runat="server" ID="ddlEstatus"
+                                                                            DataSourceID="SqlDataSource4" 
+                                                                            DataTextField ="NombreEstatusEquipo"
+                                                                            DataValueField ="EstatusEquipoID"
+                                                                            SelectedValue ='<%# Bind("EstatusEquipoID") %>'
+                                                                            >
+                                                                      </asp:DropDownList>
+                                                                  </div>
                                                                 <asp:SqlDataSource 
                                                                     ID="SqlDataSource4" 
                                                                     runat="server" ConnectionString="<%$ ConnectionStrings:CallCenterConnectionString %>" 
@@ -134,8 +133,6 @@
                                                                 </asp:SqlDataSource>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-
-
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Asignar Estatus" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
@@ -144,14 +141,10 @@
                                                           </asp:TemplateField>
                                                       </Columns>
                                                   </asp:GridView>
-
                                             </div>
                                         </div>
-
-
-                                    </form>
 								</section>
-
+                            </form>
 						</div>
 					</div>
 

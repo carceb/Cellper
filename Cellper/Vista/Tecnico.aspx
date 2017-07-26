@@ -61,8 +61,9 @@
 								</header>
 
 							<!-- Content -->
+                            <form runat ="server" id ="principal">
 								<section>
-                                    <form runat ="server" id ="principal">
+                                        <p></p>
                                         <div class="row uniform">
 									        <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtCedula" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Cédula Técnico"/> 
@@ -80,8 +81,8 @@
 											    </ul>
 										    </div>
                                         </div>
-                                    </form>
 								</section>
+                            </form>
 						</div>
 					</div>
 

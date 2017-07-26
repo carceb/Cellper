@@ -28,12 +28,18 @@ namespace Cellper
 
         protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int recepcionEquipoID = 0;
             try
             {
-                if (e.CommandName == "EliminarDetalle")
+                CRecepcion objetoRecepcion = new CRecepcion();
+                recepcionEquipoID= Convert.ToInt32(e.CommandArgument.ToString());
+                objetoRecepcion.RecepcionEquipoID = recepcionEquipoID;
+                if (e.CommandName == "AsignarEstatus")
                 {
-                    CRecepcion objetoRecepcion = new CRecepcion();
-                    objetoRecepcion.RecepcionEquipoID = Convert.ToInt32(e.CommandArgument.ToString());
+                    Response.Redirect("AsignarEstatus.aspx?RecepcionEquipoID=" + recepcionEquipoID);
+                }
+                else if (e.CommandName == "EliminarDetalle")
+                {
 
                     if (Recepcion.EliminarRecepcion(Convert.ToInt32(e.CommandArgument.ToString())) > 0)
                     {

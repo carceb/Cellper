@@ -99,7 +99,6 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-
 							<!-- Header -->
 								<header id="header">
 									<a class="logo"><strong>Recepción de Equipos</strong></a>
@@ -107,10 +106,10 @@
 
 									</ul>
 								</header>
-
 							<!-- Content -->
+                            <form runat ="server" id ="principal">
 								<section>
-                                    <form runat ="server" id ="principal">
+                                    <p></p>
                                         <div class="row uniform">
 									        <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtCedula"   onkeypress="return event.keyCode!=13;" MaxLength="12" placeholder="Cedula" />
@@ -185,7 +184,7 @@
                                                               </ItemTemplate>
 				                                        <HeaderStyle Width="0px"></HeaderStyle>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Fecha Recepción" HeaderStyle-Width="100    ">
+                                                          <asp:TemplateField HeaderText="Fecha Recepción" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
@@ -234,9 +233,8 @@
                                                   </asp:GridView>
                                             </div>
                                         </div>
-                                    </form>
 								</section>
-
+                           </form>
 						</div>
 					</div>
 

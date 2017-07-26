@@ -63,8 +63,9 @@
 								</header>
 
 							<!-- Content -->
-								<section>
-                                    <form runat ="server" id ="principal">
+							<form runat ="server" id ="principal">	
+                                <section>
+                                        <p></p>
                                         <div class="row uniform">
 									        <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtNombre" MaxLength="150" onkeypress="return event.keyCode!=13;" placeholder ="Nombre del producto"/> 
@@ -89,8 +90,8 @@
 											    </ul>
 										    </div>
                                         </div>
-                                    </form>
 								</section>
+                            </form>
 						</div>
 					</div>
 

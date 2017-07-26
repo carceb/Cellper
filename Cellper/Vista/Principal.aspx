@@ -35,8 +35,6 @@
 											<h1>Bienvenido al sistema Cellper.<br /></h1>
 											<p>La manera mas simple de tener el control de los servicios técnicos</p>
 										</header>
-										
-
 									</div>
 									<span class="image object">
 										<img src="../images/bienvenida.jpg" alt="" />

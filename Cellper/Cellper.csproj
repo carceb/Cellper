@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\AsignarEstatus.aspx" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\ie8.css" />
     <Content Include="assets\css\ie9.css" />
@@ -296,6 +297,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\AsignarEstatus.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\AsignarEstatus.aspx.cs">
+      <DependentUpon>AsignarEstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\AsignarEstatus.aspx.designer.cs">
+      <DependentUpon>AsignarEstatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\Inventario.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
