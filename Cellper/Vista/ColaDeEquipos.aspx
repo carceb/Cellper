@@ -129,7 +129,7 @@
                                                                 <asp:SqlDataSource 
                                                                     ID="SqlDataSource4" 
                                                                     runat="server" ConnectionString="<%$ ConnectionStrings:CallCenterConnectionString %>" 
-                                                                    SelectCommand="SELECT *  FROM [EstatusEquipo] WHERE EstatusEquipoID <> 4 AND EstatusEquipoID <> 5 ORDER BY EstatusEquipoID ">
+                                                                    SelectCommand="SELECT *  FROM [EstatusEquipo] WHERE EstatusEquipoID = 1 OR EstatusEquipoID = 2 ORDER BY EstatusEquipoID ">
                                                                 </asp:SqlDataSource>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>

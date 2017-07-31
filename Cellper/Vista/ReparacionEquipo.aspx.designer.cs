@@ -10,7 +10,7 @@
 namespace Cellper {
     
     
-    public partial class AsignarEstatus {
+    public partial class ReparacionEquipo {
         
         /// <summary>
         /// messageBox control.
@@ -38,6 +38,15 @@ namespace Cellper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFecha;
+        
+        /// <summary>
+        /// hdnCodigoTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCodigoTecnico;
         
         /// <summary>
         /// lblTipoEquipo control.
@@ -148,15 +157,6 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.TextBox txtObservacionesReparacion;
         
         /// <summary>
-        /// btnGuardar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
-        
-        /// <summary>
         /// btnLista control.
         /// </summary>
         /// <remarks>
@@ -164,6 +164,15 @@ namespace Cellper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLista;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
         /// lblDetalle control.
@@ -175,12 +184,12 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.Label lblDetalle;
         
         /// <summary>
-        /// grdMateriales control.
+        /// gridDetalle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMateriales;
+        protected global::System.Web.UI.WebControls.GridView gridDetalle;
     }
 }

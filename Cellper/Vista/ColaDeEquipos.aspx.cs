@@ -36,7 +36,7 @@ namespace Cellper
                 objetoRecepcion.RecepcionEquipoID = recepcionEquipoID;
                 if (e.CommandName == "AsignarEstatus")
                 {
-                    Response.Redirect("AsignarEstatus.aspx?RecepcionEquipoID=" + recepcionEquipoID);
+                    Response.Redirect("ReparacionEquipo.aspx?RecepcionEquipoID=" + recepcionEquipoID);
                 }
                 else if (e.CommandName == "EliminarDetalle")
                 {

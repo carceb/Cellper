@@ -175,7 +175,18 @@ namespace Utils
                 return 0;
             }
         }
+        public static string ToString(object valor)
+        {
+            try
+            {
+                return Convert.ToString(valor);
+            }
+            catch (Exception ex)
+            {
 
+                return "";
+            }
+        }
         public static string DateTimeFormat(object dateTime)
         {
             DateTime dt= Convert.ToDateTime(dateTime);

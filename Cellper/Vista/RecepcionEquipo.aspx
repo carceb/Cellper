@@ -147,7 +147,7 @@
                                                 <asp:HiddenField runat ="server" ID ="hdnCodigoModelo"  Value="0"/>
                                             </div>
                                             <div class="6u 12u$(xsmall)">
-                                                <asp:TextBox runat="server" ID="txtIMEI" MaxLength="15" placeholder ="IMEI"/>
+                                                <asp:TextBox runat="server" ID="txtIMEI" MaxLength="15" placeholder ="IMEI/SERIAL"/>
                                                 <ASP:RequiredFieldValidator id="rqrvalidaIMEI" runat="server" errormessage="Debe colocar IMEI/Serial"  controltovalidate="txtIMEI" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
                                             <div class="6u 12u$(xsmall)">

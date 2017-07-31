@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AsignarEstatus.aspx.cs" Inherits="Cellper.AsignarEstatus" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReparacionEquipo.aspx.cs" Inherits="Cellper.ReparacionEquipo" %>
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 
@@ -45,6 +45,15 @@
         }
 
     </script>
+    <script type="text/javascript">
+
+
+        function Confirmacion() {
+
+            return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
+        }
+
+    </script>
 	</head>
 	<body>
         <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
@@ -66,6 +75,7 @@
 									        <div class="6u 12u$(xsmall)">
                                                 <asp:Label runat="server" ID="lblFecha"></asp:Label> 
 									        </div>
+                                             <asp:HiddenField runat ="server" ID ="hdnCodigoTecnico"  Value="0"/>
                                             <div class="6u 12u$(xsmall)"> 
                                                 <asp:Label runat="server" ID="lblTipoEquipo"></asp:Label> 
                                             </div>
@@ -110,8 +120,8 @@
                                         </div>
                                         <div class="12u$">
                                             <ul class="actions">
-                                                <li><asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special" Visible ="false"  /></li>
-                                                <li><asp:Button Text="Enviar a lista" runat="server" ID ="btnLista" Visible ="false"  OnClick="Insert" /></li>
+                                                <li><asp:Button Text="Enviar a lista" runat="server" ID ="btnLista" Visible ="false" OnClick="btnLista_Click"  /></li>
+                                                <li><asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special" Visible ="false" OnClick="btnGuardar_Click"  /></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -119,13 +129,39 @@
                                     <h4><asp:Label runat="server" ID ="lblDetalle" Text ="Materiales utilizados" Visible ="false"></asp:Label></h4>
                                     <div class="row uniform">
                                         <div class="table-wrapper">
-                                            <asp:GridView ID="grdMateriales" runat="server" AutoGenerateColumns="false"
-                                            EmptyDataText="No a agregado nada a la lista de materiales utilizados." Visible="false">
-                                            <Columns>
-                                                <asp:BoundField DataField="Material" HeaderText="Nombre Material"  />
-                                                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad"  />
-                                                <asp:BoundField DataField="Observacion" HeaderText="Observación" />
-                                            </Columns>
+                                            <asp:GridView ID="gridDetalle" runat="server"  EmptyDataText="No existen Registros" 
+                                                GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand" >
+                                                <HeaderStyle  Font-Size="10px" />
+                                                <AlternatingRowStyle  Font-Size="10px" />
+                                                    <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="CodV" HeaderStyle-Width="0" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:TextBox runat="server" ID="txtReparacionEquipoID" Visible ="false"   Width="0" ForeColor ="Red" Text='<%# Eval("ReparacionEquipoID") %>' ></asp:TextBox>
+                                                        </ItemTemplate>
+				                                <HeaderStyle Width="0px"></HeaderStyle>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Nombre Material" HeaderStyle-Width="100">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblNombreEquipo" Text='<%# Eval("NombreItem") %>' Font-Bold ="true" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Cantidad" HeaderStyle-Width="80">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblCantidad" Text='<%# Eval("CantidadItem") %>' Font-Bold ="true" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Observacion" HeaderStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblObservacion" Text='<%# Eval("ObservacionReparacionEquipo") %>' Font-Bold ="true" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
+                                                        <ItemTemplate>
+                                                            <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("ReparacionEquipoID") %>'/>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                </Columns>
                                             </asp:GridView>
                                         </div>
                                     </div>
