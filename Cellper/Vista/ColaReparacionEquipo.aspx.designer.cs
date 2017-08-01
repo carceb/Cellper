@@ -10,7 +10,7 @@
 namespace Cellper {
     
     
-    public partial class ColaEquipos {
+    public partial class ColaReparacionEquipo {
         
         /// <summary>
         /// messageBox control.
@@ -22,31 +22,22 @@ namespace Cellper {
         protected global::Teach.UCMessageBox messageBox;
         
         /// <summary>
-        /// form1 control.
+        /// principal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm principal;
         
         /// <summary>
-        /// UserControl2 control.
+        /// btnGuardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Teach.UCNavigation UserControl2;
-        
-        /// <summary>
-        /// btnGuardaLista control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardaLista;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
         /// gridDetalle control.

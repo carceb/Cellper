@@ -102,7 +102,7 @@
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="#">Clientes atendidos</a></li>
+                                                <li><a href="ColaReparacionEquipo.aspx">Cola de Reparados</a></li>
 											</ul>
 										</li>
 										<li>

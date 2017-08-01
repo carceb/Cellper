@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\ColaReparacionEquipo.aspx" />
     <Content Include="Vista\ReparacionEquipo.aspx" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\ie8.css" />
@@ -127,11 +128,6 @@
     <Content Include="images\bg.jpg" />
     <Content Include="Vista\RecepcionEquipo.aspx" />
     <Content Include="Vista\Principal.aspx" />
-    <Content Include="Vista\Tecnicos.aspx" />
-    <Content Include="Vista\ColaEquipos.aspx" />
-    <Content Include="Vista\FallaCelular.aspx" />
-    <Content Include="Vista\ModeloCelular.aspx" />
-    <Content Include="Vista\TipoCelular.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -275,7 +271,6 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\simpleAutoComplete.js" />
     <Content Include="js\Util.js" />
-    <Content Include="Vista\Recepcion.aspx" />
     <Content Include="Styles\estilo.css" />
     <Content Include="Styles\estiloindex.css" />
     <Content Include="Styles\estilos.css" />
@@ -297,6 +292,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColaReparacionEquipo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ColaReparacionEquipo.aspx.cs">
+      <DependentUpon>ColaReparacionEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ColaReparacionEquipo.aspx.designer.cs">
+      <DependentUpon>ColaReparacionEquipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\ReparacionEquipo.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -362,9 +367,7 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\CTecnicos.cs" />
-    <Compile Include="Controlador\Tecnicos.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Controlador\Tecnicos.cs" />
     <Compile Include="Vista\RecepcionEquipo.aspx.cs">
       <DependentUpon>RecepcionEquipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -379,53 +382,12 @@
     <Compile Include="Vista\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Tecnicos.aspx.cs">
-      <DependentUpon>Tecnicos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Tecnicos.aspx.designer.cs">
-      <DependentUpon>Tecnicos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\ColaEquipos.aspx.cs">
-      <DependentUpon>ColaEquipos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\ColaEquipos.aspx.designer.cs">
-      <DependentUpon>ColaEquipos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controlador\FallaCelular.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Controlador\FallaCelular.cs" />
     <Compile Include="Modelo\CFallaCelular.cs" />
-    <Compile Include="Vista\FallaCelular.aspx.cs">
-      <DependentUpon>FallaCelular.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\FallaCelular.aspx.designer.cs">
-      <DependentUpon>FallaCelular.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\CModeloCelular.cs" />
-    <Compile Include="Controlador\ModeloCelular.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\ModeloCelular.aspx.cs">
-      <DependentUpon>ModeloCelular.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\ModeloCelular.aspx.designer.cs">
-      <DependentUpon>ModeloCelular.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Controlador\ModeloCelular.cs" />
     <Compile Include="Modelo\CTipoCelular.cs" />
-    <Compile Include="Controlador\TipoCelular.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\TipoCelular.aspx.cs">
-      <DependentUpon>TipoCelular.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\TipoCelular.aspx.designer.cs">
-      <DependentUpon>TipoCelular.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Controlador\TipoCelular.cs" />
     <Compile Include="Modelo\CCliente.cs" />
     <Compile Include="Controlador\Autocomplete.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -457,16 +419,7 @@
     <Compile Include="Modelo\CRecepcion.cs" />
     <Compile Include="Modelo\CSeguridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controlador\Recepcion.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Recepcion.aspx.cs">
-      <DependentUpon>Recepcion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Recepcion.aspx.designer.cs">
-      <DependentUpon>Recepcion.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Controlador\Recepcion.cs" />
     <Compile Include="Vista\Autocomplete.aspx.cs">
       <DependentUpon>Autocomplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

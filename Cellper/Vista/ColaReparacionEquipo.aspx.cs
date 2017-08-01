@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Cellper
 {
-    public partial class ColaEquipos : System.Web.UI.Page
+    public partial class ColaReparacionEquipo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,37 +25,11 @@ namespace Cellper
                 }
             }
         }
-
-        protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            try
-            {
-                if (e.CommandName == "EliminarDetalle")
-                {
-                    CRecepcion objetoRecepcion = new CRecepcion();
-                    objetoRecepcion.RecepcionEquipoID = Convert.ToInt32(e.CommandArgument.ToString());
-
-                    if (Recepcion.EliminarRecepcion(Convert.ToInt32(e.CommandArgument.ToString())) > 0)
-                    {
-                        messageBox.ShowMessage("Recepción de equipo eliminada.");
-                        CargarCola();
-                    }
-                    else
-                    {
-                        messageBox.ShowMessage("No se pudo eliminar el detalle. Intente nuevamente.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                messageBox.ShowMessage(ex.Message + ex.StackTrace);
-            }
-        }
         private void CargarCola()
         {
             try
             {
-                DataSet ds = Recepcion.ObtenerColaEquipos();
+                DataSet ds = ColaReparacionEquipo.ObtenerColaEquiposReparacion();
                 this.gridDetalle.DataSource = ds.Tables[0];
                 this.gridDetalle.DataBind();
             }
@@ -66,6 +40,7 @@ namespace Cellper
             }
 
         }
+
         private void ActualizarLista()
         {
             try
@@ -105,7 +80,14 @@ namespace Cellper
                 foreach (GridViewRow dr in this.gridDetalle.Rows)
                 {
                     objetoAsignaEstatus = new CRecepcion();
-                    objetoAsignaEstatus.EstatusEquipoID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
+                    if(Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue)!=0)
+                    {
+                        objetoAsignaEstatus.EstatusEquipoID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
+                    }
+                    else
+                    {
+                        objetoAsignaEstatus.EstatusEquipoID = Utils.utils.ToInt(((Label)dr.FindControl("lblCodEstatusID")).Text);
+                    }
                     objetoAsignaEstatus.RecepcionEquipoID = Utils.utils.ToInt(((Label)dr.FindControl("lblCaso")).Text);
                     objetoAsignaEstatus.FechaAsignacionEstatus = Convert.ToString(System.DateTime.Now);
 
@@ -133,7 +115,7 @@ namespace Cellper
 
         }
 
-        protected void btnGuardaLista_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ActualizarLista();
         }
