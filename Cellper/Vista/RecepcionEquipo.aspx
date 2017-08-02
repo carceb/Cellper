@@ -89,7 +89,20 @@
         });
     });
 </script>
-
+ <script type="text/javascript">
+        $(function () {
+            $('#txtCostoRevision').keydown(function (e) {
+        if (e.shiftKey || e.ctrlKey || e.altKey) {
+        e.preventDefault();
+        } else {
+        var key = e.keyCode;
+        if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+        e.preventDefault();
+        }
+        }
+        });
+    });
+</script>
 	</head>
 	<body>
         <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
@@ -156,6 +169,14 @@
                                                 </div>
                                             </div>
                                             <div class="6u 12u$(xsmall)">
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlCondicionEquipo" runat="server"  AppendDataBoundItems="True"  ></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)">
+                                                <asp:TextBox runat="server" ID="txtAccesorios" TextMode="MultiLine" Rows="1" MaxLength="300"  placeholder="Accesorios"/> 
+                                            </div>
+                                            <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtObservaciones" TextMode="MultiLine" Rows="1" MaxLength="300"  placeholder="Observaciones"/> 
                                                 <ASP:RequiredFieldValidator id="rqrvalidaObservaciones" runat="server" errormessage="Debe colocar las observaciones"  controltovalidate="txtObservaciones" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
@@ -163,6 +184,11 @@
                                                 <div class="select-wrapper">
                                                     <asp:DropDownList ID="ddlTecnico" runat="server"  AppendDataBoundItems="True"  ></asp:DropDownList>
                                                 </div>
+                                            </div>
+
+                                            <div class="6u 12u$(xsmall)">
+                                                <asp:TextBox runat="server" ID="txtCostoRevision" MaxLength="15" placeholder ="Costo Revisión"/>
+                                                <ASP:RequiredFieldValidator id="rqrvalidaCostoReviison" runat="server" errormessage="Debe colocar el costo de revisión"  controltovalidate="txtCostoRevision" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
 										    <div class="12u$">
 											    <ul class="actions">
@@ -253,14 +279,14 @@
 											<span class="opener">Servicio Técnico</span>
 											<ul>
 												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="ColaDeEquipos.aspx">Cola de equipos</a></li>
+												<li><a href="ColaDeEquipos.aspx">Cola de equipos Pendientes</a></li>
 											</ul>
 										</li>
 
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Reparados</a></li>
+												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
 											</ul>
 										</li>
 										<li>

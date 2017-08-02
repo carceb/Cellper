@@ -19,6 +19,7 @@ namespace Cellper
                 CargarTecnico();
                 CargarFalla();
                 CargarTipoEquipo();
+                CargarCondicionEquipo();
                 ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
                 ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             }
@@ -87,10 +88,7 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            //if (tipoCelularID != 0)
-            //{
-                strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID;
-            //}
+            strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID;
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -159,6 +157,32 @@ namespace Cellper
                 }
             }
         }
+        private void CargarCondicionEquipo()
+        {
+            ddlCondicionEquipo.Items.Clear();
+            ddlCondicionEquipo.Items.Add(new ListItem("--Seleccione condición equipo--", ""));
+            String strConnString = ConfigurationManager
+            .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
+            String strQuery = "";
+
+            strQuery = "Select * From CondicionEquipo ORDER BY CondicionEquipoID";
+
+            using (SqlConnection con = new SqlConnection(strConnString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = strQuery;
+                    cmd.Connection = con;
+                    con.Open();
+                    ddlCondicionEquipo.DataSource = cmd.ExecuteReader();
+                    ddlCondicionEquipo.DataTextField = "NombreCondicionEquipo";
+                    ddlCondicionEquipo.DataValueField = "CondicionEquipoID";
+                    ddlCondicionEquipo.DataBind();
+                    con.Close();
+                }
+            }
+        }
         public void CargarDetalleServicio(bool esTodoEstatus)
         {
             int codigoEstatus;
@@ -211,7 +235,6 @@ namespace Cellper
                 ddlTipoCelular.Items.Clear();
                 ddlModeloCelular.Items.Clear();
             }
-
         }
 
         protected void ddlTipoCelular_SelectedIndexChanged(object sender, EventArgs e)
@@ -278,11 +301,13 @@ namespace Cellper
             objetoRecepcion.Observaciones = txtObservaciones.Text.ToUpper();
             objetoRecepcion.TecnicoID = Convert.ToInt32(ddlTecnico.SelectedValue);
             objetoRecepcion.EstatusEquipoID = 1;
+            objetoRecepcion.CondicionEquipoID = Convert.ToInt32(ddlCondicionEquipo.SelectedValue);
+            objetoRecepcion.DescripcionAccesorios = txtAccesorios.Text.ToUpper();
+            objetoRecepcion.CostoPresupuesto = Convert.ToDouble(txtCostoRevision.Text);
             if (Recepcion.InsertarRecepcion(objetoRecepcion, objetoCliente) > 0)
             {
                 messageBox.ShowMessage("Registro actualizado.");
                 CargarDetalleServicio(false);
-                //NuevoRegistro();
             }
 
 

@@ -27,7 +27,10 @@ namespace Cellper
                     DBHelper.MakeParam("@NombreCliente", SqlDbType.VarChar, 0, objetoCliente.NombreCliente),
                     DBHelper.MakeParam("@TelefonoCliente", SqlDbType.VarChar, 0, objetoCliente.TelefonoCliente),
                     DBHelper.MakeParam("@DireccionCliente", SqlDbType.VarChar, 0, objetoCliente.DireccionCliente),
-                    DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, objetoRecepcion.EstatusEquipoID)
+                    DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, objetoRecepcion.EstatusEquipoID),
+                    DBHelper.MakeParam("@CondicionEquipoID", SqlDbType.Int, 0, objetoRecepcion.CondicionEquipoID),
+                    DBHelper.MakeParam("@DescripcionAccesorios", SqlDbType.VarChar, 0, objetoRecepcion.DescripcionAccesorios),
+                    DBHelper.MakeParam("@CostoPresupuesto", SqlDbType.Money, 0, objetoRecepcion.CostoPresupuesto)
                 };
 
                 return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Recepcion_Insertar", dbParams));

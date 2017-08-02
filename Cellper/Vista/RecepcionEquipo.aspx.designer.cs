@@ -166,6 +166,24 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.DropDownList ddlFalla;
         
         /// <summary>
+        /// ddlCondicionEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCondicionEquipo;
+        
+        /// <summary>
+        /// txtAccesorios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccesorios;
+        
+        /// <summary>
         /// txtObservaciones control.
         /// </summary>
         /// <remarks>
@@ -191,6 +209,24 @@ namespace Cellper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTecnico;
+        
+        /// <summary>
+        /// txtCostoRevision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCostoRevision;
+        
+        /// <summary>
+        /// rqrvalidaCostoReviison control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrvalidaCostoReviison;
         
         /// <summary>
         /// btnGuardar control.

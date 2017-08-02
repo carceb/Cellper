@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title>Cellper | Cola de Equipos</title>
+		<title>Cellper | Cola de equipos Pendientes Pendientes Pendientes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -46,7 +46,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Cola de Equipos</strong></a>
+									<a class="logo"><strong>Cola de equipos Pendientes</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -163,14 +163,14 @@
 											<span class="opener">Servicio Técnico</span>
 											<ul>
 												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="ColaDeEquipos.aspx">Cola de equipos</a></li>
+												<li><a href="ColaDeEquipos.aspx">Cola de equipos Pendientes</a></li>
 											</ul>
 										</li>
 
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Reparados</a></li>
+												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
 											</ul>
 										</li>
 										<li>

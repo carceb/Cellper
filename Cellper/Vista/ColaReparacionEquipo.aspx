@@ -6,7 +6,7 @@
 
 <html>
 	<head>
-		<title>Cellper | Cola de Reparaciones</title>
+		<title>Cellper | Cola de equipos Pendientes Revisados</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -37,7 +37,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Cola de Reparaciones</strong></a>
+									<a class="logo"><strong>Cola de Equipos Revisados</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -60,7 +60,7 @@
                                                         <AlternatingRowStyle  Font-Size="10px" />
                                                           <RowStyle  Font-Size="10px" />
                                                       <Columns>
-                                                          <asp:TemplateField HeaderText="CodEstaus" HeaderStyle-Width ="0">
+                                                          <asp:TemplateField HeaderText="" HeaderStyle-Width ="0" visible="false">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCodEstatusID" Text='<%# Eval("EstatusEquipoID") %>' ></asp:Label>
                                                               </ItemTemplate>
@@ -73,6 +73,11 @@
                                                           <asp:TemplateField HeaderText="N° Caso">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCaso" Text='<%# Eval("RecepcionEquipoID") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="Cliente">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblCliente" Text='<%# Eval("NombreCliente") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Tipo equipo" >
@@ -121,11 +126,11 @@
                                                                   <asp:Label runat="server" ID="lblObReps" Text='<%# Eval("ObservacionReparacionEquipo") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="200 ">
+                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <div class="select-wrapper">
                                                                        <asp:DropDownList  runat ="server" ID ="ddlEstatus"  AppendDataBoundItems="True">
-                                                                           <asp:ListItem Text="--Seleccione el estatus--" Value="0" />
+                                                                           <asp:ListItem Text="Escoja" Value="0" />
                                                                            <asp:ListItem Text="Entregado" Value="5" />
                                                                        </asp:DropDownList>
                                                                   </div>
@@ -155,14 +160,14 @@
 											<span class="opener">Servicio Técnico</span>
 											<ul>
 												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="ColaDeEquipos.aspx">Cola de equipos</a></li>
+												<li><a href="ColaDeEquipos.aspx">Cola de Equipos Pendientes</a></li>
 											</ul>
 										</li>
 
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Reparados</a></li>
+												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
 											</ul>
 										</li>
 										<li>
