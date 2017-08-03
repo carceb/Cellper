@@ -273,7 +273,45 @@ namespace Cellper
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            EnviarRecepcion();
+            if(EsTodoCorrecto() == true)
+            {
+                EnviarRecepcion();
+            }
+        }
+        private bool EsTodoCorrecto()
+        {
+            bool resultado = true;
+            if (ddlTipoEquipo.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar el tipo de equipo.");
+            }
+            if (ddlTipoCelular.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar la marca.");
+            }
+            if (ddlModeloCelular.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar el modelo.");
+            }
+            if (ddlCondicionEquipo.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar la condición del equipo.");
+            }
+            if (ddlFalla.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar la falla.");
+            }
+            if (ddlTecnico.SelectedValue == "")
+            {
+                resultado = false;
+                messageBox.ShowMessage("Debe seleccionar el nombre del técnico.");
+            }
+            return resultado;
         }
         private void EnviarRecepcion()
         {
@@ -306,6 +344,14 @@ namespace Cellper
             objetoRecepcion.CostoPresupuesto = Convert.ToDouble(txtCostoRevision.Text);
             if (Recepcion.InsertarRecepcion(objetoRecepcion, objetoCliente) > 0)
             {
+                txtCliente.Text = txtNombre.Text;
+                txtCedulaCliente.Text = txtCedula.Text;
+                txtTelefonoCliente.Text = txtTelefono.Text;
+                txtIMEISerial.Text = txtIMEI.Text;
+                txtTipoEquipo.Text = ddlTipoEquipo.SelectedItem.Text;
+                txtMarca.Text = ddlTipoCelular.SelectedItem.Text;
+                txtModelo.Text = ddlModeloCelular.SelectedItem.Text;
+                txtFalla.Text = ddlFalla.SelectedItem.Text;
                 messageBox.ShowMessage("Registro actualizado.");
                 CargarDetalleServicio(false);
             }
@@ -333,6 +379,21 @@ namespace Cellper
             ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
             ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             txtCedula.Focus();
+
+            //LIMPIAR DATOS DEL RECIBO DE ENTREGA
+
+            txtCliente.Text = "";
+            txtCedulaCliente.Text = "";
+            txtTelefonoCliente.Text = "";
+            txtIMEISerial.Text = "";
+            txtTipoEquipo.Text = "";
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtFalla.Text = "";
+            txtCostoRevision.Text = "";
+
+            //**********************************
+
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {

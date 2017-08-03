@@ -44,6 +44,7 @@
             document.getElementById("txtDireccion").value = par[4]; 
             document.getElementById("hdnClienteID").value = par[6];
 
+
             var bt = document.getElementById("ButtonTest");
             bt.click();
         }
@@ -51,6 +52,10 @@
         function Confirmacion() {
 
             return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
+        }
+        function Recibo() {
+            document.write("<a href=´#openModal´></a>");
+            
         }
         function LimpiarTextos() {
             document.getElementById("hdnCedula").value = "0";
@@ -252,7 +257,8 @@
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
-                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                                  <asp:HyperLink runat ="server" ID ="lnkRecibo" NavigateUrl="#openModal"  ImageUrl="~/Images/imprimir.jpg" ToolTip="Imprimir recibo"></asp:HyperLink>
+                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                       </Columns>
@@ -260,10 +266,10 @@
                                             </div>
                                         </div>
 								</section>
-                           </form>
+<%--                           </form>--%>
 						</div>
-					</div>
-
+					</div>   
+                    
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
@@ -315,9 +321,75 @@
 					</div>
 
 			</div>
-		<!-- Scripts -->
 
-<%--        SE COLOCARON EN EL HEADER --%>
 
+<%--        FORMULARIO MODAL DEL RECIBO DE ENTREGA--%>
+
+            <div id="openModal" class="modalWindow">
+                <div>
+        
+                    <div class="modalHeader">
+                        <h2>Recibo de Entrega</h2>
+                        <a href="#close" title="Close" class="close">X</a>
+                    </div>
+        
+                    <div class="modalContent">
+                          <table>
+                                <tr>
+                                    <td class="auto-style2" >
+                                        <asp:Label Text="Cliente" ID="Label6" runat="server" Width ="150" />
+                                        <asp:TextBox runat="server" ID="txtCliente"  Width ="350" />      
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2">
+                                        <asp:Label Text="Cedula" ID="Label5" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtCedulaCliente" Width ="350"/> 
+                                    </td>
+                                  <td class="auto-style2">
+                                        <asp:Label Text="Telefono" ID="Label1" runat="server" />
+                                       <asp:TextBox runat="server" ID="txtTelefonoCliente"  Width ="350"/> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2">
+                                        <asp:Label Text="IMEI/SERIAL" ID="Label2" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtIMEISerial"  Width ="350"/> 
+                                    </td>
+                                  <td class="auto-style2">
+                                        <asp:Label Text="Equipo" ID="Label3" runat="server" />
+                                       <asp:TextBox runat="server" ID="txtTipoEquipo"  Width ="350"/> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2">
+                                        <asp:Label Text="Marca" ID="Label4" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtMarca"  Width ="350"/> 
+                                    </td>
+                                  <td class="auto-style2">
+                                        <asp:Label Text="Modelo" ID="Label7" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtModelo"   Width ="350"/> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2" colspan ="2">
+                                        <asp:Label Text="Falla" ID="Label8" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtFalla"  Width ="350"/> 
+                                    </td>
+                                </tr>
+                          </table>
+                    </div>
+        
+                    <div class="modalFooter">
+                        <a href="#cancel" title="Cancel" class="cancel">Cancelar</a>
+                        <a href="#ok" title="Ok" class="ok">Imprimir</a>
+                        <div class="clear"></div>
+                    </div>
+                
+                </div>
+            </div>
+        </form>
+<%------------------------------------------------------------------------------------------------------------------%>
 	</body>
 </html>

@@ -158,7 +158,7 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                         <ItemTemplate>
-                                                            <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("ReparacionEquipoID") %>'/>
+                                                            <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("ReparacionEquipoID") %>'/>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
