@@ -90,5 +90,13 @@ namespace Cellper
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_ColaEquipos_ActualizarLista", dbParams));
         }
+        public static SqlDataReader ObtenerDatosRecibo(int recepcionEquipoID)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, recepcionEquipoID)
+                };
+            return DBHelper.ExecuteDataReader("usp_AsignarEstatus_ObtenerDatosEquipo", dbParams);
+        }
     }
 }

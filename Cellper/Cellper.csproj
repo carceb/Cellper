@@ -94,6 +94,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\ReciboMDT.png" />
+    <Content Include="Vista\Recibo.aspx" />
     <Content Include="Vista\ColaReparacionEquipo.aspx" />
     <Content Include="Vista\ReparacionEquipo.aspx" />
     <Content Include="assets\css\font-awesome.min.css" />
@@ -124,7 +126,6 @@
     <Content Include="loginassets\js\html5shiv.js" />
     <Content Include="loginassets\js\PIE.htc" />
     <Content Include="loginassets\js\respond.min.js" />
-    <Content Include="images\avatar.jpg" />
     <Content Include="images\bg.jpg" />
     <Content Include="Vista\RecepcionEquipo.aspx" />
     <Content Include="Vista\Principal.aspx" />
@@ -198,19 +199,10 @@
     <Content Include="images\asignar_estatus_icono.png" />
     <Content Include="images\asignar_tecnico_icono.png" />
     <Content Include="images\background.jpg" />
-    <Content Include="images\background_login.jpg" />
     <Content Include="images\ball.gif" />
     <Content Include="images\ball2.gif" />
     <Content Include="images\banner_img.jpg" />
-    <Content Include="images\bk_changePassword.jpg" />
-    <Content Include="images\bk_login.jpg" />
-    <Content Include="images\bk_loginCrm.jpg" />
-    <Content Include="images\bk_loginReporting.jpg" />
-    <Content Include="images\bk_webForm.jpg" />
     <Content Include="images\boton.jpg" />
-    <Content Include="images\Calendar_scheduleHS.png" />
-    <Content Include="images\cita_banner.png" />
-    <Content Include="images\clinical_top3.jpeg" />
     <Content Include="images\configuration.gif" />
     <Content Include="images\crm.gif" />
     <Content Include="images\crm_top.gif" />
@@ -228,44 +220,14 @@
     <Content Include="images\Invisible.png" />
     <Content Include="images\ira25.gif" />
     <Content Include="images\loading.gif" />
-    <Content Include="images\login_call_center.jpg" />
-    <Content Include="images\login_call_center.png" />
-    <Content Include="images\main_reporting.jpg" />
     <Content Include="images\minus.png" />
-    <Content Include="images\pagina_en_construccion.jpg" />
-    <Content Include="images\pic01.jpg" />
-    <Content Include="images\pic02.jpg" />
-    <Content Include="images\pic03.jpg" />
-    <Content Include="images\pic04.jpg" />
-    <Content Include="images\pic05.jpg" />
-    <Content Include="images\pic06.jpg" />
-    <Content Include="images\pic07.jpg" />
-    <Content Include="images\pic08.jpg" />
-    <Content Include="images\pic09.jpg" />
-    <Content Include="images\pic10.jpg" />
-    <Content Include="images\pic11.jpg" />
-    <Content Include="images\pic12.jpg" />
-    <Content Include="images\pic13.jpg" />
-    <Content Include="images\pic14.jpg" />
-    <Content Include="images\pic15.jpg" />
     <Content Include="images\plus.png" />
     <Content Include="images\pregunta.JPG" />
     <Content Include="images\reporting.gif" />
     <Content Include="images\reporting_top.gif" />
     <Content Include="images\select.PNG" />
-    <Content Include="images\top.jpg" />
-    <Content Include="images\top_atencion_visita_1.png" />
-    <Content Include="images\top_call_center.jpg" />
-    <Content Include="images\top_fifiu.jpg" />
     <Content Include="images\top_helper_1.png" />
     <Content Include="images\top_helper_2.png" />
-    <Content Include="images\top_login_clinical.jpg" />
-    <Content Include="images\top_seguridad_1.jpg" />
-    <Content Include="images\user.gif" />
-    <Content Include="images\user02.gif" />
-    <Content Include="images\user03.gif" />
-    <Content Include="images\void.png" />
-    <Content Include="images\Welcome.jpg" />
     <Content Include="js\EnterAsTab.js" />
     <Content Include="js\jquery-ui-1.8rc3.custom.min.js" />
     <Content Include="js\jquery.js" />
@@ -294,6 +256,13 @@
   <ItemGroup>
     <Compile Include="Controlador\ColaReparacionEquipo.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Recibo.aspx.cs">
+      <DependentUpon>Recibo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Recibo.aspx.designer.cs">
+      <DependentUpon>Recibo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ColaReparacionEquipo.aspx.cs">
       <DependentUpon>ColaReparacionEquipo.aspx</DependentUpon>

@@ -264,6 +264,14 @@ namespace Cellper
                         messageBox.ShowMessage("No se pudo eliminar el detalle. Intente nuevamente.");
                     }
                 }
+                else if (e.CommandName == "ImprimirRecibo")
+                {
+                    string urlLlamado = "Recibo.aspx?numeroRecibo=" + Convert.ToInt32(e.CommandArgument.ToString());
+                    string scriptJava = "<script language =javascript> ";
+                    scriptJava += "window.open('" + urlLlamado + "',null,'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=430,height=630,left=100,top=100');";
+                    scriptJava += "</script> ";
+                    Response.Write(scriptJava);
+                }
             }
             catch (Exception ex)
             {
@@ -344,14 +352,6 @@ namespace Cellper
             objetoRecepcion.CostoPresupuesto = Convert.ToDouble(txtCostoRevision.Text);
             if (Recepcion.InsertarRecepcion(objetoRecepcion, objetoCliente) > 0)
             {
-                txtCliente.Text = txtNombre.Text;
-                txtCedulaCliente.Text = txtCedula.Text;
-                txtTelefonoCliente.Text = txtTelefono.Text;
-                txtIMEISerial.Text = txtIMEI.Text;
-                txtTipoEquipo.Text = ddlTipoEquipo.SelectedItem.Text;
-                txtMarca.Text = ddlTipoCelular.SelectedItem.Text;
-                txtModelo.Text = ddlModeloCelular.SelectedItem.Text;
-                txtFalla.Text = ddlFalla.SelectedItem.Text;
                 messageBox.ShowMessage("Registro actualizado.");
                 CargarDetalleServicio(false);
             }
@@ -380,19 +380,7 @@ namespace Cellper
             ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             txtCedula.Focus();
 
-            //LIMPIAR DATOS DEL RECIBO DE ENTREGA
 
-            txtCliente.Text = "";
-            txtCedulaCliente.Text = "";
-            txtTelefonoCliente.Text = "";
-            txtIMEISerial.Text = "";
-            txtTipoEquipo.Text = "";
-            txtMarca.Text = "";
-            txtModelo.Text = "";
-            txtFalla.Text = "";
-            txtCostoRevision.Text = "";
-
-            //**********************************
 
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)

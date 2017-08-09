@@ -219,54 +219,73 @@
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Cédula" HeaderStyle-Width="80">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCedulaVisitante" Text='<%# Eval("CedulaCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="80px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Nombre" HeaderStyle-Width="150">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblNombreVisitante" Text='<%# Eval("NombreCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="150px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblAsunto" Text='<%# Eval("NombreTipoEquipo") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="150">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObservacion" Text='<%# Eval("NombreTipoCelular") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="150px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Modelo " HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblVisitado" Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="IMEI/Serial" HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Falla" HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("NombreFallaCelular") %>'></asp:Label>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
-                                                                  <asp:HyperLink runat ="server" ID ="lnkRecibo" NavigateUrl="#openModal"  ImageUrl="~/Images/imprimir.jpg" ToolTip="Imprimir recibo"></asp:HyperLink>
+                                                                  <%--<asp:HyperLink runat ="server" ID ="lnkRecibo" NavigateUrl="#openModal"  ImageUrl="~/Images/imprimir.jpg" ToolTip="Imprimir recibo"></asp:HyperLink>--%>
+                                                                 <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Imprimir Recibo" ToolTip="Imprimir Recibo" CssClass="cBotones" ImageUrl="~/Images/imprimir.jpg"  CommandName="ImprimirRecibo" CommandArgument='<%# Eval("RecepcionEquipoID") %>' CausesValidation ="false"/> 
                                                                   <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                               </ItemTemplate>
+
+<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                       </Columns>
                                                   </asp:GridView>
                                             </div>
                                         </div>
 								</section>
-<%--                           </form>--%>
+                           </form>
 						</div>
 					</div>   
                     
@@ -324,8 +343,8 @@
 
 
 <%--        FORMULARIO MODAL DEL RECIBO DE ENTREGA--%>
-
-            <div id="openModal" class="modalWindow">
+<%--            SE SUSTITUYO POR UNA NUEVA PAGINA LLAMADA DESDE EL CODE BEHIND--%>
+<%--            <div id="openModal" class="modalWindow">
                 <div>
         
                     <div class="modalHeader">
@@ -388,8 +407,7 @@
                     </div>
                 
                 </div>
-            </div>
-        </form>
+            </div>--%>
 <%------------------------------------------------------------------------------------------------------------------%>
 	</body>
 </html>

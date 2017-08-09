@@ -4145,3 +4145,14 @@ margin-left:20px;
 .ok:hover { background: #189CDA; }
 .close:hover, .cancel:hover { background: #D4482D; }
 .clear { float:none; clear: both; }
+
+#hiddenMap {
+width:320px;
+margin: 0 0 30px 0;
+position:relative;
+}
+.toolbar {
+position: fixed;
+z-index: 100;
+margin-left:2px;
+}
