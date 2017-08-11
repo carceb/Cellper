@@ -256,6 +256,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Consultas.cs" />
     <Compile Include="Controlador\ColaReparacionEquipo.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

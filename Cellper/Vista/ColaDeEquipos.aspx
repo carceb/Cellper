@@ -129,7 +129,7 @@
                                                                 <asp:SqlDataSource 
                                                                     ID="SqlDataSource4" 
                                                                     runat="server" ConnectionString="<%$ ConnectionStrings:CallCenterConnectionString %>" 
-                                                                    SelectCommand="SELECT *  FROM [EstatusEquipo] WHERE EstatusEquipoID = 1 OR EstatusEquipoID = 2 OR EstatusEquipoID = 7 ORDER BY EstatusEquipoID ">
+                                                                    SelectCommand="SELECT *  FROM [EstatusEquipo] WHERE EstatusEquipoID = 1 OR EstatusEquipoID = 2  OR EstatusEquipoID = 7 ORDER BY EstatusEquipoID ">
                                                                 </asp:SqlDataSource>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
@@ -170,7 +170,7 @@
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
+												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos por Entregar</a></li>
                                                 <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
 											</ul>
 										</li>

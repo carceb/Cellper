@@ -49,11 +49,6 @@
 								<section>
                                         <p></p>
                                         <div class="row uniform">
-										    <div class="12u$">
-											    <ul class="actions">
-                                                    <li><asp:Button Text="Actualizar lista" runat="server" ID ="btnGuardar"  CssClass ="special" /></li>
-											    </ul>
-										    </div>
                                             <div class="table-wrapper">
                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
                                                       GridLines="Horizontal" AutoGenerateColumns="False"  >
@@ -61,6 +56,11 @@
                                                         <AlternatingRowStyle  Font-Size="10px" />
                                                           <RowStyle  Font-Size="10px" />
                                                       <Columns>
+                                                          <asp:TemplateField HeaderText="N°">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblCaso" Text='<%# Eval("RecepcionEquipoID") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="" HeaderStyle-Width ="0" visible="false">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCodEstatusID" Text='<%# Eval("EstatusEquipoID") %>' ></asp:Label>
@@ -71,11 +71,11 @@
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="N° Caso">
-                                                              <ItemTemplate>
-                                                                  <asp:Label runat="server" ID="lblCaso" Text='<%# Eval("RecepcionEquipoID") %>'></asp:Label>
-                                                              </ItemTemplate>
-                                                          </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Fecha Entrega">
+                                                                <ItemTemplate>
+                                                                    <asp:Label runat="server" ID="lblFechaEntrega" Text='<%# Eval("FechaEntrega") %>' ></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Cliente">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCliente" Text='<%# Eval("NombreCliente") %>'></asp:Label>
@@ -96,7 +96,6 @@
                                                                   <asp:Label runat="server" ID="lblModelo"   Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-
                                                           <asp:TemplateField HeaderText="IMEI/SERIAL" >
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
@@ -122,7 +121,7 @@
                                                                   <asp:Label runat="server" ID="lblEstatusRep" Text='<%# Eval("NombreEstatusEquipo") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Observaciones reparación">
+                                                          <asp:TemplateField HeaderText="Observaciones">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObReps" Text='<%# Eval("ObservacionReparacionEquipo") %>'></asp:Label>
                                                               </ItemTemplate>
@@ -158,7 +157,7 @@
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
+												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos por Entregar</a></li>
                                                 <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
 											</ul>
 										</li>

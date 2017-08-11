@@ -38,7 +38,6 @@ namespace Cellper
 
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
             }
-
         }
 
         private void ActualizarLista()

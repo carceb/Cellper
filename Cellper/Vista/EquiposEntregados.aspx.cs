@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,21 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarEquiposEntregados();
+        }
+        private void CargarEquiposEntregados()
+        {
+            try
+            {
+                DataSet ds = Consultas.ObtenerEquiposEntregados();
+                this.gridDetalle.DataSource = ds.Tables[0];
+                this.gridDetalle.DataBind();
+            }
+            catch (Exception ex)
+            {
 
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+            }
         }
     }
 }
