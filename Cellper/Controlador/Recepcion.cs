@@ -98,5 +98,14 @@ namespace Cellper
                 };
             return DBHelper.ExecuteDataReader("usp_AsignarEstatus_ObtenerDatosEquipo", dbParams);
         }
+        public static int EnviarEquipoGarantia(int recepcionID, string observacionGarantia)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, recepcionID),
+                    DBHelper.MakeParam("@ObservacionGarantia", SqlDbType.VarChar, 0, observacionGarantia)
+                };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_RecepcionEquipo_InsertarGarantia", dbParams));
+        }
     }
 }

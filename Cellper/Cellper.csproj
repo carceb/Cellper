@@ -94,6 +94,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\icon-garantia.png" />
+    <Content Include="Vista\EquiposEntregados.aspx" />
     <Content Include="images\ReciboMDT.png" />
     <Content Include="Vista\Recibo.aspx" />
     <Content Include="Vista\ColaReparacionEquipo.aspx" />
@@ -256,6 +258,13 @@
   <ItemGroup>
     <Compile Include="Controlador\ColaReparacionEquipo.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\EquiposEntregados.aspx.cs">
+      <DependentUpon>EquiposEntregados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\EquiposEntregados.aspx.designer.cs">
+      <DependentUpon>EquiposEntregados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Recibo.aspx.cs">
       <DependentUpon>Recibo.aspx</DependentUpon>

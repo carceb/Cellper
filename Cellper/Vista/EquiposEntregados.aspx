@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ColaReparacionEquipo.aspx.cs" Inherits="Cellper.ColaReparacionEquipo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EquiposEntregados.aspx.cs" Inherits="Cellper.EquiposEntregados" %>
+
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 
@@ -6,7 +7,7 @@
 
 <html>
 	<head>
-		<title>Cellper | Cola de equipos Pendientes Revisados</title>
+		<title>Cellper | Equipos entregados</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -37,7 +38,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Cola de Equipos Revisados</strong></a>
+									<a class="logo"><strong>Equipos Entregados</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -50,7 +51,7 @@
                                         <div class="row uniform">
 										    <div class="12u$">
 											    <ul class="actions">
-                                                    <li><asp:Button Text="Actualizar lista" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"  /></li>
+                                                    <li><asp:Button Text="Actualizar lista" runat="server" ID ="btnGuardar"  CssClass ="special" /></li>
 											    </ul>
 										    </div>
                                             <div class="table-wrapper">
@@ -124,16 +125,6 @@
                                                           <asp:TemplateField HeaderText="Observaciones reparación">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObReps" Text='<%# Eval("ObservacionReparacionEquipo") %>'></asp:Label>
-                                                              </ItemTemplate>
-                                                          </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
-                                                              <ItemTemplate>
-                                                                  <div class="select-wrapper">
-                                                                       <asp:DropDownList  runat ="server" ID ="ddlEstatus"  AppendDataBoundItems="True">
-                                                                           <asp:ListItem Text="Escoja" Value="0" />
-                                                                           <asp:ListItem Text="Entregado" Value="5" />
-                                                                       </asp:DropDownList>
-                                                                  </div>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                       </Columns>

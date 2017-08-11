@@ -11,12 +11,29 @@
 <%--------------------------%>
 
 	    <style type="text/css">
+            .auto-style2 {
+                width: 40px;
+            }
             .auto-style3 {
                 position: fixed;
                 z-index: 100;
                 margin-left: 2px;
                 left: 37px;
                 top: 161px;
+            }
+            .auto-style4 {
+                position: fixed;
+                z-index: 100;
+                margin-left: 2px;
+                left: 260px;
+                top: 50px;
+            }
+            .auto-style5 {
+                position: fixed;
+                z-index: 100;
+                margin-left: 2px;
+                left: 300px;
+                top: 100px;
             }
         </style>
 
@@ -91,6 +108,33 @@
             </tr>
         </table>
     </div>
+    <div class ="auto-style4">
+        <table>
+            <tr>
+                <td  class ="auto-style2">
+                    <asp:Label runat="server" ID="txtDia"  text ="05"  Width ="20"/> 
+                </td>
+                <td class ="auto-style2">
+                    <asp:Label runat="server" ID="txtMes"  text ="05"  Width ="20"/> 
+                </td>
+                <td class ="auto-style2">
+                    <asp:Label runat="server" ID="txtAño"  text ="2017"  Width ="30"/> 
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class ="auto-style5">
+        <table>
+            <tr>
+                <td>
+                    <asp:Label runat="server" ID="Label9"  text ="N°. "  Width ="20"/> 
+                </td>
+                <td>
+                    <asp:Label runat="server" ID="Label10"    Width ="20"/> 
+                </td>
+            </tr>
+        </table>
+    </div>       
     </form>
 </body>
 </html>

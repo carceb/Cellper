@@ -272,6 +272,10 @@ namespace Cellper
                     scriptJava += "</script> ";
                     Response.Write(scriptJava);
                 }
+                else if (e.CommandName == "Garantia")
+                {
+                    hdnEquipoRecepcionGarantiaID.Value = e.CommandArgument.ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -337,7 +341,6 @@ namespace Cellper
             objetoCliente.TelefonoCliente = txtTelefono.Text;
             objetoCliente.DireccionCliente = txtDireccion.Text.ToUpper();
 
-
             CRecepcion objetoRecepcion = new CRecepcion();
             objetoRecepcion.ClienteID = Convert.ToInt32(hdnClienteID.Value);
             objetoRecepcion.ModeloCelularID = Convert.ToInt32(ddlModeloCelular.SelectedValue);
@@ -355,8 +358,6 @@ namespace Cellper
                 messageBox.ShowMessage("Registro actualizado.");
                 CargarDetalleServicio(false);
             }
-
-
         }
         private void NuevoRegistro()
         {
@@ -369,6 +370,7 @@ namespace Cellper
             hdnCedula.Value = "0";
             hdnClienteID.Value = "0";
             hdnCodigoModelo.Value = "0";
+            hdnEquipoRecepcionGarantiaID.Value = "0";
             gridDetalle.DataSource = null;
             gridDetalle.DataBind();
             CargarTipoEquipo();
@@ -379,9 +381,6 @@ namespace Cellper
             ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
             ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             txtCedula.Focus();
-
-
-
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -391,6 +390,26 @@ namespace Cellper
         protected void ButtonTest_Click(object sender, EventArgs e)
         {
             CargarDetalleServicio(true);
+        }
+
+        protected void btnEnviarGarantia_Click(object sender, EventArgs e)
+        {
+            if((Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value) !=0))
+            {
+                if (txtObservacionesGarantia.Text != "")
+                {
+
+                    if(Recepcion.EnviarEquipoGarantia(Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value), txtObservacionesGarantia.Text.ToUpper()) > 0)
+                    {
+                        messageBox.ShowMessage("Equipo enviado a garantía.");
+                        NuevoRegistro();
+                    }
+                }
+                else
+                {
+                    messageBox.ShowMessage("Debe colocar las observaciones");
+                }
+            }
         }
     }
 }

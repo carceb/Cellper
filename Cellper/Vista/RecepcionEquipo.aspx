@@ -53,6 +53,12 @@
 
             return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
         }
+        function ConfirmacionGarantia() {
+
+            //return confirm("¿Desea enviar este equipo a garantía?, no podrá deshacer");
+            return document.write("<a href=´#openModal´></a>");
+            
+        }
         function Recibo() {
             document.write("<a href=´#openModal´></a>");
             
@@ -203,8 +209,13 @@
 											    </ul>
 										    </div>
                                             <div class="table-wrapper">
-                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
-                                                      GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
+                                                  <asp:GridView ID="gridDetalle" runat="server" 
+                                                      CssClass="subtitulo" 
+                                                      EmptyDataText="No existen Registros" 
+                                                      GridLines="Horizontal" 
+                                                      AutoGenerateColumns="False" 
+                                                      OnRowCommand="gridDetalle_RowCommand"
+                                                       >
                                                         <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
                                                         <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
                                                           <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
@@ -213,79 +224,61 @@
                                                               <ItemTemplate>
                                                                   <asp:TextBox runat="server" ID="txtCodVisita" Visible ="false"   Width="0" ForeColor ="Red" Text='<%# Eval("RecepcionEquipoID") %>' ></asp:TextBox>
                                                               </ItemTemplate>
-				                                        <HeaderStyle Width="0px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Fecha Recepción" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Cédula" HeaderStyle-Width="80">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblCedulaVisitante" Text='<%# Eval("CedulaCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="80px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Nombre" HeaderStyle-Width="150">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblNombreVisitante" Text='<%# Eval("NombreCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="150px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblAsunto" Text='<%# Eval("NombreTipoEquipo") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="150">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObservacion" Text='<%# Eval("NombreTipoCelular") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="150px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Modelo " HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblVisitado" Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="IMEI/Serial" HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Falla" HeaderStyle-Width="200">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("NombreFallaCelular") %>'></asp:Label>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="200px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
-                                                                  <%--<asp:HyperLink runat ="server" ID ="lnkRecibo" NavigateUrl="#openModal"  ImageUrl="~/Images/imprimir.jpg" ToolTip="Imprimir recibo"></asp:HyperLink>--%>
-                                                                 <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Imprimir Recibo" ToolTip="Imprimir Recibo" CssClass="cBotones" ImageUrl="~/Images/imprimir.jpg"  CommandName="ImprimirRecibo" CommandArgument='<%# Eval("RecepcionEquipoID") %>' CausesValidation ="false"/> 
-                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                                <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Imprimir Recibo" ToolTip="Imprimir Recibo" ImageUrl="~/Images/imprimir.jpg"  CommandName="ImprimirRecibo" CommandArgument='<%# Eval("RecepcionEquipoID") %>' CausesValidation ="false"/> 
+                                                                <asp:ImageButton runat ="server" PostBackUrl="#openModal"  ImageUrl="~/Images/icon-garantia.png" ToolTip="Enviar a garantía" CausesValidation="false" CommandName="Garantia" CommandArgument='<%# Eval("RecepcionEquipoID") %>'></asp:ImageButton>
+                                                                <%--<asp:HyperLink runat ="server" ID ="lnkGarantia" NavigateUrl="#openModal" ImageUrl="~/Images/icon-garantia.png" ToolTip="Garantía" ></asp:HyperLink>--%>
+                                                                <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                               </ItemTemplate>
-
-<HeaderStyle Width="100px"></HeaderStyle>
                                                           </asp:TemplateField>
                                                       </Columns>
                                                   </asp:GridView>
                                             </div>
                                         </div>
 								</section>
-                           </form>
+                           <%--</form>--%>
 						</div>
 					</div>   
                     
@@ -312,6 +305,7 @@
 											<span class="opener">Consultas</span>
 											<ul>
 												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
+                                                <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
 											</ul>
 										</li>
 										<li>
@@ -344,70 +338,36 @@
 
 <%--        FORMULARIO MODAL DEL RECIBO DE ENTREGA--%>
 <%--            SE SUSTITUYO POR UNA NUEVA PAGINA LLAMADA DESDE EL CODE BEHIND--%>
-<%--            <div id="openModal" class="modalWindow">
+            <div id="openModal" class="modalWindow">
                 <div>
         
                     <div class="modalHeader">
-                        <h2>Recibo de Entrega</h2>
+                        <h2>Enviar a garantía</h2>
                         <a href="#close" title="Close" class="close">X</a>
                     </div>
         
                     <div class="modalContent">
                           <table>
-                                <tr>
-                                    <td class="auto-style2" >
-                                        <asp:Label Text="Cliente" ID="Label6" runat="server" Width ="150" />
-                                        <asp:TextBox runat="server" ID="txtCliente"  Width ="350" />      
-                                    </td>
-
-                                </tr>
-                                <tr>
+                                <tr>    
                                     <td class="auto-style2">
-                                        <asp:Label Text="Cedula" ID="Label5" runat="server" />
-                                        <asp:TextBox runat="server" ID="txtCedulaCliente" Width ="350"/> 
-                                    </td>
-                                  <td class="auto-style2">
-                                        <asp:Label Text="Telefono" ID="Label1" runat="server" />
-                                       <asp:TextBox runat="server" ID="txtTelefonoCliente"  Width ="350"/> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style2">
-                                        <asp:Label Text="IMEI/SERIAL" ID="Label2" runat="server" />
-                                        <asp:TextBox runat="server" ID="txtIMEISerial"  Width ="350"/> 
-                                    </td>
-                                  <td class="auto-style2">
-                                        <asp:Label Text="Equipo" ID="Label3" runat="server" />
-                                       <asp:TextBox runat="server" ID="txtTipoEquipo"  Width ="350"/> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style2">
-                                        <asp:Label Text="Marca" ID="Label4" runat="server" />
-                                        <asp:TextBox runat="server" ID="txtMarca"  Width ="350"/> 
-                                    </td>
-                                  <td class="auto-style2">
-                                        <asp:Label Text="Modelo" ID="Label7" runat="server" />
-                                        <asp:TextBox runat="server" ID="txtModelo"   Width ="350"/> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style2" colspan ="2">
-                                        <asp:Label Text="Falla" ID="Label8" runat="server" />
-                                        <asp:TextBox runat="server" ID="txtFalla"  Width ="350"/> 
+                                        <asp:Label Text="Observaciones" ID="Label5" runat="server" />
+                                        <asp:TextBox runat="server" ID="txtObservacionesGarantia" MaxLength="550" TextMode="MultiLine" Rows="1" Width ="700"/> 
+                                        <asp:HiddenField runat ="server" ID ="hdnEquipoRecepcionGarantiaID"  Value="0"/> 
                                     </td>
                                 </tr>
                           </table>
                     </div>
         
                     <div class="modalFooter">
-                        <a href="#cancel" title="Cancel" class="cancel">Cancelar</a>
-                        <a href="#ok" title="Ok" class="ok">Imprimir</a>
+                        <asp:Button  ID ="btnEnviarGarantia" runat ="server" Text="Enviar a garantía"  CssClass ="special" CausesValidation="false" OnClick="btnEnviarGarantia_Click"/>
+                        <%--<a href="#cancel" title="Cancel" class="cancel">Cancelar</a>--%>
+                        <%--<a href="#ok" title="Ok" class="ok">Cancelar</a>--%>
                         <div class="clear"></div>
                     </div>
                 
                 </div>
-            </div>--%>
+            </div>
+        </form>
 <%------------------------------------------------------------------------------------------------------------------%>
 	</body>
 </html>

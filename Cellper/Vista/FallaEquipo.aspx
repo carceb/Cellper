@@ -103,6 +103,7 @@
 											<span class="opener">Consultas</span>
 											<ul>
                                                 <li><a href="ColaReparacionEquipo.aspx">Cola de Equipos Revisados</a></li>
+                                                <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
 											</ul>
 										</li>
 										<li>
