@@ -60,5 +60,15 @@ namespace Cellper
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_ReparacionEquipo_EliminarMaterialReparacion", dbParams));
         }
+        public static int ActualizarLista(CRecepcion objetoRecepcion)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, objetoRecepcion.RecepcionEquipoID),
+                DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, objetoRecepcion.EstatusEquipoID),
+                DBHelper.MakeParam("@FechaEntrega", SqlDbType.SmallDateTime, 0, objetoRecepcion.FechaEntrega)
+                };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_ColaReparacionEquipo_ActualizarLista", dbParams));
+        }
     }
 }

@@ -107,5 +107,25 @@ namespace Cellper
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_RecepcionEquipo_InsertarGarantia", dbParams));
         }
+        public static bool EsEquipoEntregado(int recepcionID)
+        {
+            bool resultado = true;
+            SqlDataReader dr;
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, recepcionID)
+                };
+            dr = DBHelper.ExecuteDataReader("usp_Recepcion_EquipoEntregado", dbParams);
+            if(dr.Read())
+            {
+                resultado = true;
+            }
+            else
+            {
+                resultado = false;
+            }
+            return resultado;
+        }
+
     }
 }

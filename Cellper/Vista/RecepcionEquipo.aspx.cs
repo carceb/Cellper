@@ -394,21 +394,28 @@ namespace Cellper
 
         protected void btnEnviarGarantia_Click(object sender, EventArgs e)
         {
-            if((Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value) !=0))
+            if (Recepcion.EsEquipoEntregado(Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value)) == true)
             {
-                if (txtObservacionesGarantia.Text != "")
+                if ((Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value) != 0))
                 {
-
-                    if(Recepcion.EnviarEquipoGarantia(Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value), txtObservacionesGarantia.Text.ToUpper()) > 0)
+                    if (txtObservacionesGarantia.Text != "")
                     {
-                        messageBox.ShowMessage("Equipo enviado a garantía.");
-                        NuevoRegistro();
+
+                        if (Recepcion.EnviarEquipoGarantia(Convert.ToInt32(hdnEquipoRecepcionGarantiaID.Value), txtObservacionesGarantia.Text.ToUpper()) > 0)
+                        {
+                            messageBox.ShowMessage("Equipo enviado a garantía.");
+                            NuevoRegistro();
+                        }
+                    }
+                    else
+                    {
+                        messageBox.ShowMessage("Debe colocar las observaciones");
                     }
                 }
-                else
-                {
-                    messageBox.ShowMessage("Debe colocar las observaciones");
-                }
+            }
+            else
+            {
+                messageBox.ShowMessage("No puede enviar a garantía un equipo no entregado");
             }
         }
     }

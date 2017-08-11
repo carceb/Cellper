@@ -38,7 +38,7 @@
  <div style="display:none">
   <input id="botoncito" value="opendialog" type="button" />
   
-  <div id="dialogError" title="Error" runat="server" >
+  <div id="dialogError" title="Mensaje" runat="server" >
      <p>
 		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 	</p>

@@ -51,7 +51,7 @@ namespace Cellper
                 foreach (CRecepcion prod in objetoLista)
                 {
                     contadorRegistros = contadorRegistros + 1;
-                    Recepcion.ActualizarLista(prod);
+                    ReparacionEquipo.ActualizarLista(prod);
                     CargarCola();
 
                 }
@@ -89,7 +89,7 @@ namespace Cellper
                         objetoAsignaEstatus.EstatusEquipoID = Utils.utils.ToInt(((Label)dr.FindControl("lblCodEstatusID")).Text);
                     }
                     objetoAsignaEstatus.RecepcionEquipoID = Utils.utils.ToInt(((Label)dr.FindControl("lblCaso")).Text);
-                    objetoAsignaEstatus.FechaAsignacionEstatus = Convert.ToString(System.DateTime.Now);
+                    objetoAsignaEstatus.FechaEntrega = Convert.ToString(System.DateTime.Now);
 
 
                     if (objetoAsignaEstatus.EstatusEquipoID == 0)

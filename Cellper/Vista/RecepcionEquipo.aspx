@@ -225,9 +225,19 @@
                                                                   <asp:TextBox runat="server" ID="txtCodVisita" Visible ="false"   Width="0" ForeColor ="Red" Text='<%# Eval("RecepcionEquipoID") %>' ></asp:TextBox>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="N°" HeaderStyle-Width="50">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNumeroRecibo" Text='<%# Eval("RecepcionEquipoID") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Fecha Recepción" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaRecepcion" Text='<%# Eval("FechaRecepcion") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                     <asp:TemplateField HeaderText="Fecha Entrega" HeaderStyle-Width="100">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblFechaEntrega" Text='<%# Eval("FechaEntrega") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Cédula" HeaderStyle-Width="80">
@@ -240,37 +250,42 @@
                                                                   <asp:Label runat="server" ID="lblNombreVisitante" Text='<%# Eval("NombreCliente") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="100">
+                                                          <asp:TemplateField HeaderText="Tipo equipo" HeaderStyle-Width="80">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblAsunto" Text='<%# Eval("NombreTipoEquipo") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="150">
+                                                          <asp:TemplateField HeaderText="Marca" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblObservacion" Text='<%# Eval("NombreTipoCelular") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusEquipoID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Modelo " HeaderStyle-Width="200">
+                                                           <asp:TemplateField HeaderText="Modelo " HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblVisitado" Text='<%# Eval("NombreModeloCelular") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="IMEI/Serial" HeaderStyle-Width="200">
+                                                           <asp:TemplateField HeaderText="IMEI/Serial" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblIMEI" Text='<%# Eval("IMEI") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Falla" HeaderStyle-Width="200">
+                                                           <asp:TemplateField HeaderText="Falla" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("NombreFallaCelular") %>'></asp:Label>
+                                                              </ItemTemplate>   
+                                                          </asp:TemplateField>
+                                                           <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNombreEstatus" Text='<%# Eval("NombreEstatusEquipo") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                 <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Imprimir Recibo" ToolTip="Imprimir Recibo" ImageUrl="~/Images/imprimir.jpg"  CommandName="ImprimirRecibo" CommandArgument='<%# Eval("RecepcionEquipoID") %>' CausesValidation ="false"/> 
-                                                                <asp:ImageButton runat ="server" PostBackUrl="#openModal"  ImageUrl="~/Images/icon-garantia.png" ToolTip="Enviar a garantía" CausesValidation="false" CommandName="Garantia" CommandArgument='<%# Eval("RecepcionEquipoID") %>'></asp:ImageButton>
+                                                                <asp:ImageButton runat ="server" PostBackUrl="#openModal"  ImageUrl="~/Images/icon-garantia.png" ToolTip="Enviar a garantía" CausesValidation="false" CommandName="Garantia" AlternateText ='<%# Eval("NombreEstatusEquipo") %>' CommandArgument='<%# Eval("RecepcionEquipoID") %>'></asp:ImageButton>
                                                                 <%--<asp:HyperLink runat ="server" ID ="lnkGarantia" NavigateUrl="#openModal" ImageUrl="~/Images/icon-garantia.png" ToolTip="Garantía" ></asp:HyperLink>--%>
-                                                                <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                                <%--<asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>--%>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                       </Columns>
