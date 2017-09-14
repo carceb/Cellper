@@ -39,6 +39,7 @@
                                 <form id ="w" runat ="server">
                                     <div class="6u 12u$(xsmall)">
                                         <asp:TextBox runat="server" ID ="txtLogin"   placeholder="Nombre de usuario"></asp:TextBox>
+                                        <asp:HiddenField runat ="server" ID ="hdnCodigoUsuario"  Value="0"/>
                                         <ASP:RequiredFieldValidator id="chkUserID" runat="server" errormessage="* Debe colocar el nombre de usuario" width="132px" controltovalidate="txtLogin" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                     </div>
                                     <div class="6u 12u$(xsmall)">
@@ -50,6 +51,9 @@
                                     </div>
                                     <div class="6u 12u$(xsmall)">
                                         -
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                       <asp:DropDownList ID="ddlEmpresa" CssClass ="ol"  runat="server" AppendDataBoundItems="true"  Visible="false" >  </asp:DropDownList>
                                     </div>
 									<div class="12u$">
 										<ul class="actions">

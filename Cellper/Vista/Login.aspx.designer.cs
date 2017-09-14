@@ -94,6 +94,15 @@ namespace Seguridad {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
+        /// hdnCodigoUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCodigoUsuario;
+        
+        /// <summary>
         /// chkPassword control.
         /// </summary>
         /// <remarks>

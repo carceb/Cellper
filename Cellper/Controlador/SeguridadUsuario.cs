@@ -48,5 +48,14 @@ namespace Seguridad
 
             return DBHelper.ExecuteDataReader("usp_Login_ObtenerEmpresas", dbParams);
         }
+        public static SqlDataReader ObtenerLogoEmpresa(int empresaID)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@EmpresaID", SqlDbType.Int, 0, empresaID),
+                };
+
+            return DBHelper.ExecuteDataReader("usp_Login_ObtenerLogoEmpresa", dbParams);
+        }
     }
 }

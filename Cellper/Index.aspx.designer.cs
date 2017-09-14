@@ -40,6 +40,15 @@ namespace Seguridad {
         protected global::System.Web.UI.WebControls.TextBox txtLogin;
         
         /// <summary>
+        /// hdnCodigoUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCodigoUsuario;
+        
+        /// <summary>
         /// chkUserID control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace Seguridad {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator chkClave;
+        
+        /// <summary>
+        /// ddlEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmpresa;
         
         /// <summary>
         /// btnAceptar control.

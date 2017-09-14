@@ -242,7 +242,6 @@
     <Content Include="Styles\simpleAutoComplete.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Vista\Autocomplete.aspx" />
-    <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Logout.aspx" />
     <Content Include="Vista\Main.aspx" />
     <Content Include="Vista\Seguridad.aspx" />
@@ -372,9 +371,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controlador\DBHelper.cs" />
-    <Compile Include="Controlador\Login.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Controlador\Login.cs" />
     <Compile Include="Controlador\paginaBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -405,13 +402,6 @@
     </Compile>
     <Compile Include="Vista\Autocomplete.aspx.designer.cs">
       <DependentUpon>Autocomplete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

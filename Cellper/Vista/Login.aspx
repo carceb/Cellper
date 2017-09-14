@@ -84,6 +84,7 @@ BODY {
                           <td width="135" height="20" align="left" valign="middle"><ASP:Label id="lblPassword" runat="server">Clave:</ASP:Label></td>
                           <td width="4" height="20" valign="middle">&nbsp;</td>
                           <td width="140" height="20" align="left" valign="middle"><ASP:TextBox id="txtPassword" runat="server" textmode="Password" maxlength="25"></ASP:TextBox></td>
+                            <asp:HiddenField runat ="server" ID ="hdnCodigoUsuario"  Value="0"/>
                 <td width="202" height="20" align="left" valign="middle">
                           <ASP:RequiredFieldValidator id="chkPassword" runat="server" errormessage="Debe colocar la clave" controltovalidate="txtPassword" display="Dynamic"></ASP:RequiredFieldValidator></td>
                         </tr>

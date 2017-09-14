@@ -32,12 +32,12 @@
 								<section id="banner">
 									<div class="content">
 										<header>
-											<h1>Bienvenido al sistema Cellper.<br /></h1>
-											<p>La manera mas simple de tener el control de los servicios técnicos</p>
+											<h1>Bienvenido <%:Session["NombreCompletoUsuario"]%> al sistema Cellper.<br /></h1>
+                                            <p><%:Session["NombreEmpresa"]%></p>
 										</header>
 									</div>
 									<span class="image object">
-										<img src="../images/bienvenida.jpg" alt="" />
+										<img src=<%:Session["LogoEmpresa"]%>  alt=""/>
 									</span>
 								</section>
 
