@@ -20,7 +20,8 @@ namespace Cellper
                     DBHelper.MakeParam("@NombreItem", SqlDbType.VarChar, 0, objetoInventario.NombreItem),
                     DBHelper.MakeParam("@CantidadItem", SqlDbType.Int, 0, objetoInventario.CantidadItem),
                     DBHelper.MakeParam("@CostoItem", SqlDbType.Money, 0, objetoInventario.CostoItem),
-                    DBHelper.MakeParam("@SerialItem", SqlDbType.VarChar, 0, objetoInventario.SerialItem)
+                    DBHelper.MakeParam("@SerialItem", SqlDbType.VarChar, 0, objetoInventario.SerialItem),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, objetoInventario.EmpresaSucursalID)
 
                 };
 

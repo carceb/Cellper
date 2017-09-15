@@ -49,11 +49,12 @@ namespace Admin
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerTecnicos", dbParams);
         }
-        public static DataSet ObtenerInventarioItem(string sQuery)
+        public static DataSet ObtenerInventarioItem(string sQuery, int codigoSucursal)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerInventarioItem", dbParams);
         }

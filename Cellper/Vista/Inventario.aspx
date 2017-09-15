@@ -39,7 +39,9 @@
             document.getElementById("hdnInventarioID").value = par[0];
             document.getElementById("txtCantidad").value = par[3];
             var number = par[4];
-            document.getElementById("txtCosto").value = new Intl.NumberFormat("de-DE").format(number);
+            document.getElementById("txtCosto").value = number;
+            //NO ESTA FUNCIONANDO EL FORMATO DESDE JAVASCRIPT
+            //document.getElementById("txtCosto").value = new Intl.NumberFormat("de-DE").format(number);
             document.getElementById("txtSerial").value = par[5];
         }
 

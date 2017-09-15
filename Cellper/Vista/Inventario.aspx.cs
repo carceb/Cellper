@@ -21,6 +21,7 @@ namespace Cellper
             objetoInventario.InventarioID = Convert.ToInt32(hdnInventarioID.Value);
             objetoInventario.NombreItem = txtNombre.Text.ToUpper();
             objetoInventario.CantidadItem = Convert.ToInt32(txtCantidad.Text);
+            objetoInventario.EmpresaSucursalID = Convert.ToInt32(Session["CodigoEmpresaSucursal"]);
             var z = txtCosto.Text.Replace(".", "");
             var a = z.Replace(",", ".");
             objetoInventario.CostoItem = Convert.ToDouble(a);
@@ -42,6 +43,7 @@ namespace Cellper
             txtNombre.Text = "";
             txtCantidad.Text = "";
             txtCosto.Text = "";
+            txtSerial.Text = "";
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

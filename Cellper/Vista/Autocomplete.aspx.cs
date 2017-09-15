@@ -109,7 +109,7 @@ namespace Admin
                 }
                 if (Request.QueryString["identifier"] == "Inventario")
                 {
-                    DataSet ds = Autocomplete.ObtenerInventarioItem(Request.QueryString["query"]);
+                    DataSet ds = Autocomplete.ObtenerInventarioItem(Request.QueryString["query"],  Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         Response.Write("<ul>" + "\n");

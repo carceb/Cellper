@@ -25,8 +25,9 @@ namespace Cellper
         private int _condicionEquipoID;
         private string _descripcionAccesorios;
         private double _costoPresupuesto;
+        private int _empresaSucursalID;
 
-        public CRecepcion(int _recepcionEquipoID, int _clienteID, int _modeloCelularID, string _imei, int _fallaCelularID, string _observaciones, int _tecnicoID, string _fechaEntrega, int _tipoEquipoID, int _estatusEquipoID, string _fechaAsignacionEstatus, int _condicionEquipoID, string _descripcionAccesorios, double _costoPresupuesto)
+        public CRecepcion(int _recepcionEquipoID, int _clienteID, int _modeloCelularID, string _imei, int _fallaCelularID, string _observaciones, int _tecnicoID, string _fechaEntrega, int _tipoEquipoID, int _estatusEquipoID, string _fechaAsignacionEstatus, int _condicionEquipoID, string _descripcionAccesorios, double _costoPresupuesto, int _empresaSucursalID)
         {
             this.RecepcionEquipoID = _recepcionEquipoID;
             this.ClienteID = _clienteID;
@@ -41,6 +42,7 @@ namespace Cellper
             this._condicionEquipoID = _condicionEquipoID;
             this._descripcionAccesorios = _descripcionAccesorios;
             this._costoPresupuesto = _costoPresupuesto;
+            this._empresaSucursalID = _empresaSucursalID;
 
         }
 
@@ -219,6 +221,18 @@ namespace Cellper
             set
             {
                 _costoPresupuesto = value;
+            }
+        }
+        public int EmpresaSucursalID
+        {
+            get
+            {
+                return _empresaSucursalID;
+            }
+
+            set
+            {
+                _empresaSucursalID = value;
             }
         }
 

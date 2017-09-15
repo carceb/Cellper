@@ -30,7 +30,8 @@ namespace Cellper
                     DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, objetoRecepcion.EstatusEquipoID),
                     DBHelper.MakeParam("@CondicionEquipoID", SqlDbType.Int, 0, objetoRecepcion.CondicionEquipoID),
                     DBHelper.MakeParam("@DescripcionAccesorios", SqlDbType.VarChar, 0, objetoRecepcion.DescripcionAccesorios),
-                    DBHelper.MakeParam("@CostoPresupuesto", SqlDbType.Money, 0, objetoRecepcion.CostoPresupuesto)
+                    DBHelper.MakeParam("@CostoPresupuesto", SqlDbType.Money, 0, objetoRecepcion.CostoPresupuesto),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, objetoRecepcion.EmpresaSucursalID)
                 };
 
                 return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Recepcion_Insertar", dbParams));
@@ -42,7 +43,7 @@ namespace Cellper
             }
 
         }
-        public static DataSet ObtenerServiciosCliente(int cedulaCliente, int estatusEquipo)
+        public static DataSet ObtenerServiciosCliente(int cedulaCliente, int estatusEquipo, int codigoSucursal)
         {
             if(estatusEquipo > 0 )
             {
@@ -50,6 +51,7 @@ namespace Cellper
                     {
                         DBHelper.MakeParam("@CedulaCliente", SqlDbType.Int, 0, cedulaCliente),
                         DBHelper.MakeParam("@EstatusEquipoID", SqlDbType.Int, 0, estatusEquipo),
+                        DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                     };
                 return DBHelper.ExecuteDataSet("usp_Recepcion_ObtenerEquipoCliente", dbParams);
             }
@@ -57,7 +59,8 @@ namespace Cellper
             {
                 SqlParameter[] dbParams = new SqlParameter[]
                     {
-                        DBHelper.MakeParam("@CedulaCliente", SqlDbType.Int, 0, cedulaCliente)
+                        DBHelper.MakeParam("@CedulaCliente", SqlDbType.Int, 0, cedulaCliente),
+                        DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                     };
                 return DBHelper.ExecuteDataSet("usp_Recepcion_ObtenerEquiposCliente", dbParams);
             }
@@ -71,11 +74,11 @@ namespace Cellper
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Recepcion_EliminarRecepcion", dbParams));
         }
 
-        public static DataSet ObtenerColaEquipos()
+        public static DataSet ObtenerColaEquipos(int codigoSucursal)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                 };
 
             return DBHelper.ExecuteDataSet("usp_ColaEquipos_ObtenerColaEquipos", dbParams);

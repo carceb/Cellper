@@ -139,7 +139,7 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "Select * From Tecnico ORDER BY NombreTecnico";
+            strQuery = "SELECT * FROM DetalleUsuarioTecnico WHERE EmpresaSucursalID =" + Session["CodigoSucursalEmpresa"];
 
             using (SqlConnection con = new SqlConnection(strConnString))
             {
@@ -150,8 +150,8 @@ namespace Cellper
                     cmd.Connection = con;
                     con.Open();
                     ddlTecnico.DataSource = cmd.ExecuteReader();
-                    ddlTecnico.DataTextField = "NombreTecnico";
-                    ddlTecnico.DataValueField = "TecnicoID";
+                    ddlTecnico.DataTextField = "NombreCompleto";
+                    ddlTecnico.DataValueField = "SeguridadUsuarioDatosID";
                     ddlTecnico.DataBind();
                     con.Close();
                 }
@@ -196,7 +196,7 @@ namespace Cellper
             }
             try
             {
-                DataSet ds = Recepcion.ObtenerServiciosCliente(Convert.ToInt32(txtCedula.Text), codigoEstatus);
+                DataSet ds = Recepcion.ObtenerServiciosCliente(Convert.ToInt32(txtCedula.Text), codigoEstatus, Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                 DataTable dt = ds.Tables[0];
                 gridDetalle.DataSource = dt;
                 gridDetalle.DataBind();
@@ -353,10 +353,15 @@ namespace Cellper
             objetoRecepcion.CondicionEquipoID = Convert.ToInt32(ddlCondicionEquipo.SelectedValue);
             objetoRecepcion.DescripcionAccesorios = txtAccesorios.Text.ToUpper();
             objetoRecepcion.CostoPresupuesto = Convert.ToDouble(txtCostoRevision.Text);
+            objetoRecepcion.EmpresaSucursalID = Convert.ToInt32(Session["CodigoSucursalEmpresa"]);
             if (Recepcion.InsertarRecepcion(objetoRecepcion, objetoCliente) > 0)
             {
                 messageBox.ShowMessage("Registro actualizado.");
                 CargarDetalleServicio(false);
+            }
+            else
+            {
+                messageBox.ShowMessage("Ocurrió un error, no se pudieron actualizar los registros");
             }
         }
         private void NuevoRegistro()

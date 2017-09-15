@@ -18,7 +18,7 @@ namespace Cellper
         {
             try
             {
-                DataSet ds = Consultas.ObtenerEquiposEntregados();
+                DataSet ds = Consultas.ObtenerEquiposEntregados(Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                 this.gridDetalle.DataSource = ds.Tables[0];
                 this.gridDetalle.DataBind();
             }

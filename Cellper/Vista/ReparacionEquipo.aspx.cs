@@ -77,7 +77,7 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "SELECT * FROM Inventario ORDER BY NombreItem";
+            strQuery = "SELECT * FROM Inventario WHERE EmpresaSucursalID = " + Session["CodigoSucursalEmpresa"] + "  ORDER BY NombreItem";
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())

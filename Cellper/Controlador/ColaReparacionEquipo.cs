@@ -10,11 +10,11 @@ namespace Cellper
 {
     public partial class ColaReparacionEquipo
     {
-        public static DataSet ObtenerColaEquiposReparacion()
+        public static DataSet ObtenerColaEquiposReparacion(int codigoSucursal)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                 };
 
             return DBHelper.ExecuteDataSet("usp_ColaReparacionEquipo_ObtenerColaEquipos", dbParams);

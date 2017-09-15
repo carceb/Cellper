@@ -10,14 +10,23 @@ namespace Cellper
 {
     public class Consultas
     {
-        public static DataSet ObtenerEquiposEntregados()
+        public static DataSet ObtenerEquiposEntregados(int codigoSucursal)
         {
-            SqlParameter[] dbParams = new SqlParameter[]
-                {
+            try
+            {
+                SqlParameter[] dbParams = new SqlParameter[]
+                    {
+                        DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
+                    };
 
-                };
+                return DBHelper.ExecuteDataSet("usp_ColaReparacionEquipo_ObtenerEquiposEntregados", dbParams);
+            }
+            catch (Exception)
+            {
 
-            return DBHelper.ExecuteDataSet("usp_ColaReparacionEquipo_ObtenerEquiposEntregados", dbParams);
+                throw;
+            }
+
         }
     }
 }
