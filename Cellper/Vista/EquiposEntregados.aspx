@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EquiposEntregados.aspx.cs" Inherits="Cellper.EquiposEntregados" %>
-
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EquiposEntregados.aspx.cs" Inherits="Cellper.EquiposEntregados" %>
+<%@ Register TagPrefix="uc2" TagName="UCNavegacion" Src="~/Vista/UCNavegacion.ascx" %>
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
 
@@ -17,12 +18,12 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
         <link rel="stylesheet" href="../Styles/simpleAutoComplete.css"  />
 	    <script src="../js/Util.js" type="text/javascript"></script>
-<%--        <script src="../js/jquery.js"></script>--%>
+<%--        <script src="../js/jquery.js"></script>--%> 
         <script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/skel.min.js"></script>
         <script src="../assets/js/util.js"></script>
-        <script src="../assets/js/main.js"></script>         
+        <script src="../assets/js/main.js"></script>      
 
 <%--------------------------%>
 
@@ -140,48 +141,12 @@
 						<div class="inner">
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="Principal.aspx">Inicio</a></li>
-										<li>
-											<span class="opener">Servicio Técnico</span>
-											<ul>
-												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="ColaDeEquipos.aspx">Cola de Equipos Pendientes</a></li>
-											</ul>
-										</li>
-
-										<li>
-											<span class="opener">Consultas</span>
-											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos por Entregar</a></li>
-                                                <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">Opciones especiales</span>
-											<ul>
-                                                <li><a href="Inventario.aspx">Inventario</a></li>
-												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
-                                                <li><a href="ModeloEquipo.aspx">Modelo equipo</a></li>
-                                                <li><a href="FallaEquipo.aspx">Fallas</a></li>
-                                                <li><a href="Tecnico.aspx">Técnicos</a></li>
-											</ul>
-										</li>
-                                        <li><a href="Logout.aspx">Salir</a></li>
-									</ul>
-								</nav>
+                                <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
 
 							<!-- Section -->
 
 
 							<!-- Section -->
-                                &nbsp;<!-- Footer --><footer id="footer">
-									<p class="copyright">&copy; Cellper. Todos los derechos reservados.</p>
-								</footer>
 
 						</div>
 					</div>

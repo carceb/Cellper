@@ -7,18 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cellper {
+namespace Cellper.Vista {
     
     
-    public partial class Principal {
-        
-        /// <summary>
-        /// ControlMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Cellper.Vista.UCNavegacion ControlMenu;
+    public partial class UCNavegacion {
     }
 }

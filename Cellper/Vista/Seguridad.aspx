@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="../Styles/estilos.css" type="text/css"/>
 	<script src="../js/Util.js" type="text/javascript"></script>
     <script src="../js/jquery.js"></script>
+
+    <script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>    
  
 
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">BODY {
@@ -35,6 +41,7 @@ BODY {
             return confirm("¿Realmente desea eliminar este servicio?");
         }
     </script>  
+ 
  <body>
  <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
   <form id="form1" runat="server">
@@ -43,6 +50,7 @@ BODY {
       <td colspan="4"><img src="../Images/top_seguridad_1.jpg" width="1000" height="160"></td>
     </tr>
     <tr>
+        
       <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
 	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2>Modulo de Seguridad</h2></td>
     </tr>
