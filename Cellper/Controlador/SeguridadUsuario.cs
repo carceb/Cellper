@@ -19,7 +19,8 @@ namespace Seguridad
                     DBHelper.MakeParam("@DescripcionUsuario", SqlDbType.VarChar, 0, objetoSeguridad.DescripcionUsuario),
                     DBHelper.MakeParam("@SeguridadGrupoID", SqlDbType.Int, 0, objetoSeguridad.SeguridadGrupoID),
                     DBHelper.MakeParam("@UsuarioTecnico", SqlDbType.Bit, 0, objetoSeguridad.UsuarioTecnico),
-                    DBHelper.MakeParam("@EstatusUsuario", SqlDbType.VarChar, 0,objetoSeguridad.EstatusUsuario)
+                    DBHelper.MakeParam("@EstatusUsuario", SqlDbType.VarChar, 0,objetoSeguridad.EstatusUsuario),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0,objetoSeguridad.EmpresaSucursalID)
             };
             if (objetoSeguridad.SeguridadUsuarioDatosID == 0)
             {
@@ -56,6 +57,26 @@ namespace Seguridad
                 };
 
             return DBHelper.ExecuteDataReader("usp_Login_ObtenerLogoEmpresa", dbParams);
+        }
+        public static int ObtenerCodigoEmpresa(int codigoSucursal)
+        {
+            int codigoEmpresa = 0;
+            SqlDataReader dr;
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal),
+                };
+
+            dr = DBHelper.ExecuteDataReader("usp_Login_ObtenerCodigoEmpresa", dbParams);
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    codigoEmpresa = dr.GetInt32(1);
+                }
+            }
+            dr.Close();
+            return codigoEmpresa;
         }
     }
 }

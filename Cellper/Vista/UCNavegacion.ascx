@@ -51,6 +51,12 @@
                                                 <li><a href="Tecnico.aspx">Técnicos</a></li>
 											</ul>
 										</li>
+										<li>
+											<span class="opener">Seguridad</span>
+											<ul>
+                                                <li><a href="Seguridad.aspx">Agregar usuario</a></li>
+											</ul>
+										</li>
                                         <li><a href="Logout.aspx">Salir</a></li>
 									</ul>
 								</nav>

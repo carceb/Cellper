@@ -53,6 +53,7 @@ namespace Seguridad
             }
             else
             {
+                this.Session["CodigoEmpresa"] = SeguridadUsuario.ObtenerCodigoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
                 this.Session["CodigoSucursalEmpresa"] = ddlEmpresa.SelectedValue;
                 this.Session["NombreEmpresa"] = ddlEmpresa.SelectedItem;
                 this.Session["LogoEmpresa"] = LogoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
@@ -82,6 +83,7 @@ namespace Seguridad
                     {
                         CargarComboEmpresas(codigoUsuario);
                         codigoDeEmpresa = CantidadEmpresasPorUsuario(codigoUsuario, true);
+                        this.Session["CodigoEmpresa"] = SeguridadUsuario.ObtenerCodigoEmpresa(codigoDeEmpresa);
                         this.Session["CodigoSucursalEmpresa"] = codigoDeEmpresa;
                         this.Session["LogoEmpresa"] = LogoEmpresa(codigoDeEmpresa);
                         this.Session["NombreEmpresa"] = ddlEmpresa.SelectedItem;
@@ -138,9 +140,7 @@ namespace Seguridad
         }
         private void EstablecerObjetos(bool esVisible)
         {
-            //lblConsultorio.Visible = esVisible;
             ddlEmpresa.Visible = esVisible;
-           // lblMensaje.Visible = esVisible;
             txtLogin.Enabled = false;
         }
         private void RestablecerVariables()

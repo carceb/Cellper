@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seguridad.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,25 @@ namespace Seguridad
     {
         protected new void Page_Load(object sender, EventArgs e)
         {
-
+            EstablecerObjetos();
         }
-
+        private void EstablecerObjetos()
+        {
+            CSeguridad objetoSeguridad = new CSeguridad();
+            objetoSeguridad.SeguridadUsuarioDatosID = Convert.ToInt32(Session["UserID"]);
+            if (objetoSeguridad.EsUsuarioAdministrador() == true)
+            {
+                btnAgregarGrupo.Visible = true;
+                btnAgregarObjeto.Visible = true;
+                btmAgregarGrupoObjeto.Visible = true;
+            }
+            else
+            {
+                btnAgregarGrupo.Visible = false;
+                btnAgregarObjeto.Visible = false;
+                btmAgregarGrupoObjeto.Visible = false;
+            }
+        }
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             Response.Redirect("SeguridadUsuario.aspx");

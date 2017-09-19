@@ -1,41 +1,33 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeguridadUsuario.aspx.cs" Inherits="Seguridad.SeguridadUsuario" %>
-
+<%@ Register TagPrefix="uc2" TagName="UCNavegacion" Src="~/Vista/UCNavegacion.ascx" %>
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
-<%@ Register TagPrefix="uc1" TagName="UCNavigation" Src="~/Vista/UCNavigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+<!DOCTYPE HTML>
 
 <html>
-<head>
-    <title>| Sistema Call Center | Usuarios|</title>
-	
-	<link rel="stylesheet" href="../Styles/estilo.css" type="text/css"/>
-	<script src="../js/Util.js" type="text/javascript"></script>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
-    <link href="../Styles/simpleAutoComplete.css" rel="stylesheet" />
-    <link href="../Styles/jquery-ui-1.8rc3.custom.css" rel="stylesheet" />
+	<head>
+		<title>Cellper | Usuarios</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">BODY {
-	FONT-SIZE: 8.5pt
-}
-TD {
-	FONT-SIZE: 8.5pt
-}
-TH {
-	FONT-SIZE: 8.5pt
-}
-BODY {
-	BACKGROUND-IMAGE: url(../Images/fondo_3.png); BACKGROUND-COLOR: #ffffff
-}
-        .auto-style2 {
-            height: 21px;
-        }
-        .auto-style3 {
-            height: 43px;
-        }
-    </style>
-    <script>
+<%--        SCRIPTS--%>
+        <link rel="stylesheet"  href="../Styles/jquery-ui-1.8rc3.custom.css"  />
+        <script src="../assets/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+        <link rel="stylesheet" href="../Styles/simpleAutoComplete.css"  />
+	    <script src="../js/Util.js" type="text/javascript"></script>
+<%--        <script src="../js/jquery.js"></script>--%>      
+        <script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/skel.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>      
 
+<%--------------------------%>
+
+    <script type="text/javascript">
 
         $(function () {
             $('#txtNombre').simpleAutoComplete('Autocomplete.aspx', {
@@ -68,111 +60,101 @@ BODY {
         }
 
     </script>
+	</head>
+	<body>
+        <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-</head>
-  
-  <body>
- <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
-  <form id="form1" runat="server">
-<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-    <tr>
-      <td colspan="4"><img src="../Images/top_seguridad_1.jpg" width="1000" height="160"></td>
-    </tr>
-    <tr>
-      <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
-	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Agregar/Modificar Usuario</h2></td>
-    </tr>
-    <tr>
-      <td width="10" height="350" valign="top">&nbsp;</td>
-      <td width="770" valign="top" colspan="3">
-      <!-- Contenido Aqui -->
-          <table>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Nombre Completo" ID="Label6" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:TextBox runat="server" ID="txtNombre" MaxLength="100" onkeypress="return event.keyCode!=13;" Width ="300"/> 
-                        <asp:HiddenField runat ="server" ID ="hdnSeguridadUsuarioDatosID"  Value="0"/>
-                        <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre completo" width="132px" controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Login" ID="Label5" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                            <asp:TextBox runat="server" ID="txtLogin"  MaxLength="50"/> 
-                            <ASP:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" errormessage="Debe colocar el login" width="132px" controltovalidate="txtLogin" display="Dynamic"></ASP:RequiredFieldValidator>
-                      </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Clave" ID="Label1" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:TextBox runat="server" ID="txtClave" MaxLength="50" /> 
-                        <ASP:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" errormessage="Debe colocar la clave" width="132px" controltovalidate="txtClave" display="Dynamic"></ASP:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Descripción" ID="Label7" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:TextBox runat="server" ID="txtDescripion" MaxLength="200" Width ="300"/> 
-                        <ASP:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" errormessage="Debe colocar la descripción del usuario" width="132px" controltovalidate="txtDescripion" display="Dynamic"></ASP:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label Text="Grupo" ID="Label2" runat="server" />
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="ddlGrupo" runat="server" AutoPostBack = "true" Width="300" ></asp:DropDownList>
-                    </td>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
 
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Usuario Tecnico" ID="Label4" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:CheckBox runat="server" ID="chkTecnico"/> 
-                        <asp:HiddenField runat ="server" ID ="hdnTecnico"  Value=""/>
-                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label Text="Activo" ID="Label3" runat="server" />
-                    </td>
-                    <td class="auto-style2">
-                        <asp:CheckBox runat="server" ID="chkEstatus" Checked="True"/> 
-                        <asp:HiddenField runat ="server" ID ="hdnEstatus"  Value=""/>
-                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="boton_formulario" OnClick="btnGuardar_Click"/>
-                    </td>
-                    <td class="auto-style3">
-                        
-                    </td>
-                </tr>
-                    
-          </table>
-      </td>
+							<!-- Header -->
+								<header id="header">
+									<a class="logo"><strong>Usuarios</strong></a>
+									<ul class="icons">
 
-    </tr>
-    <tr>
-      <td width="200" height="30" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="10" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="770" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="20" bgcolor="#d2d2c6">&nbsp;</td>
-    </tr>
-  </table>
+									</ul>
+								</header>
+
+							<!-- Content -->
+							<form runat ="server" id ="principal">	
+                                <section>
+                                        <p></p>
+                                        <div class="row uniform">
+									        <div class="6u 12u$(xsmall)">
+                                                <asp:TextBox runat="server" ID="txtNombre" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Nombre completo del usuario"/> 
+                                                <asp:HiddenField runat ="server" ID ="hdnSeguridadUsuarioDatosID"  Value="0"/>
+                                                <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre completo"  controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
+									        </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:TextBox runat="server" ID="txtLogin"  MaxLength="50" placeholder ="Nombre Login"/> 
+                                                <ASP:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" errormessage="Debe colocar el login"  controltovalidate="txtLogin" display="Dynamic"></ASP:RequiredFieldValidator>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:TextBox runat="server" ID="txtClave" MaxLength="50" placeholder ="Clave" /> 
+                                                <ASP:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" errormessage="Debe colocar la clave"  controltovalidate="txtClave" display="Dynamic"></ASP:RequiredFieldValidator>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:TextBox runat="server" ID="txtDescripion" MaxLength="200" placeholder ="Descripción del usuario"/> 
+                                                <ASP:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" errormessage="Debe colocar la descripción del usuario"  controltovalidate="txtDescripion" display="Dynamic"></ASP:RequiredFieldValidator>
+                                            </div>
+									        <div class="6u 12u$(xsmall)">
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlGrupo" runat="server"  AppendDataBoundItems="True" ></asp:DropDownList>
+                                                </div>
+									        </div>
    
-  
-    </form>
-</body>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlEmpresa" runat="server" AutoPostBack = "true"  AppendDataBoundItems="True" OnSelectedIndexChanged="ddlEmpresa_SelectedIndexChanged" ></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlSucursal" runat="server" AutoPostBack = "true"  AppendDataBoundItems="True" ></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <asp:CheckBox runat="server" ID="chkTecnico" Text="Usuario técnico"/> 
+                                                <asp:HiddenField runat ="server" ID ="hdnTecnico"  Value=""/>
+                                                <asp:CheckBox runat="server" ID="chkEstatus" Checked="True" Text ="Activo"/> 
+                                                <asp:HiddenField runat ="server" ID ="hdnEstatus"  Value=""/>
+                                            </div>
+										    <div class="12u$">
+											    <ul class="actions">
+                                                    <asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"/>
+                                                    <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" CausesValidation="False" OnClick="btnNuevo_Click"  /></li>
+											    </ul>
+										    </div>
+                                        </div>
+								</section>
+                            </form>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+                                <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
+							<!-- Section -->
+
+
+							<!-- Section -->
+
+
+						</div>
+					</div>
+
+			</div>
+		<!-- Scripts -->
+
+<%--        SE COLOCARON EN EL HEADER --%>
+
+	</body>
 </html>
+
 

@@ -22,13 +22,14 @@ namespace Seguridad.Clases
         private int _seguridadObjetoID;
         private string _nombreObjeto;
         private int _seguridadObjetoAccesoID;
+        private int _empresaSucursalID;
 
         public CSeguridad()
         {
 
         }
 
-        public CSeguridad(int _seguridadUsuarioDatosID, string _loginUsuario, string _claveUsuario, string _nombreCompleto, string _descripcionUsuario, int _seguridadGrupoID, int _usuarioTecnico, string _estatusUsuario, string _nombreGrupo, string _descripcionGrupo, int _seguridadObjetoID, string _nombreObjeto, int _seguridadObjetoAccesoID)
+        public CSeguridad(int _seguridadUsuarioDatosID, string _loginUsuario, string _claveUsuario, string _nombreCompleto, string _descripcionUsuario, int _seguridadGrupoID, int _usuarioTecnico, string _estatusUsuario, string _nombreGrupo, string _descripcionGrupo, int _seguridadObjetoID, string _nombreObjeto, int _seguridadObjetoAccesoID, int _empresaSucursalID)
         {
             this._seguridadUsuarioDatosID = _seguridadUsuarioDatosID;
             this._loginUsuario = _loginUsuario;
@@ -43,6 +44,7 @@ namespace Seguridad.Clases
             this._seguridadObjetoID = _seguridadObjetoID;
             this._nombreObjeto = _nombreObjeto;
             this._seguridadObjetoAccesoID = _seguridadObjetoAccesoID;
+            this._empresaSucursalID = _empresaSucursalID;
         }
 
         public int SeguridadUsuarioDatosID
@@ -212,7 +214,18 @@ namespace Seguridad.Clases
                 _seguridadObjetoAccesoID = value;
             }
         }
+        public int EmpresaSucursalID
+        {
+            get
+            {
+                return _empresaSucursalID;
+            }
 
+            set
+            {
+                _empresaSucursalID = value;
+            }
+        }
         public bool EsAccesoPermitido(int seguridadObjetoID)
         {
             bool esPermitido =false;

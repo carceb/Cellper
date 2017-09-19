@@ -15,11 +15,28 @@ namespace Seguridad
             if (!IsPostBack)
             {
                 CargarGrupos();
+                CargarEmpresas();
+                EstablecerObjetos();
             }
         }
-
+        private void EstablecerObjetos()
+        {
+            CSeguridad objetoSeguridad = new CSeguridad();
+            objetoSeguridad.SeguridadUsuarioDatosID = Convert.ToInt32(Session["UserID"]);
+            if (objetoSeguridad.EsUsuarioAdministrador() == true)
+            {
+                ddlEmpresa.Enabled = true;
+                ddlEmpresa.Items.Insert(0, new ListItem("--Seleccione la Empresa--", "0"));
+            }
+            else
+            {
+                ddlEmpresa.Enabled = false;
+                CargarSucursal(Convert.ToInt32(Session["CodigoEmpresa"]));
+            }
+        }
         private void CargarGrupos()
         {
+            ddlGrupo.Items.Clear();
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "select * from SeguridadGrupo";
@@ -37,7 +54,7 @@ namespace Seguridad
                 ddlGrupo.DataTextField = "NombreGrupo";
                 ddlGrupo.DataValueField = "SeguridadGrupoID";
                 ddlGrupo.DataBind();
-                ddlGrupo.Items.Insert(0, new ListItem("--Seleccione el Grupo--", "0"));
+                
             }
             catch (Exception ex)
             {
@@ -47,6 +64,77 @@ namespace Seguridad
             {
                 con.Close();
                 con.Dispose();
+            }
+        }
+        private void CargarEmpresas()
+        {
+            CSeguridad objetoSeguridad = new CSeguridad();
+            objetoSeguridad.SeguridadUsuarioDatosID = Convert.ToInt32(Session["UserID"]);
+
+            String strQuery;
+            String strConnString = ConfigurationManager
+
+            .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
+            if (objetoSeguridad.EsUsuarioAdministrador() == true)
+            {
+                strQuery = "select * from Empresa Order By NombreEmpresa";
+            }
+            else
+            {
+                strQuery = "select * from Empresa Where EmpresaID =" + Convert.ToInt32(Session["CodigoEmpresa"]);
+            }
+           
+            SqlConnection con = new SqlConnection(strConnString);
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = strQuery;
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                ddlEmpresa.DataSource = cmd.ExecuteReader();
+                ddlEmpresa.DataTextField = "NombreEmpresa";
+                ddlEmpresa.DataValueField = "EmpresaID";
+                ddlEmpresa.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+        private void CargarSucursal(int sucursalID)
+        {
+            ddlSucursal.Items.Clear();
+            ddlSucursal.Items.Add(new ListItem("--Seleccione la sucursal--", ""));
+            String strConnString = ConfigurationManager
+            .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
+            String strQuery = "";
+
+            if (sucursalID != 0)
+            {
+                strQuery = "select * From EmpresaSucursal  WHERE EmpresaID   = " + sucursalID + "  ORDER BY EmpresaID";
+            }
+            using (SqlConnection con = new SqlConnection(strConnString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = strQuery;
+                    cmd.Connection = con;
+                    con.Open();
+                    ddlSucursal.DataSource = cmd.ExecuteReader();
+                    ddlSucursal.DataTextField = "NombreSucursal";
+                    ddlSucursal.DataValueField = "EmpresaSucursalID";
+                    ddlSucursal.DataBind();
+                    con.Close();
+                }
             }
         }
         private void ActualizarRegistros()
@@ -65,6 +153,7 @@ namespace Seguridad
                     objetoSeguridad.SeguridadGrupoID = Convert.ToInt32(ddlGrupo.SelectedValue);
                     objetoSeguridad.UsuarioTecnico = Convert.ToInt32(this.chkTecnico.Checked);
                     objetoSeguridad.EstatusUsuario = this.chkEstatus.Checked ? "Activo" : "Inactivo";
+                    objetoSeguridad.EmpresaSucursalID = Convert.ToInt32(Session["CodigoSucursalEmpresa"]);
                     if (SeguridadUsuario.InsertarUsuario(objetoSeguridad) > 0)
                     {
                         messageBox.ShowMessage("El usuario se ingresó correctamente");
@@ -89,7 +178,11 @@ namespace Seguridad
             this.hdnTecnico.Value = "";
             this.chkTecnico.Checked = false;
             this.chkEstatus.Checked = true;
+            ddlSucursal.Items.Clear();
             CargarGrupos();
+            CargarEmpresas();
+            EstablecerObjetos();
+
         }
 
         private bool EsTodoCorrecto()
@@ -129,5 +222,21 @@ namespace Seguridad
             ActualizarRegistros();
         }
 
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarPantalla();
+        }
+
+        protected void ddlEmpresa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlEmpresa.SelectedValue != "0")
+            {
+                CargarSucursal(Convert.ToInt32(ddlEmpresa.SelectedItem.Value));
+            }
+            else
+            {
+                ddlSucursal.Items.Clear();
+            }
+        }
     }
 }
