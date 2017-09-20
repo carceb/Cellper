@@ -8,10 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace Seguridad
 {
-    public partial class Seguridad : Admin.paginaBase
+    public partial class Seguridad : System.Web.UI.Page
     {
-        protected new void Page_Load(object sender, EventArgs e)
+        protected  void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 17) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             EstablecerObjetos();
         }
         private void EstablecerObjetos()

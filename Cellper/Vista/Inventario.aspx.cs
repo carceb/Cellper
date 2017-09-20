@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 13) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
         }
 
         private void ProcesoInsertar()

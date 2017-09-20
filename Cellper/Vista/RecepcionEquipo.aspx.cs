@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,6 +15,10 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session,9) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             if (!IsPostBack)
             {
                 CargarTecnico();
@@ -23,6 +28,8 @@ namespace Cellper
                 ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
                 ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
             }
+   
+
         }
         private void CargarTipoEquipo()
         {

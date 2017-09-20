@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Seguridad;
 
 namespace Cellper
 {
@@ -14,6 +15,10 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session,10) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             if (!IsPostBack)
             {
                 CargarEquipo();

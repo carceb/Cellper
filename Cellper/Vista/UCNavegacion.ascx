@@ -29,32 +29,32 @@
 										<li>
 											<span class="opener">Servicio Técnico</span>
 											<ul>
-												<li><a href="RecepcionEquipo.aspx">Recepción de equipos</a></li>
-												<li><a href="ColaDeEquipos.aspx">Cola de equipos Pendientes</a></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkRecepcionEquipo"  navigateurl ="~/Vista/RecepcionEquipo.aspx"  Text ="Recepción de equipos"></ASP:HyperLink></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkColaDeEquipos"  navigateurl ="~/Vista/ColaDeEquipos.aspx"  Text ="Cola de equipos Pendientes"></ASP:HyperLink></li>
 											</ul>
 										</li>
 
 										<li>
 											<span class="opener">Consultas</span>
 											<ul>
-												<li><a href="ColaReparacionEquipo.aspx">Cola de Equipos por Entregar</a></li>
-                                                <li><a href="EquiposEntregados.aspx">Equipos Entregados</a></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkColaReparacionEquipos"  navigateurl ="~/Vista/ColaReparacionEquipo.aspx" Text ="Cola de Equipos por Entregar"></ASP:HyperLink></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkColaEquiposEntregados"  navigateurl ="~/Vista/EquiposEntregados.aspx" Text ="Equipos Entregados"></ASP:HyperLink></li>
 											</ul>
 										</li>
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
-                                                <li><a href="Inventario.aspx">Inventario</a></li>
-												<li><a href="MarcaEquipo.aspx">Marca equipo</a></li>
-                                                <li><a href="ModeloEquipo.aspx">Modelo equipo</a></li>
-                                                <li><a href="FallaEquipo.aspx">Fallas</a></li>
-                                                <li><a href="Tecnico.aspx">Técnicos</a></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkInventario"  navigateurl ="~/Vista/Inventario.aspx" Text ="Inventario de piezas, partes y servicios"></ASP:HyperLink></li>
+												<li><ASP:HyperLink runat="server" ID ="lnkMarcaEquipo"  navigateurl ="~/Vista/MarcaEquipo.aspx" Text ="Registrar Marca de Equipos"></ASP:HyperLink></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkModeloEquipo"  navigateurl ="~/Vista/ModeloEquipo.aspx" Text ="Registrar Modelo de Equipos"></ASP:HyperLink></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkFallasEquipo"  navigateurl ="~/Vista/FallaEquipo.aspx" Text ="Registrar Tipo de Fallas"></ASP:HyperLink></li>
 											</ul>
 										</li>
 										<li>
 											<span class="opener">Seguridad</span>
 											<ul>
-                                                <li><a href="Seguridad.aspx">Agregar usuario</a></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkSeguridad"  navigateurl="~/Vista/Seguridad.aspx" Text ="Agregar / Modificar Usuario"></ASP:HyperLink></li>
+                                                <li><ASP:HyperLink runat="server" ID ="lnkCambiarClave"  navigateurl="~/Vista/SeguridadCambiarClave.aspx" Text ="Cambiar Clave"></ASP:HyperLink></li>
 											</ul>
 										</li>
                                         <li><a href="Logout.aspx">Salir</a></li>

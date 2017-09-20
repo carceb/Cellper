@@ -57,6 +57,14 @@
                 document.getElementById("chkEstatus").checked = true;
             }
             $("#ddlGrupo").val(par[5]);
+
+            var bt = document.getElementById("ButtonTest");
+            bt.click();
+        }
+
+        function Confirmacion() {
+
+            return confirm("¿Realmente desea eliminar esta sucursal a este usuario?");
         }
 
     </script>
@@ -109,11 +117,13 @@
                                             <div class="6u 12u$(xsmall)"> 
                                                 <div class="select-wrapper">
                                                     <asp:DropDownList ID="ddlEmpresa" runat="server" AutoPostBack = "true"  AppendDataBoundItems="True" OnSelectedIndexChanged="ddlEmpresa_SelectedIndexChanged" ></asp:DropDownList>
+                                                    <ASP:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" errormessage="Debe colocar la empresa"  controltovalidate="ddlEmpresa" display="Dynamic"></ASP:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="6u 12u$(xsmall)"> 
                                                 <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlSucursal" runat="server" AutoPostBack = "true"  AppendDataBoundItems="True" ></asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlSucursal" runat="server"  AppendDataBoundItems="True" ></asp:DropDownList>
+                                                    <ASP:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" errormessage="Debe colocar la sucursal"  controltovalidate="ddlSucursal" display="Dynamic"></ASP:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="6u 12u$(xsmall)"> 
@@ -126,8 +136,37 @@
 											    <ul class="actions">
                                                     <asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"/>
                                                     <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" CausesValidation="False" OnClick="btnNuevo_Click"  /></li>
+                                                     <li><asp:Button Text="TEST" runat="server" ID ="ButtonTest"  style="display:none"  CausesValidation="False" OnClick="ButtonTest_Click"  /></li>
 											    </ul>
 										    </div>
+										    <div class="12u$">
+                                                <asp:Label runat ="server" ID="lblSucursales" Text="Sucursales asignadas"></asp:Label>
+										    </div>
+                                            <div class="table-wrapper">
+                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
+                                                      GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
+                                                        <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
+                                                        <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
+                                                          <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
+                                                      <Columns>
+                                                          <asp:TemplateField HeaderText="Empresa" HeaderStyle-Width="200">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNombreEmpresa" Text='<%# Eval("NombreEmpresa") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="Sucursal" HeaderStyle-Width="200">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNombreSucursal" Text='<%# Eval("NombreSucursal") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100px">
+                                                              <ItemTemplate>
+                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("SeguridadUsuarioSucursalEmpresaID") %>'/>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                      </Columns>
+                                                  </asp:GridView>
+                                            </div>
                                         </div>
 								</section>
                             </form>
@@ -156,5 +195,4 @@
 
 	</body>
 </html>
-
 

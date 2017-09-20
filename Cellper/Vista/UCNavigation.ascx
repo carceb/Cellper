@@ -102,8 +102,9 @@
     <tr id="divlnkSeguridad" >
       <td height="20">&nbsp;</td>
       <td width="4" bgcolor="#d2d2c6">&nbsp;</td>
-      <td height="20" bgcolor="#949494" classname="izq"><ASP:HyperLink id="lnkSeguridad" class="izq"
-       runat="server" navigateurl="Seguridad.aspx" cssclass="izq">Seguridad</ASP:HyperLink></td>
+      <td height="20" bgcolor="#949494" classname="izq">
+          <ASP:HyperLink id="lnkSeguridad" class="izq"
+ runat="server" navigateurl="Seguridad.aspx" cssclass="izq">Seguridad</ASP:HyperLink></td>
       <td height="20">&nbsp;</td>
     </tr>
 

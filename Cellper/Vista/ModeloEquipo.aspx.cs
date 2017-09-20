@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,6 +12,10 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 15) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             if (!IsPostBack)
             {
                 CargarTipoEquipo();

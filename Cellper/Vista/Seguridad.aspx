@@ -50,7 +50,7 @@
 
 										    <div class="12u$">
 											    <ul class="actions">
-                                                    <li><asp:Button Text="1) Agregar usuario >>" runat="server" ID ="btnAgregarUsuario"   CssClass ="special" OnClick="btnAgregarUsuario_Click"/></li>
+                                                    <li><asp:Button Text="1) Agregar / modificar usuario >>" runat="server" ID ="btnAgregarUsuario"   CssClass ="special" OnClick="btnAgregarUsuario_Click"/></li>
                                                     <li><asp:Button Text="2) Grupos >>" runat="server" ID ="btnAgregarGrupo"    OnClick="btnAgregarGrupo_Click"/></li>
                                                     <li><asp:Button Text="3) Objetos >>" runat="server" ID ="btnAgregarObjeto"  OnClick="btnAgregarObjeto_Click"/></li>
                                                     <li><asp:Button Text="4) Objetos/Grupos >>" runat="server" ID ="btmAgregarGrupoObjeto"  OnClick="btmAgregarGrupoObjeto_Click"/></li>

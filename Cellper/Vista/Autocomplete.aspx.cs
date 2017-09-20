@@ -146,6 +146,44 @@ namespace Admin
                         Response.End();
                     }
                 }
+                if (Request.QueryString["identifier"] == "Grupos")
+                {
+                    DataSet ds = Autocomplete.ObtenerGrupos(Request.QueryString["query"]);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<ul>" + "\n");
+                        paginaBase.AutoCompleteResult item;
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            item = new paginaBase.AutoCompleteResult();
+                            item.value = dr["NombreGrupo"].ToString();
+                            item.id = dr["SeguridadGrupoID"].ToString();
+                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreGrupo"].ToString() + "_" + dr["DescripcionGrupo"].ToString() + "_" + dr["SeguridadGrupoID"].ToString() + "'>" + item.value + "</li>" + "\n");
+                        }
+                        Response.Write("</ul>");
+                        Response.End();
+                    }
+                }
+                if (Request.QueryString["identifier"] == "Objetos")
+                {
+                    DataSet ds = Autocomplete.ObtenerObjetos(Request.QueryString["query"]);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<ul>" + "\n");
+                        paginaBase.AutoCompleteResult item;
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            item = new paginaBase.AutoCompleteResult();
+                            item.value = dr["NombreObjeto"].ToString();
+                            item.id = dr["SeguridadObjetoID"].ToString();
+                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreObjeto"].ToString() + "_" + dr["SeguridadObjetoID"].ToString() + "'>" + item.value + "</li>" + "\n");
+                        }
+                        Response.Write("</ul>");
+                        Response.End();
+                    }
+                }
             }
         }
     }

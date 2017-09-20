@@ -8,10 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace Seguridad
 {
-    public partial class SeguridadUsuario : Admin.paginaBase
+    public partial class SeguridadUsuario : System.Web.UI.Page
     {
-        protected new void Page_Load(object sender, EventArgs e)
+        protected  void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session,17) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             if (!IsPostBack)
             {
                 CargarGrupos();
@@ -68,6 +72,7 @@ namespace Seguridad
         }
         private void CargarEmpresas()
         {
+            ddlEmpresa.Items.Clear();
             CSeguridad objetoSeguridad = new CSeguridad();
             objetoSeguridad.SeguridadUsuarioDatosID = Convert.ToInt32(Session["UserID"]);
 
@@ -137,6 +142,21 @@ namespace Seguridad
                 }
             }
         }
+        private void CargarSucursalesUsuario()
+        {
+            try
+            {
+
+                DataSet ds = SeguridadUsuario.ObtenerSucursalesDeUsuario(Convert.ToInt32(hdnSeguridadUsuarioDatosID.Value), Convert.ToInt32(ddlEmpresa.SelectedValue));
+                this.gridDetalle.DataSource = ds.Tables[0];
+                this.gridDetalle.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+            }
+        }
         private void ActualizarRegistros()
         {
             if (EsTodoCorrecto()== true)
@@ -153,7 +173,7 @@ namespace Seguridad
                     objetoSeguridad.SeguridadGrupoID = Convert.ToInt32(ddlGrupo.SelectedValue);
                     objetoSeguridad.UsuarioTecnico = Convert.ToInt32(this.chkTecnico.Checked);
                     objetoSeguridad.EstatusUsuario = this.chkEstatus.Checked ? "Activo" : "Inactivo";
-                    objetoSeguridad.EmpresaSucursalID = Convert.ToInt32(Session["CodigoSucursalEmpresa"]);
+                    objetoSeguridad.EmpresaSucursalID = Convert.ToInt32(ddlSucursal.SelectedValue);
                     if (SeguridadUsuario.InsertarUsuario(objetoSeguridad) > 0)
                     {
                         messageBox.ShowMessage("El usuario se ingresó correctamente");
@@ -178,6 +198,8 @@ namespace Seguridad
             this.hdnTecnico.Value = "";
             this.chkTecnico.Checked = false;
             this.chkEstatus.Checked = true;
+            gridDetalle.DataSource = null;
+            gridDetalle.DataBind();
             ddlSucursal.Items.Clear();
             CargarGrupos();
             CargarEmpresas();
@@ -218,7 +240,6 @@ namespace Seguridad
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //this.ddlGrupo.SelectedValue = "10";
             ActualizarRegistros();
         }
 
@@ -232,11 +253,35 @@ namespace Seguridad
             if (ddlEmpresa.SelectedValue != "0")
             {
                 CargarSucursal(Convert.ToInt32(ddlEmpresa.SelectedItem.Value));
+                CargarSucursalesUsuario();
             }
             else
             {
                 ddlSucursal.Items.Clear();
             }
+        }
+
+        protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                String codigoSucursalUsuario = e.CommandArgument.ToString();
+                if (e.CommandName == "EliminarDetalle")
+                {
+                    SeguridadUsuario.EliminarSucursalUsuario(Convert.ToInt32(codigoSucursalUsuario));
+                    CargarSucursalesUsuario();
+                }
+            }
+            catch (Exception ex)
+            {
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+
+            }
+        }
+
+        protected void ButtonTest_Click(object sender, EventArgs e)
+        {
+            CargarSucursalesUsuario();
         }
     }
 }

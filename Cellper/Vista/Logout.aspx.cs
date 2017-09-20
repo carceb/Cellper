@@ -14,6 +14,7 @@ namespace Seguridad
             try
             {
                 this.Session.Clear();
+                Session.Abandon();
                 Response.Redirect("../Index.aspx");
     }
             catch (Exception ex)

@@ -38,7 +38,7 @@ namespace Admin
         {
             if (this.Session["UserID"] == null)
             {
-                Server.Transfer("Login.aspx");
+                Server.Transfer("/Index.aspx");
             }
         }
         public void DownloadDocument(HttpResponse Response, int DocumentID, string FileName)

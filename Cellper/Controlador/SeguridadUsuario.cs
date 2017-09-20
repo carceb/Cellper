@@ -3,11 +3,51 @@ using Seguridad.Clases;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.SessionState;
 
 namespace Seguridad
 {
     public partial class SeguridadUsuario
     {
+        public static bool EsUsuarioPermitido(HttpSessionState Session, int codigoObjeto)
+        {
+            bool respuesta = true;
+            CSeguridad objetoSeguridad = new CSeguridad();
+            if (Session["UserID"] == null)
+            {
+                respuesta = false;
+            }
+            if (Session["CodigoSucursalEmpresa"] == null)
+            {
+                Session.Abandon();
+                respuesta = false;
+            }
+            //Valida que si el usuario esta correctamente loggeado no pueda entrar a modulo no permitido
+            if(respuesta == true)
+            {
+                if(codigoObjeto != 999)
+                {
+                    objetoSeguridad.SeguridadUsuarioDatosID = Convert.ToInt32(Session["UserId"].ToString());
+                    if (objetoSeguridad.EsUsuarioAdministrador() == false)
+                    {
+                        respuesta = objetoSeguridad.EsAccesoPermitido(codigoObjeto);
+                        if(respuesta== false)
+                        {
+                            Session.Abandon();
+                        }
+                    }
+                    else
+                    {
+                        respuesta = true;
+                    }
+                }
+                else
+                {
+                    respuesta = true;
+                }
+            }
+            return respuesta;
+        }
         public static int InsertarUsuario(CSeguridad objetoSeguridad)
         {
             SqlParameter[] dbParams = new SqlParameter[]
@@ -78,5 +118,25 @@ namespace Seguridad
             dr.Close();
             return codigoEmpresa;
         }
+        public static DataSet ObtenerSucursalesDeUsuario(int codigoUsuario, int codigoEmpresa)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@SeguridadUsuarioDatosID", SqlDbType.Int, 0, codigoUsuario),
+                    DBHelper.MakeParam("@EmpresaID", SqlDbType.Int, 0, codigoEmpresa)
+                };
+
+            return DBHelper.ExecuteDataSet("usp_SeguridadUsuario_ObtenerSucursalesUsuario", dbParams);
+        }
+        public static DataSet EliminarSucursalUsuario(int codigoUsuario)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@SeguridadUsuarioSucursalEmpresaID", SqlDbType.Int, 0, codigoUsuario),
+                };
+
+            return DBHelper.ExecuteDataSet("usp_SeguridadUsuario_EliminarSucursalUsuario", dbParams);
+        }
+
     }
 }
