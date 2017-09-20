@@ -33,7 +33,7 @@ namespace Seguridad
                     DataTable dt = ds.Tables[0];
                     if (dt.Rows.Count == 0)
                     {
-                        messageBox.ShowMessage("El usuario y/o la contaseña son incorrectos");
+                        messageBox.ShowMessage("El usuario y/o la contraseña son incorrectos");
                     }
                     else
                     {
