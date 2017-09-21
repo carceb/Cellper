@@ -6,8 +6,8 @@
               $(document).ready(function () {
                   $("#<%=this.ClientID%>_dialogError").dialog({
                       modal: true
-          , height: 250
-          , width: 360
+          , height: 350
+          , width: 650
           , buttons: {
               Ok: function () {
                   $(this).dialog("close");

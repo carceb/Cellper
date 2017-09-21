@@ -60,11 +60,12 @@ namespace Admin
         }
 
         //SEGURIDAD ***************************************************
-        public static DataSet ObtenerUsuarios(string sQuery)
+        public static DataSet ObtenerUsuarios(string sQuery, int codigoSucursal)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerUsuarios", dbParams);
         }

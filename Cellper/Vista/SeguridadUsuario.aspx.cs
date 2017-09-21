@@ -43,7 +43,7 @@ namespace Seguridad
             ddlGrupo.Items.Clear();
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
-            String strQuery = "select * from SeguridadGrupo";
+            String strQuery = "select * from SeguridadGrupo WHERE [SeguridadGrupoID] <> 10";
             SqlConnection con = new SqlConnection(strConnString);
             SqlCommand cmd = new SqlCommand();
 

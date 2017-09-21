@@ -129,7 +129,7 @@ namespace Admin
                 }
                 if (Request.QueryString["identifier"] == "Usuarios")
                 {
-                    DataSet ds = Autocomplete.ObtenerUsuarios(Request.QueryString["query"]);
+                    DataSet ds = Autocomplete.ObtenerUsuarios(Request.QueryString["query"], Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         Response.Write("<ul>" + "\n");

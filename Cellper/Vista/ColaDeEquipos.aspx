@@ -137,7 +137,7 @@
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Asignar Estatus" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
-                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Solicitud" OnClientClick="return Confirmacion();" ToolTip="Eliminar Solicitud" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarSolicitud" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                                  <%--<asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Solicitud" OnClientClick="return Confirmacion();" ToolTip="Eliminar Solicitud" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarSolicitud" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>--%>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                       </Columns>
@@ -148,23 +148,13 @@
                             </form>
 						</div>
 					</div>
-
 				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
+<%--					<div id="sidebar">
+						<div class="inner">--%>
 							<!-- Menu -->
                                 <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
-
-							<!-- Section -->
-
-
-							<!-- Section -->
-                            
-
-						</div>
-					</div>
-
+<%--						</div>
+					</div>--%>
 			</div>
 		<!-- Scripts -->
 

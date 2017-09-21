@@ -128,22 +128,13 @@
                             </form>
 						</div>
 					</div>
-
 				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
+<%--					<div id="sidebar">
+						<div class="inner">--%>
 							<!-- Menu -->
-                                    <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
-							<!-- Section -->
-
-
-							<!-- Section -->
-
-
-						</div>
-					</div>
-
+                                <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
+<%--						</div>
+					</div>--%>
 			</div>
 		<!-- Scripts -->
 

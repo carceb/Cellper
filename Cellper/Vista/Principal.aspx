@@ -82,24 +82,16 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+<%--					<div id="sidebar">
+						<div class="inner">--%>
 
-							<!-- Search -->
 
-							<!-- Menu -->
                                     <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
-							<!-- Section -->
 
 
-							<!-- Section -->
 
-
-							<!-- Footer -->
-
-
-						</div>
-					</div>
+<%--						</div>
+					</div>--%>
 
 			</div>
 
