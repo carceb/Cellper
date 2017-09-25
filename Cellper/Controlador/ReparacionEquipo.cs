@@ -42,12 +42,13 @@ namespace Cellper
             }
 
         }
-        public static DataSet ObtenerEquipoReparado(int RecepcionEquipoID)
+        public static DataSet ObtenerEquipoReparado(int RecepcionEquipoID, int codigoSucursal)
         {
 
                 SqlParameter[] dbParams = new SqlParameter[]
                     {
-                        DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, RecepcionEquipoID)
+                        DBHelper.MakeParam("@RecepcionEquipoID", SqlDbType.Int, 0, RecepcionEquipoID),
+                        DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
 
                     };
                 return DBHelper.ExecuteDataSet("usp_ReparacionEquipo_ObtenerEquipos", dbParams);

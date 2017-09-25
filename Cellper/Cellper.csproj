@@ -94,6 +94,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="consultaassets\css\font-awesome.min.css" />
+    <Content Include="consultaassets\css\ie8.css" />
+    <Content Include="consultaassets\css\ie9.css" />
+    <Content Include="consultaassets\css\main.css" />
+    <Content Include="consultaassets\fonts\fontawesome-webfont.svg" />
+    <Content Include="consultaassets\js\ie\html5shiv.js" />
+    <Content Include="consultaassets\js\ie\respond.min.js" />
+    <Content Include="consultaassets\js\main.js" />
+    <Content Include="images\consultabg01.jpg" />
+    <Content Include="images\consultabg02.jpg" />
+    <Content Include="images\consultabg03.jpg" />
+    <Content Include="Vista\CellperConsulta.aspx" />
     <Content Include="images\icon-garantia.png" />
     <Content Include="Vista\EquiposEntregados.aspx" />
     <Content Include="images\ReciboMDT.png" />
@@ -189,6 +201,29 @@
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
     <Content Include="assets\sass\main.scss" />
+    <Content Include="consultaassets\fonts\fontawesome-webfont.eot" />
+    <Content Include="consultaassets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="consultaassets\fonts\fontawesome-webfont.woff" />
+    <Content Include="consultaassets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="consultaassets\fonts\FontAwesome.otf" />
+    <Content Include="consultaassets\sass\base\_bg.scss" />
+    <Content Include="consultaassets\sass\base\_page.scss" />
+    <Content Include="consultaassets\sass\base\_typography.scss" />
+    <Content Include="consultaassets\sass\components\_button.scss" />
+    <Content Include="consultaassets\sass\components\_form.scss" />
+    <Content Include="consultaassets\sass\components\_icon.scss" />
+    <Content Include="consultaassets\sass\components\_list.scss" />
+    <Content Include="consultaassets\sass\components\_section.scss" />
+    <Content Include="consultaassets\sass\ie8.scss" />
+    <Content Include="consultaassets\sass\ie9.scss" />
+    <Content Include="consultaassets\sass\layout\_footer.scss" />
+    <Content Include="consultaassets\sass\layout\_header.scss" />
+    <Content Include="consultaassets\sass\layout\_signup-form.scss" />
+    <Content Include="consultaassets\sass\libs\_functions.scss" />
+    <Content Include="consultaassets\sass\libs\_mixins.scss" />
+    <Content Include="consultaassets\sass\libs\_skel.scss" />
+    <Content Include="consultaassets\sass\libs\_vars.scss" />
+    <Content Include="consultaassets\sass\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,6 +291,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\CellperConsulta.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\CellperConsulta.aspx.cs">
+      <DependentUpon>CellperConsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\CellperConsulta.aspx.designer.cs">
+      <DependentUpon>CellperConsulta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\Consultas.cs" />
     <Compile Include="Controlador\ColaReparacionEquipo.cs">
       <SubType>ASPXCodeBehind</SubType>

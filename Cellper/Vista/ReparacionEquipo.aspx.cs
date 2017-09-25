@@ -195,7 +195,7 @@ namespace Cellper
         {
             try
             {
-                DataSet ds = ReparacionEquipo.ObtenerEquipoReparado(Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]));
+                DataSet ds = ReparacionEquipo.ObtenerEquipoReparado(Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]), Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                 this.gridDetalle.DataSource = ds.Tables[0];
                 this.gridDetalle.DataBind();
             }
@@ -259,15 +259,7 @@ namespace Cellper
 
                 if (ReparacionEquipo.InsertarReparacionEquipo(objetoReparacionEquipo) > 0)
                 {
-                    if(ddlItemInventario.SelectedValue != "1")
-                    {
-                        CargarEquipoReparado();
-                    }
-                    else
-                    {
-                        Response.Redirect("ColaDeEquipos.aspx");
-                    }
-                    
+                     CargarEquipoReparado();
                 }
             }
             else
