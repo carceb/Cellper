@@ -24,6 +24,7 @@ namespace Cellper
                 CargarEquipo();
                 CargarItemsInventario();
                 CargarEstatus();
+                CargarEquipoReparado();
             }
 
         }
@@ -101,85 +102,17 @@ namespace Cellper
         }
         protected void ddlEstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ddlEstatus.SelectedItem.Value=="3")
-            {
                 CargarItemsInventario();
                 ddlItemInventario.Visible = true;
                 txtObservaciones.Visible = false;
                 btnGuardar.Visible = false;
-            }
-            else if (ddlEstatus.SelectedItem.Value == "")
-            {
-                if (gridDetalle.Rows.Count == 0)
-                {
-                    TodoInvisible();
-                }
-                else
-                {
-                    ddlEstatus.SelectedValue = "3";
-                    messageBox.ShowMessage("Debe eliminar todos los materiales cargados para poder cambiar el estatus.");
-                }
-
-            }
-            else if (ddlEstatus.SelectedItem.Value == "4" || ddlEstatus.SelectedItem.Value == "6" && ddlEstatus.SelectedItem.Value != "")
-            {
-                if(gridDetalle.Rows.Count == 0)
-                {
-                    TodoInvisible();
-                    ddlItemInventario.Visible = false;
-                    txtObservaciones.Visible = true;
-                    btnGuardar.Visible = true;
-                }
-                else
-                {
-                    ddlEstatus.SelectedValue = "3";
-                    messageBox.ShowMessage("Debe eliminar todos los materiales cargados para poder cambiar el estatus.");
-                }
-            }
         }
 
         protected void ddlItemInventario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlItemInventario.SelectedItem.Value == "1")
-            {
-                if (gridDetalle.Rows.Count == 0)
-                {
-                    TodoInvisible();
-                    txtCantidad.Visible = false;
-                    txtObservacionesReparacion.Visible = true;
-                    btnGuardar.Visible = true;
-                    btnLista.Visible = false;
-                }
-                else
-                {
-                    ddlItemInventario.SelectedValue = "2";
-                    messageBox.ShowMessage("Debe eliminar todos los materiales seleccionar la opición NINGUN MATERIAL.");
-                }
-
-
-            }
-            else if (ddlItemInventario.SelectedItem.Value == "")
-            {
-                TodoInvisible();
-
-            }
-            else if (ddlItemInventario.SelectedItem.Value != "1" && ddlItemInventario.SelectedItem.Value != "")
-            {
-                TodoVisible();
-            }
+            TodoVisible();
         }
-        private void TodoInvisible()
-        {
-            txtObservacionesReparacion.Visible = false;
-            txtCantidad.Visible = false;
-            txtObservaciones.Visible = false;
-            btnGuardar.Visible = false;
-            btnLista.Visible = false;
-            gridDetalle.Visible = false;
-            gridDetalle.DataSource = null;
-            gridDetalle.DataBind();
-            lblDetalle.Visible = false;
-        }
+
         private void TodoVisible()
         {
             txtCantidad.Visible = true;
@@ -196,8 +129,12 @@ namespace Cellper
             try
             {
                 DataSet ds = ReparacionEquipo.ObtenerEquipoReparado(Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]), Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
-                this.gridDetalle.DataSource = ds.Tables[0];
-                this.gridDetalle.DataBind();
+                if(ds.Tables[0].Rows.Count> 0)
+                {
+                    gridDetalle.Visible = true;
+                }
+                gridDetalle.DataSource = ds.Tables[0];
+                gridDetalle.DataBind();
             }
             catch (Exception ex)
             {
@@ -208,29 +145,22 @@ namespace Cellper
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(ddlEstatus.SelectedValue) == 3)
+ 
+            if (Convert.ToInt32(ddlItemInventario.SelectedValue) > 1)
             {
-                if (Convert.ToInt32(ddlItemInventario.SelectedValue) > 1)
+                if (gridDetalle.Rows.Count > 0)
                 {
-                    if (gridDetalle.Rows.Count > 0)
-                    {
-                        Response.Redirect("ColaDeEquipos.aspx");
-                    }
-                    else
-                    {
-                        messageBox.ShowMessage("Debe agregar un material a la lista.");
-                    }
+                    Response.Redirect("ColaDeEquipos.aspx");
                 }
                 else
                 {
-                    ProcesoActualizar();
+                    messageBox.ShowMessage("Debe agregar un material a la lista.");
                 }
             }
             else
             {
                 ProcesoActualizar();
             }
-
         }
                 
         protected void btnLista_Click(object sender, EventArgs e)
@@ -239,8 +169,7 @@ namespace Cellper
         }
         private void ProcesoActualizar()
         {
-            if (Convert.ToInt32(ddlEstatus.SelectedValue) == 3)
-            {
+
                 CReparacionEquipo objetoReparacionEquipo = new CReparacionEquipo();
                 objetoReparacionEquipo.RecepcionEquipoID = Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]);
                 objetoReparacionEquipo.InventarioID = Convert.ToInt32(ddlItemInventario.SelectedValue);
@@ -250,7 +179,7 @@ namespace Cellper
                 }
                 else
                 {
-                    objetoReparacionEquipo.CantidadItem = 0;
+                    objetoReparacionEquipo.CantidadItem = 1;
                 }
                 
                 objetoReparacionEquipo.TecnicoID = Convert.ToInt32(hdnCodigoTecnico.Value);
@@ -261,23 +190,6 @@ namespace Cellper
                 {
                      CargarEquipoReparado();
                 }
-            }
-            else
-            {
-                CReparacionEquipo objetoReparacionEquipo = new CReparacionEquipo();
-                objetoReparacionEquipo.RecepcionEquipoID = Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]);
-                objetoReparacionEquipo.InventarioID = 1;
-                objetoReparacionEquipo.CantidadItem = 0;
-                objetoReparacionEquipo.TecnicoID = Convert.ToInt32(hdnCodigoTecnico.Value);
-                objetoReparacionEquipo.EstatusEquipoID = Convert.ToInt32(ddlEstatus.SelectedValue);
-                objetoReparacionEquipo.ObservacionReparacionEquipo = txtObservaciones.Text.ToUpper();
-
-                if(ReparacionEquipo.InsertarReparacionEquipo(objetoReparacionEquipo)> 0)
-                {
-                    Response.Redirect("ColaDeEquipos.aspx");
-                }
-            }
-
         }
 
         protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)

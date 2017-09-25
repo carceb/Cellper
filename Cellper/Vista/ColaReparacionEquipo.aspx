@@ -37,7 +37,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Cola de Equipos por Entregar</strong></a>
+									<a class="logo"><strong>Equipos por Facturar</strong></a>
 									<ul class="icons">
 
 									</ul>
@@ -55,7 +55,7 @@
 										    </div>
                                             <div class="table-wrapper">
                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
-                                                      GridLines="Horizontal" AutoGenerateColumns="False"  >
+                                                      GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
                                                         <HeaderStyle Font-Size="10px" />
                                                         <AlternatingRowStyle  Font-Size="10px" />
                                                           <RowStyle  Font-Size="10px" />
@@ -126,7 +126,12 @@
                                                                   <asp:Label runat="server" ID="lblObReps" Text='<%# Eval("ObservacionReparacionEquipo") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
+                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
+                                                              <ItemTemplate>
+                                                                  <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Asignar Estatus" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+<%--                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
                                                               <ItemTemplate>
                                                                   <div class="select-wrapper">
                                                                        <asp:DropDownList  runat ="server" ID ="ddlEstatus"  AppendDataBoundItems="True">
@@ -135,7 +140,7 @@
                                                                        </asp:DropDownList>
                                                                   </div>
                                                               </ItemTemplate>
-                                                          </asp:TemplateField>
+                                                          </asp:TemplateField>--%>
                                                       </Columns>
                                                   </asp:GridView>
                                             </div>

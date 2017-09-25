@@ -102,6 +102,7 @@
     <Content Include="consultaassets\js\ie\html5shiv.js" />
     <Content Include="consultaassets\js\ie\respond.min.js" />
     <Content Include="consultaassets\js\main.js" />
+    <Content Include="Vista\FacturarEquipo.aspx" />
     <Content Include="images\consultabg01.jpg" />
     <Content Include="images\consultabg02.jpg" />
     <Content Include="images\consultabg03.jpg" />
@@ -293,6 +294,13 @@
   <ItemGroup>
     <Compile Include="Controlador\CellperConsulta.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\FacturarEquipo.aspx.cs">
+      <DependentUpon>FacturarEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\FacturarEquipo.aspx.designer.cs">
+      <DependentUpon>FacturarEquipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\CellperConsulta.aspx.cs">
       <DependentUpon>CellperConsulta.aspx</DependentUpon>

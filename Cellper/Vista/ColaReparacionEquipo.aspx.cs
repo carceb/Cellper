@@ -123,5 +123,24 @@ namespace Cellper
         {
             ActualizarLista();
         }
+
+        protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int recepcionEquipoID = 0;
+            try
+            {
+                CRecepcion objetoRecepcion = new CRecepcion();
+                recepcionEquipoID = Convert.ToInt32(e.CommandArgument.ToString());
+                objetoRecepcion.RecepcionEquipoID = recepcionEquipoID;
+                if (e.CommandName == "AsignarEstatus")
+                {
+                    Response.Redirect("FacturarEquipo.aspx?RecepcionEquipoID=" + recepcionEquipoID);
+                }
+            }
+            catch (Exception ex)
+            {
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

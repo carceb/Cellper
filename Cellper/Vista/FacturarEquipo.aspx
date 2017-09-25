@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReparacionEquipo.aspx.cs" Inherits="Cellper.ReparacionEquipo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FacturarEquipo.aspx.cs" Inherits="Cellper.FacturarEquipo" %>
 <%@ Register TagPrefix="uc2" TagName="UCNavegacion" Src="~/Vista/UCNavegacion.ascx" %>
 
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
@@ -7,7 +7,7 @@
 
 <html>
 	<head>
-		<title>Cellper | Asignar Estatus</title>
+		<title>Cellper | Facturar Equipo</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -26,26 +26,7 @@
 
 <%--------------------------%>
 
-    <script type="text/javascript">
-        $(function () {
-            $('#txtNombre').simpleAutoComplete('Autocomplete.aspx', {
-                autoCompleteClassName: 'autocomplete',
-                selectedClassName: 'sel',
-                attrCallBack: 'rel',
-                identifier: 'Inventario'
-            }, fnPersonalCallBack);
 
-        });
-
-        function fnPersonalCallBack(par) {
-            document.getElementById("hdnInventarioID").value = par[0];
-            document.getElementById("txtCantidad").value = par[3];
-            var number = par[4];
-            document.getElementById("txtCosto").value = new Intl.NumberFormat("de-DE").format(number);
-            document.getElementById("txtSerial").value = par[5];
-        }
-
-    </script>
     <script type="text/javascript">
 
 
@@ -65,7 +46,7 @@
 						<div class="inner">
 							<!-- Header -->
 								<header id="header">
-									<a class="logo"><strong>Asignar Estatus Reparación</strong></a>
+									<a class="logo"><strong>Facturar Equipo</strong></a>
 								</header>
 							<!-- Content -->
                             <form runat ="server" id ="principal">
@@ -100,38 +81,11 @@
                                             </div>
                                     </div>
                                     <hr />
-                                    <h4>Detalle de la revisión:</h4>
-                                    <div class="row uniform">
-                                        <div class="6u 12u$(xsmall)">
-                                            <div class="select-wrapper">
-                                            <asp:DropDownList ID="ddlEstatus" runat="server"  AppendDataBoundItems="True" OnSelectedIndexChanged="ddlEstatus_SelectedIndexChanged" AutoPostBack="True"  ></asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <div class="6u 12u$(xsmall)">
-                                            <div class="select-wrapper">
-                                                <asp:DropDownList ID="ddlItemInventario" runat="server"  AppendDataBoundItems="True" Visible ="false" AutoPostBack="True"  OnSelectedIndexChanged="ddlItemInventario_SelectedIndexChanged" ></asp:DropDownList>
-                                                <asp:TextBox runat="server" id ="txtObservaciones"  placeholder="Observaciones encontradas"   Visible="False" ></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="6u 12u$(xsmall)">
-                                             <asp:TextBox runat="server" id ="txtCantidad"   placeholder="Cantidad" Visible="False" ></asp:TextBox>
-                                        </div>
-                                        <div class="6u 12u$(xsmall)">
-                                             <asp:TextBox runat="server" id ="txtObservacionesReparacion"   placeholder="Observaciones reparación" Visible="False" ></asp:TextBox>
-                                        </div>
-                                        <div class="12u$">
-                                            <ul class="actions">
-                                                <li><asp:Button Text="Enviar a lista" runat="server" ID ="btnLista" Visible ="false" OnClick="btnLista_Click"  /></li>
-                                                <li><asp:Button Text="Salir" runat="server" ID ="btnGuardar"  CssClass ="special" Visible ="false" OnClick="btnGuardar_Click"  /></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <h4><asp:Label runat="server" ID ="lblDetalle" Text ="Materiales utilizados" Visible ="false"></asp:Label></h4>
+                                    <h4><asp:Label runat="server" ID ="lblDetalle" Text ="Materiales utilizados"></asp:Label></h4>
                                     <div class="row uniform">
                                         <div class="table-wrapper">
                                             <asp:GridView ID="gridDetalle" runat="server"  EmptyDataText="No existen Registros" 
-                                                GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand" >
+                                                GridLines="Horizontal" AutoGenerateColumns="False"   >
                                                 <HeaderStyle  Font-Size="10px" />
                                                 <AlternatingRowStyle  Font-Size="10px" />
                                                     <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
@@ -142,7 +96,7 @@
                                                         </ItemTemplate>
 				                                <HeaderStyle Width="0px"></HeaderStyle>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Nombre Material" HeaderStyle-Width="100">
+                                                    <asp:TemplateField HeaderText="Nombre Material" HeaderStyle-Width="200">
                                                         <ItemTemplate>
                                                             <asp:Label runat="server" ID="lblNombreEquipo" Text='<%# Eval("NombreItem") %>' Font-Bold ="true" ></asp:Label>
                                                         </ItemTemplate>
@@ -152,7 +106,17 @@
                                                             <asp:Label runat="server" ID="lblCantidad" Text='<%# Eval("CantidadItem") %>' Font-Bold ="true" ></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Observacion" HeaderStyle-Width="150">
+                                                    <asp:TemplateField HeaderText="Costo P/U" HeaderStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblCostoItem" Text='<%# Eval("CostoItem") %>' Font-Bold ="true" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Total Costo Item" HeaderStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblCostoItem" Text='<%# Eval("TotalCosto") %>' Font-Bold ="true" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Observacion" HeaderStyle-Width="300">
                                                         <ItemTemplate>
                                                             <asp:Label runat="server" ID="lblObservacion" Text='<%# Eval("ObservacionReparacionEquipo") %>' Font-Bold ="true" ></asp:Label>
                                                         </ItemTemplate>
