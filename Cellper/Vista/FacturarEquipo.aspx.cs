@@ -14,7 +14,7 @@ namespace Cellper
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (SeguridadUsuario.EsUsuarioPermitido(Session, 10) == false)
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 21) == false)
             {
                 Response.Redirect("/Index.aspx");
             }
