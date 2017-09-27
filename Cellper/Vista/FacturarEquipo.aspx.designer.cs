@@ -112,6 +112,24 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.Label lblCliente;
         
         /// <summary>
+        /// lblObservacionesReparacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblObservacionesReparacion;
+        
+        /// <summary>
+        /// lblTotalGeneral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalGeneral;
+        
+        /// <summary>
         /// lblDetalle control.
         /// </summary>
         /// <remarks>

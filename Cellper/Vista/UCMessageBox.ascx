@@ -40,7 +40,7 @@
   
   <div id="dialogError" title="Mensaje" runat="server" >
      <p>
-		<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
+		<span class="ui-icon ui-icon-notice" style="float:left; margin:0 7px 50px 0;"></span>
 	</p>
     <div id="message">   <asp:Literal ID="miLiteral" runat="server">
     </asp:Literal></div> 

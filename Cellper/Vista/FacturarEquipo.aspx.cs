@@ -46,7 +46,7 @@ namespace Cellper
                     lblModelo.Text = "Modelo: " + dr.GetString(3);
                     lblImei.Text = "IMEI: " + dr.GetString(4);
                     lblFalla.Text = "Falla: " + dr.GetString(5);
-                    lblObservaciones.Text = "Observaciones: " + dr.GetString(6);
+                    lblObservaciones.Text = "Observaciones falla: " + dr.GetString(6);
                     lblCliente.Text = "Cliente: " + dr.GetString(7);
                     hdnCodigoTecnico.Value = dr.GetInt32(8).ToString();
                 }
@@ -58,8 +58,12 @@ namespace Cellper
             try
             {
                 DataSet ds = ReparacionEquipo.ObtenerEquipoReparado(Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]), Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
+                DataTable dt = ds.Tables[0];
                 if (ds.Tables[0].Rows.Count > 0)
                 {
+                    var totalGeneral = string.Format("{0:0,0.00}",  Convert.ToDouble(dt.Rows[0]["TotalGeneral"].ToString()));    // "1,234,257"
+                    lblObservacionesReparacion.Text = "Observaciones reparación: " + dt.Rows[0]["ObservacionReparacionEquipo"].ToString();
+                    lblObservacionesReparacion.Text = "Total general factura: " + totalGeneral;
                     gridDetalle.Visible = true;
                 }
                 gridDetalle.DataSource = ds.Tables[0];
