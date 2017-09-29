@@ -26,9 +26,7 @@ namespace Cellper
             objetoInventario.NombreItem = txtNombre.Text.ToUpper();
             objetoInventario.CantidadItem = Convert.ToInt32(txtCantidad.Text);
             objetoInventario.EmpresaSucursalID = Convert.ToInt32(Session["CodigoSucursalEmpresa"]);
-            var z = txtCosto.Text.Replace(".", "");
-            var a = z.Replace(",", ".");
-            objetoInventario.CostoItem = Convert.ToDouble(a);
+            objetoInventario.CostoItem = Convert.ToDouble(txtCosto.Text);
             objetoInventario.SerialItem = txtSerial.Text.ToUpper();
 
             if (Inventario.ActualizarInventario(objetoInventario) > 0)

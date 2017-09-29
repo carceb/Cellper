@@ -65,10 +65,9 @@
 
 
 							<!-- Section -->
-
-
 							<!-- Footer -->
 								<footer id="footer">
+                                    <p><%:Session["NombreCompletoUsuario"]%> <%:Session["NombreEmpresa"]%></p>
 									<p class="copyright">&copy; Cellper. Todos los derechos reservados.</p>
 								</footer>
 

@@ -83,7 +83,15 @@
 												<asp:Label runat="server" ID="lblObservacionesReparacion"></asp:Label> 
 											</div>
 											<div class="6u 12u$(xsmall)"> 
+												<asp:Label runat="server" ID="lblIva"></asp:Label> 
+											</div>
+											<div class="6u 12u$(xsmall)"> 
 												<asp:Label runat="server" ID="lblTotalGeneral"></asp:Label> 
+											</div>
+											<div class="12u$">
+												<ul class="actions">
+													<li><asp:Button Text="Facturar equipo" runat="server" ID ="btnFacturar"  CssClass ="special" OnClick="btnFacturar_Click" /></li>
+												</ul>
 											</div>
 									</div>
 									<hr />
@@ -122,11 +130,6 @@
 															<asp:Label runat="server" ID="lblCostoItem" Text='<%# Eval("TotalCosto") %>' Font-Bold ="true" ></asp:Label>
 														</ItemTemplate>
 													</asp:TemplateField>
-<%--													<asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
-														<ItemTemplate>
-															<asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("ReparacionEquipoID") %>'/>
-														</ItemTemplate>
-													</asp:TemplateField>--%>
 												</Columns>
 											</asp:GridView>
 										</div>

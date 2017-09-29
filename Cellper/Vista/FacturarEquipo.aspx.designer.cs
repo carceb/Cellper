@@ -121,6 +121,15 @@ namespace Cellper {
         protected global::System.Web.UI.WebControls.Label lblObservacionesReparacion;
         
         /// <summary>
+        /// lblIva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIva;
+        
+        /// <summary>
         /// lblTotalGeneral control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace Cellper {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalGeneral;
+        
+        /// <summary>
+        /// btnFacturar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFacturar;
         
         /// <summary>
         /// lblDetalle control.

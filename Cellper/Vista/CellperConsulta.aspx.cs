@@ -49,7 +49,7 @@ namespace Cellper
                             mensajeEstatus = ", fue entregado al cliente el dia: " + dr.GetString(5);
                             break;
                         case 6:
-                            mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y lamentamos informarle que es irreparable.";
+                            mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y lamentamos informarle que es irreparable, por favor pase a retirarlo.";
                             break;
                         case 7:
                             mensajeEstatus = " fue recibido por garantía nuestro local";

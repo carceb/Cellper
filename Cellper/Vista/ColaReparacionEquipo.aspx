@@ -48,11 +48,6 @@
 								<section>
                                         <p></p>
                                         <div class="row uniform">
-										    <div class="12u$">
-											    <ul class="actions">
-                                                    <li><asp:Button Text="Actualizar lista" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"  /></li>
-											    </ul>
-										    </div>
                                             <div class="table-wrapper">
                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
                                                       GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
@@ -131,16 +126,6 @@
                                                                   <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Asignar Estatus" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-<%--                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="100">
-                                                              <ItemTemplate>
-                                                                  <div class="select-wrapper">
-                                                                       <asp:DropDownList  runat ="server" ID ="ddlEstatus"  AppendDataBoundItems="True">
-                                                                           <asp:ListItem Text="Escoja" Value="0" />
-                                                                           <asp:ListItem Text="Entregado" Value="5" />
-                                                                       </asp:DropDownList>
-                                                                  </div>
-                                                              </ItemTemplate>
-                                                          </asp:TemplateField>--%>
                                                       </Columns>
                                                   </asp:GridView>
                                             </div>

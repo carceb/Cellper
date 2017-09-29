@@ -147,6 +147,11 @@
 															<asp:Label runat="server" ID="lblNombreEquipo" Text='<%# Eval("NombreItem") %>' Font-Bold ="true" ></asp:Label>
 														</ItemTemplate>
 													</asp:TemplateField>
+													<asp:TemplateField HeaderText="Costo" HeaderStyle-Width="80">
+														<ItemTemplate>
+															<asp:Label runat="server" ID="lblCosto" Text='<%# Eval("CostoItem") %>' Font-Bold ="true" ></asp:Label>
+														</ItemTemplate>
+													</asp:TemplateField>
 													<asp:TemplateField HeaderText="Cantidad" HeaderStyle-Width="80">
 														<ItemTemplate>
 															<asp:Label runat="server" ID="lblCantidad" Text='<%# Eval("CantidadItem") %>' Font-Bold ="true" ></asp:Label>

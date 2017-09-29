@@ -55,15 +55,23 @@ namespace Cellper
         }
         private void CargarEquipoReparado()
         {
+            double totalGeneral = 0;
+            double totalMasIva = 0;
+            double totalCobradoIva = 0;
+            string totalFactura = "0";
             try
             {
                 DataSet ds = ReparacionEquipo.ObtenerEquipoReparado(Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]), Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                 DataTable dt = ds.Tables[0];
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    var totalGeneral = string.Format("{0:0,0.00}",  Convert.ToDouble(dt.Rows[0]["TotalGeneral"].ToString()));    // "1,234,257"
+                    totalGeneral = Convert.ToDouble(dt.Rows[0]["TotalGeneral"].ToString());
+                    totalCobradoIva = totalGeneral * Convert.ToDouble(Parametros.ObtenerValorParametro("IVA")) / 100;
+                    totalMasIva = totalGeneral + totalCobradoIva;
+                    totalFactura = string.Format("{0:0,0.00}", totalMasIva);
                     lblObservacionesReparacion.Text = "Observaciones reparación: " + dt.Rows[0]["ObservacionReparacionEquipo"].ToString();
-                    lblObservacionesReparacion.Text = "Total general factura: " + totalGeneral;
+                    lblIva.Text ="Monto IVA: " + string.Format("{0:0,0.00}", Convert.ToDouble(Parametros.ObtenerValorParametro("IVA"))) + "%";
+                    lblTotalGeneral.Text = "Total general factura: " + totalFactura;
                     gridDetalle.Visible = true;
                 }
                 gridDetalle.DataSource = ds.Tables[0];
@@ -76,6 +84,27 @@ namespace Cellper
             }
 
         }
+        private void ProcesoFacturar()
+        {
+            try
+            {
+                CRecepcion objetoRecepcion = new CRecepcion();
+                objetoRecepcion.EstatusEquipoID = 5;
+                objetoRecepcion.RecepcionEquipoID = Convert.ToInt32(Request.QueryString["RecepcionEquipoID"]);
+                objetoRecepcion.FechaEntrega = Convert.ToString(System.DateTime.Now);
+                ReparacionEquipo.ActualizarLista(objetoRecepcion);
+                Response.Redirect("ColaReparacionEquipo.aspx");
+            }
+            catch (Exception ex)
+            {
 
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+            }
+
+        }
+        protected void btnFacturar_Click(object sender, EventArgs e)
+        {
+            ProcesoFacturar();
+        }
     }
 }

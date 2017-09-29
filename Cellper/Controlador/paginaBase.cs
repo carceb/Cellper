@@ -360,7 +360,7 @@ namespace Admin
             {
                 Result = e.Message; //GetExceptionMessage(translation.GetCurrentLanguage(Page), e);
             }
-            catch (Exception ex)
+            catch
             {
                 Result = "";//GetExceptionMessage("ITA", ex);
 
@@ -387,9 +387,9 @@ namespace Admin
                 {
                     Result = Convert.ToInt64(aValue.Trim());
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    throw ex;
+                    throw;
                 }
             }
             return Result;

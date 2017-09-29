@@ -169,7 +169,7 @@ namespace Utils
             {
                return Convert.ToInt32(valor);
             }
-            catch (Exception ex)
+            catch 
             {
 
                 return 0;
@@ -181,7 +181,7 @@ namespace Utils
             {
                 return Convert.ToString(valor);
             }
-            catch (Exception ex)
+            catch 
             {
 
                 return "";
@@ -212,7 +212,7 @@ namespace Utils
                 var decimalValue = Convert.ToDouble(strinValor);
                 return decimalValue;
             }
-            catch (Exception ex)
+            catch
             {
 
                 return 0.00;

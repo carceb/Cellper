@@ -38,9 +38,10 @@
 
         function fnPersonalCallBack(par) {
             document.getElementById("hdnInventarioID").value = par[0];
+            document.getElementById("txtNombre").value = par[1];
             document.getElementById("txtCantidad").value = par[3];
-            var number = par[4];
-            document.getElementById("txtCosto").value = number;
+            document.getElementById("txtCosto").value = par[4];
+
             //NO ESTA FUNCIONANDO EL FORMATO DESDE JAVASCRIPT
             //document.getElementById("txtCosto").value = new Intl.NumberFormat("de-DE").format(number);
             document.getElementById("txtSerial").value = par[5];
@@ -73,15 +74,15 @@
 									        <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtNombre" MaxLength="150" onkeypress="return event.keyCode!=13;" placeholder ="Nombre del producto"/> 
                                                 <asp:HiddenField runat ="server" ID ="hdnInventarioID"  Value="0"/>
-                                                <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del producto"  controltovalidate="txtNombre" display="Dynamic"></ASP:RequiredFieldValidator>
+                                                <ASP:RequiredFieldValidator id="rqrValidaNombre" runat="server" errormessage="Debe colocar el nombre del producto"  controltovalidate="txtNombre" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
 									        </div>
                                             <div class="6u 12u$(xsmall)"> 
                                                 <asp:TextBox runat="server" ID="txtCantidad" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Cantidad"/> 
-                                                <ASP:RequiredFieldValidator id="rqrValidaCantidad" runat="server" errormessage="Debe colocar la cantidad"  controltovalidate="txtCantidad" display="Dynamic"></ASP:RequiredFieldValidator>
+                                                <ASP:RequiredFieldValidator id="rqrValidaCantidad" runat="server" errormessage="Debe colocar la cantidad"  controltovalidate="txtCantidad" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
                                             <div class="6u 12u$(xsmall)"> 
                                                 <asp:TextBox runat="server" ID="txtCosto" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Costo"/> 
-                                                <ASP:RequiredFieldValidator id="rqrValidaCosto" runat="server" errormessage="Debe colocar el costo"  controltovalidate="txtCosto" display="Dynamic"></ASP:RequiredFieldValidator>
+                                                <ASP:RequiredFieldValidator id="rqrValidaCosto" runat="server" errormessage="Debe colocar el costo"  controltovalidate="txtCosto" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
                                             <div class="6u 12u$(xsmall)"> 
                                                 <asp:TextBox runat="server" ID="txtSerial" MaxLength="100" onkeypress="return event.keyCode!=13;" placeholder ="Serial"/> 

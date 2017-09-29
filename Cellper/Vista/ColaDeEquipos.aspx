@@ -116,7 +116,7 @@
                                                                   <asp:Label runat="server" ID="lblTecnico" Text='<%# Eval("NombreTecnico") %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="200 ">
+                                                         <asp:TemplateField HeaderText="Estatus Inmediato" HeaderStyle-Width="200 ">
                                                               <ItemTemplate>
                                                                   <div class="select-wrapper">
                                                                       <asp:DropDownList runat="server" ID="ddlEstatus"
@@ -134,9 +134,9 @@
                                                                 </asp:SqlDataSource>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
+                                                           <asp:TemplateField HeaderText="Preparar factura" HeaderStyle-Width="100">
                                                               <ItemTemplate>
-                                                                  <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Asignar Estatus" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
+                                                                  <asp:ImageButton runat="server" ID="btnEstatus" AlternateText="Asignar Estatus" ToolTip="Establecer los materiales y mano de obra usada en la revisión del equipo para posterior facturación" CssClass="cBotones" ImageUrl="~/Images/asignar_estatus_icono.png"  CommandName="AsignarEstatus" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>
                                                                   <%--<asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Solicitud" OnClientClick="return Confirmacion();" ToolTip="Eliminar Solicitud" CssClass="cBotones" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarSolicitud" CommandArgument='<%# Eval("RecepcionEquipoID") %>'/>--%>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>

@@ -53,11 +53,21 @@ namespace Seguridad
             }
             else
             {
-                this.Session["CodigoEmpresa"] = SeguridadUsuario.ObtenerCodigoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
-                this.Session["CodigoSucursalEmpresa"] = ddlEmpresa.SelectedValue;
-                this.Session["NombreEmpresa"] = ddlEmpresa.SelectedItem;
-                this.Session["LogoEmpresa"] = LogoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
-                Response.Redirect("/Vista/Principal.aspx");
+                DataSet ds = Login.ValidarLogin(txtLogin.Text, txtClave.Text);
+                DataTable dt = ds.Tables[0];
+                if (dt.Rows.Count == 0)
+                {
+                    messageBox.ShowMessage("El usuario y/o la contraseña son incorrectos");
+                }
+                else
+                {
+                    this.Session["CodigoEmpresa"] = SeguridadUsuario.ObtenerCodigoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
+                    this.Session["CodigoSucursalEmpresa"] = ddlEmpresa.SelectedValue;
+                    this.Session["NombreEmpresa"] = ddlEmpresa.SelectedItem;
+                    this.Session["LogoEmpresa"] = LogoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
+                    Response.Redirect("/Vista/Principal.aspx");
+                }
+
             }
         }
         private void CargarEmpresa(int codigoUsuario)
