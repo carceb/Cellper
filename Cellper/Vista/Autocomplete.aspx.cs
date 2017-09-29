@@ -52,7 +52,7 @@ namespace Admin
                 }
                 if (Request.QueryString["identifier"] == "Modelos")
                 {
-                    DataSet ds = Autocomplete.ObtenerModeloCelular(Request.QueryString["query"]);
+                    DataSet ds = Autocomplete.ObtenerModeloCelular(Request.QueryString["query"],Convert.ToInt32(Session["CodigoTipoEquipo"]), Convert.ToInt32(Session["CodigoMarcaEquipo"]));
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         Response.Write("<ul>" + "\n");

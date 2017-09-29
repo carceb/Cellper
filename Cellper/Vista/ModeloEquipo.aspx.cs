@@ -126,12 +126,27 @@ namespace Cellper
         {
             if(ddlTipoEquipo.SelectedValue != "")
             {
+                Session["CodigoTipoEquipo"] = ddlTipoEquipo.SelectedItem.Value;
                 CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
             }
             else
             {
                 ddlTipoCelular.Items.Clear();
                 ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
+                Session["CodigoTipoEquipo"] = "0";
+
+            }
+        }
+
+        protected void ddlTipoCelular_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTipoEquipo.SelectedValue != "")
+            {
+                Session["CodigoMarcaEquipo"] = ddlTipoCelular.SelectedItem.Value;
+            }
+            else
+            {
+                Session["CodigoMarcaEquipo"] = "0";
             }
         }
     }

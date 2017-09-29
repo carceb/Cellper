@@ -69,7 +69,7 @@ namespace Cellper
 
             if (tipoEquipoID != 0)
             {
-                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY TipoCelularID";
+                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY NombreTipoCelular";
             }
             using (SqlConnection con = new SqlConnection(strConnString))
             {
@@ -95,7 +95,7 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID;
+            strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID + " ORDER BY NombreModeloCelular";
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())

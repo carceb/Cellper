@@ -107,7 +107,7 @@
 									        </div>
 									        <div class="6u 12u$(xsmall)">
                                                 <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlTipoCelular" runat="server" AppendDataBoundItems="True"  >
+                                                    <asp:DropDownList ID="ddlTipoCelular" runat="server" AppendDataBoundItems="True"  AutoPostBack="True" OnSelectedIndexChanged="ddlTipoCelular_SelectedIndexChanged"  >
                                                     </asp:DropDownList>
                                                      <asp:HiddenField runat ="server" ID ="hdnTipoCelularID"  Value="0"/>
                                                 </div>

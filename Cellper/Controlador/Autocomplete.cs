@@ -25,11 +25,13 @@ namespace Admin
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerTipoCelular", dbParams);
         }
-        public static DataSet ObtenerModeloCelular(string sQuery)
+        public static DataSet ObtenerModeloCelular(string sQuery, int tipoEquipoID, int marcaEquipoID)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                    DBHelper.MakeParam("@TipoEquipoID", SqlDbType.Int, 0, tipoEquipoID),
+                    DBHelper.MakeParam("@TipoCelularID", SqlDbType.Int, 0, marcaEquipoID)
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerModeloCelular", dbParams);
         }
