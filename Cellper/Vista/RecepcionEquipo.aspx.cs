@@ -1,5 +1,6 @@
 ﻿using Seguridad;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -31,6 +32,11 @@ namespace Cellper
    
 
         }
+
+        //***********************************************************************************
+        //PROCESO PARA COMBOS ANIDADOS:
+
+        //COMBO ANIDADO NUMERO 1 (SE CARGA DESDE EL SERVIDOR)
         private void CargarTipoEquipo()
         {
             ddlTipoEquipo.Items.Clear();
@@ -57,61 +63,104 @@ namespace Cellper
                 }
             }
         }
+        //*********************************************************************************
 
-
-        private void CargarTipoCelular(int tipoEquipoID)
+        //COMBO ANIDADO NUMERO 2 (SE CARGA EN EL CLIENTE CON JSON MEDIANTE LA FUNCION CargarMarcaCelular())
+        [System.Web.Services.WebMethod]
+        public static ArrayList  CargarTipoCelular(int tipoEquipoID)
         {
-            ddlTipoCelular.Items.Clear();
-            ddlTipoCelular.Items.Add(new ListItem("--Seleccione la marca del equipo--", ""));
+            ArrayList list = new ArrayList();
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
             if (tipoEquipoID != 0)
             {
-                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY NombreTipoCelular";
+                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = @tipoEquipoID  ORDER BY NombreTipoCelular";
             }
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@tipoEquipoID", tipoEquipoID);
                     cmd.CommandText = strQuery;
                     cmd.Connection = con;
                     con.Open();
-                    ddlTipoCelular.DataSource = cmd.ExecuteReader();
-                    ddlTipoCelular.DataTextField = "NombreTipoCelular";
-                    ddlTipoCelular.DataValueField = "TipoCelularID";
-                    ddlTipoCelular.DataBind();
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        list.Add(new ListItem(
+                       sdr["NombreTipoCelular"].ToString(),
+                       sdr["TipoCelularID"].ToString()
+                        ));
+                    }
                     con.Close();
+                    return list;
                 }
             }
         }
-        private void CargarModeloCelular(int tipoCelularID)
+        //*********************************************************************************
+
+        //COMBO ANIDADO NUMERO 3 (SE CARGA EN EL CLIENTE CON JSON MEDIANTE LA FUNCION CargarModeloCelular())
+        [System.Web.Services.WebMethod]
+        public static ArrayList  CargarModeloCelular(int tipoCelularID)
         {
-            ddlModeloCelular.Items.Clear();
-            ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
+            ArrayList list = new ArrayList();
             String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "select * From ModeloCelular Where TipoCelularID = " + tipoCelularID + " ORDER BY NombreModeloCelular";
+            strQuery = "select * From ModeloCelular Where TipoCelularID  = @tipoCelularID  ORDER BY NombreModeloCelular";
             using (SqlConnection con = new SqlConnection(strConnString))
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@tipoCelularID", tipoCelularID);
                     cmd.CommandText = strQuery;
                     cmd.Connection = con;
                     con.Open();
-                    ddlModeloCelular.DataSource = cmd.ExecuteReader();
-                    ddlModeloCelular.DataTextField = "NombreModeloCelular";
-                    ddlModeloCelular.DataValueField = "ModeloCelularID";
-                    ddlModeloCelular.DataBind();
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        list.Add(new ListItem(
+                       sdr["NombreModeloCelular"].ToString(),
+                       sdr["ModeloCelularID"].ToString()
+                        ));
+                    }
                     con.Close();
+                    return list;
                 }
             }
         }
+        //*********************************************************************************
+
+        //COMBOS ANIDADOS (FUNCIONES ADICIONALES)
+        private void CargarCombosAlEnviarFormulario()
+        {
+            //ESTA FUNCION SE DEBE COLOCAR EN EL BOTON O EVENTO QUE ENVIA EL FORMULARIO
+            // YA SEA PARA GUARDAR O PARA VALIDAR ALGUN CONTROL PORQUE DEBIDO A QUE EL TERCER COMBO SE CARGA EN CLIENTE SE PIERDE SU ID AL ENVIAR
+            string tipo = Request.Form[ddlTipoEquipo.UniqueID];
+            string marca = Request.Form[ddlTipoCelular.UniqueID];
+            string modelo = Request.Form[ddlModeloCelular.UniqueID];
+
+            // Repopulate Countries and Cities
+            PopulateDropDownList(CargarTipoCelular(int.Parse(tipo)), ddlTipoCelular);
+            PopulateDropDownList(CargarModeloCelular(int.Parse(marca)), ddlModeloCelular);
+            ddlTipoCelular.Items.FindByValue(marca).Selected = true;
+            ddlModeloCelular.Items.FindByValue(modelo).Selected = true;
+        }
+        private void PopulateDropDownList(ArrayList list, DropDownList ddl)
+        {
+            ddl.DataSource = list;
+            ddl.DataTextField = "Text";
+            ddl.DataValueField = "Value";
+            ddl.DataBind();
+        }
+        //FIN DE COMBOS ANIDADOS
+        //*********************************************************************************
+
         private void CargarFalla()
         {
             ddlFalla.Items.Clear();
@@ -215,43 +264,6 @@ namespace Cellper
             }
         }
 
-        protected void ddlTipoEquipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlTipoEquipo.SelectedValue != "")
-            {
-                CargarTipoCelular(Convert.ToInt32(ddlTipoEquipo.SelectedItem.Value));
-                if (ddlTipoCelular.SelectedIndex >= 0)
-                {
-                    if(ddlTipoCelular.SelectedValue != "")
-                    {
-                        CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
-                    }else
-                    {
-                        ddlModeloCelular.Items.Clear();
-                        ddlModeloCelular.Items.Add(new ListItem("--Seleccione el modelo del equipo--", ""));
-                    }
-
-                }
-                else
-                {
-                    CargarModeloCelular(0);
-                }
-            }
-            else
-            {
-                ddlTipoCelular.Items.Clear();
-                ddlModeloCelular.Items.Clear();
-            }
-        }
-
-        protected void ddlTipoCelular_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(ddlTipoCelular.SelectedIndex >= 0)
-            {
-                CargarModeloCelular(Convert.ToInt32(ddlTipoCelular.SelectedItem.Value));
-            }
-        }
-
         protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -292,7 +304,8 @@ namespace Cellper
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(EsTodoCorrecto() == true)
+            CargarCombosAlEnviarFormulario();
+            if (EsTodoCorrecto() == true)
             {
                 EnviarRecepcion();
             }
@@ -344,13 +357,16 @@ namespace Cellper
                 objetoCliente.CedulaCliente = Convert.ToInt32(hdnCedula.Value);
             }
 
+
             objetoCliente.NombreCliente = txtNombre.Text.ToUpper();
             objetoCliente.TelefonoCliente = txtTelefono.Text;
             objetoCliente.DireccionCliente = txtDireccion.Text.ToUpper();
 
             CRecepcion objetoRecepcion = new CRecepcion();
             objetoRecepcion.ClienteID = Convert.ToInt32(hdnClienteID.Value);
-            objetoRecepcion.ModeloCelularID = Convert.ToInt32(ddlModeloCelular.SelectedValue);
+            // esto se sustituyo por UniqueID debido a que se cambio la carga del combo por AJAX
+            //objetoRecepcion.ModeloCelularID = Convert.ToInt32(ddlModeloCelular.SelectedValue);
+            objetoRecepcion.ModeloCelularID = Convert.ToInt32(Request.Form[ddlModeloCelular.UniqueID]);
             objetoRecepcion.TipoEquipoID = Convert.ToInt32(ddlTipoEquipo.SelectedValue);
             objetoRecepcion.Imei = txtIMEI.Text.ToUpper();
             objetoRecepcion.FallaCelularID = Convert.ToInt32(ddlFalla.SelectedValue);
@@ -379,6 +395,8 @@ namespace Cellper
             txtObservaciones.Text = "";
             txtDireccion.Text = "";
             txtTelefono.Text = "";
+            txtAccesorios.Text = "";
+            txtCostoRevision.Text = "";
             hdnCedula.Value = "0";
             hdnClienteID.Value = "0";
             hdnCodigoModelo.Value = "0";
@@ -430,5 +448,6 @@ namespace Cellper
                 messageBox.ShowMessage("No puede enviar a garantía un equipo no entregado");
             }
         }
+
     }
 }
