@@ -59,7 +59,7 @@ namespace Cellper
 
             if (tipoEquipoID != 0)
             {
-                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY TipoCelularID";
+                strQuery = "select * From TipoCelular  WHERE TipoEquipoID   = " + tipoEquipoID + "  ORDER BY NombreTipoCelular";
             }
             using (SqlConnection con = new SqlConnection(strConnString))
             {
@@ -101,7 +101,11 @@ namespace Cellper
             if (ModeloCelular.InserTipoCelular(objetoModeloCelular) > 0)
             {
                 messageBox.ShowMessage("Registro actualzado.");
-                NuevoRegistro();
+                if(hdnModeloCelularID.Value !="0")
+                {
+                    NuevoRegistro();
+                }
+
             }
             else
             {
@@ -112,6 +116,7 @@ namespace Cellper
         {
             hdnTipoEquipoID.Value = "0";
             hdnTipoCelularID.Value = "0";
+            hdnModeloCelularID.Value = "0";
             txtNombre.Text = "";
             CargarTipoEquipo();
             ddlTipoCelular.Items.Clear();
