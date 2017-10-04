@@ -195,7 +195,7 @@ namespace Cellper
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
             String strQuery = "";
 
-            strQuery = "SELECT * FROM DetalleUsuarioTecnico WHERE EmpresaSucursalID =" + Session["CodigoSucursalEmpresa"];
+            strQuery = "SELECT * FROM DetalleUsuarioTecnico WHERE EmpresaSucursalID =" + Session["CodigoSucursalEmpresa"] + " ORDER BY CasosAsignados, NombreCompleto";
 
             using (SqlConnection con = new SqlConnection(strConnString))
             {
@@ -206,7 +206,7 @@ namespace Cellper
                     cmd.Connection = con;
                     con.Open();
                     ddlTecnico.DataSource = cmd.ExecuteReader();
-                    ddlTecnico.DataTextField = "NombreCompleto";
+                    ddlTecnico.DataTextField = "TextoCasosAsignados";
                     ddlTecnico.DataValueField = "SeguridadUsuarioDatosID";
                     ddlTecnico.DataBind();
                     con.Close();

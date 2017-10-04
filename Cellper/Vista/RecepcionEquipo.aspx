@@ -281,7 +281,7 @@
 											</div>
 
 											<div class="6u 12u$(xsmall)">
-												<asp:TextBox runat="server" ID="txtCostoRevision" MaxLength="15" placeholder ="Costo Revisión"/>
+												<asp:TextBox runat="server" ID="txtCostoRevision" MaxLength="5" placeholder ="Costo Revisión"/>
 												<ASP:RequiredFieldValidator id="rqrvalidaCostoReviison" runat="server" errormessage="Debe colocar el costo de revisión"  controltovalidate="txtCostoRevision" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
 											</div>
 											<div class="12u$">

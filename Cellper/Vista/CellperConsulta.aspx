@@ -8,7 +8,37 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../consultaassets/css/main.css" />
+        <script src="../consultaassets/js/jquery.min.js"></script>
+        
 
+         <script type="text/javascript">
+		        $(function () {
+		            $('#txtCedula').keydown(function (e) {
+		                if (e.shiftKey || e.ctrlKey || e.altKey) {
+		                    e.preventDefault();
+		                } else {
+		                    var key = e.keyCode;
+		                    if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+		                        e.preventDefault();
+		                        }
+		                    }
+		                });
+	             });
+        </script>
+         <script type="text/javascript">
+             $(function () {
+                 $('#txtRecibo').keydown(function (e) {
+                     if (e.shiftKey || e.ctrlKey || e.altKey) {
+                         e.preventDefault();
+                     } else {
+                         var key = e.keyCode;
+                         if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+                             e.preventDefault();
+                         }
+                     }
+                 });
+             });
+        </script>
 	</head>
 	<body>
 
@@ -22,7 +52,7 @@
 		<!-- Signup Form -->
 			<form runat ="server" id="principal" method="post" action="#">
 				<div>
-                    <asp:TextBox runat="server" ID ="txtCedula" placeholder="Número de cédula" width ="300" ></asp:TextBox>
+                    <asp:TextBox runat="server" ID ="txtCedula" placeholder="Número de cédula" width ="300" MaxLength="9" ></asp:TextBox>
                     <ASP:RequiredFieldValidator id="rqrValidaCedula" runat="server" errormessage="Debe colocar el número de cédula"  controltovalidate="txtCedula" display="Dynamic"></ASP:RequiredFieldValidator>
                     <asp:Label runat="server" ID ="lblEstatus"  Visible ="false" Text ="Equipo recibido el día 23/06/2017, entró a servicio técnico el dia 24/06/2017, se encuentra siendo revisado por el tecnico asignado" Font-Bold="True"  ></asp:Label>
                 </div>
@@ -30,7 +60,7 @@
                 	<p></P>
                 </div>
                 <div>
-                     <asp:TextBox runat="server" ID ="txtRecibo" placeholder="Número de recibo" width ="300" ></asp:TextBox>
+                     <asp:TextBox runat="server" ID ="txtRecibo" placeholder="Número de recibo" width ="300" MaxLength="5"></asp:TextBox>
                      <ASP:RequiredFieldValidator id="rqrValidaRecibo" runat="server" errormessage="Debe colocar el número de recibo"  controltovalidate="txtRecibo" display="Dynamic"></ASP:RequiredFieldValidator>	
                 </div>
                 <div>

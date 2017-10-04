@@ -24,48 +24,57 @@ namespace Cellper
             string mensajeEstatus = "";
             string fechaRecibido;
             string mensajeAlUsuario;
-            SqlDataReader dr = CellperConsulta.ObtenerDatosEquipoParaConsulta(Convert.ToInt32(txtCedula.Text), Convert.ToInt32(txtRecibo.Text));
-            EstablecerObjetos(false);
-            if (dr.HasRows)
+            try
             {
-                while (dr.Read())
+                SqlDataReader dr = CellperConsulta.ObtenerDatosEquipoParaConsulta(Convert.ToInt32(txtCedula.Text), Convert.ToInt32(txtRecibo.Text));
+                EstablecerObjetos(false);
+                if (dr.HasRows)
                 {
-                    fechaRecibido = dr.GetString(3);
-                    switch (dr.GetInt32(2))
+                    while (dr.Read())
                     {
-                        case 1:
-                            mensajeEstatus = ", aun no ha sido revisado por nuestros técnicos.";
-                            break;
-                        case 2:
-                            mensajeEstatus = ", fue entregado al técnico el día: " + dr.GetString(4) + " y lo está revisando.";
-                            break;
-                        case 3:
-                            mensajeEstatus = ", ha sido reparado, por favor acuda a retirarlo.";
-                            break;
-                        case 4:
-                            mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y se está a la espera de un repuesto.";
-                            break;
-                        case 5:
-                            mensajeEstatus = ", fue entregado al cliente el dia: " + dr.GetString(5);
-                            break;
-                        case 6:
-                            mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y lamentamos informarle que es irreparable, por favor pase a retirarlo.";
-                            break;
-                        case 7:
-                            mensajeEstatus = " fue recibido por garantía nuestro local";
-                            break;
-                        default:
-                            break;
+                        fechaRecibido = dr.GetString(3);
+                        switch (dr.GetInt32(2))
+                        {
+                            case 1:
+                                mensajeEstatus = ", aun no ha sido revisado por nuestros técnicos.";
+                                break;
+                            case 2:
+                                mensajeEstatus = ", fue entregado al técnico el día: " + dr.GetString(4) + " y lo está revisando.";
+                                break;
+                            case 3:
+                                mensajeEstatus = ", ha sido reparado, por favor acuda a retirarlo.";
+                                break;
+                            case 4:
+                                mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y se está a la espera de un repuesto.";
+                                break;
+                            case 5:
+                                mensajeEstatus = ", fue entregado al cliente el dia: " + dr.GetString(5);
+                                break;
+                            case 6:
+                                mensajeEstatus = ", fue revisado el día: " + dr.GetString(4) + " y lamentamos informarle que es irreparable, por favor pase a retirarlo.";
+                                break;
+                            case 7:
+                                mensajeEstatus = " fue recibido por garantía nuestro local";
+                                break;
+                            default:
+                                break;
+                        }
+                        mensajeAlUsuario = "Equipo recibido el día: " + fechaRecibido + mensajeEstatus;
+                        lblEstatus.Text = mensajeAlUsuario;
                     }
-                    mensajeAlUsuario = "Equipo recibido el día: " + fechaRecibido + mensajeEstatus;
-                    lblEstatus.Text = mensajeAlUsuario;
                 }
+                else
+                {
+                    lblEstatus.Text = "El equipo que está consultando, con los datos de cédula y recibo colocados, no existe en nuestros registros.";
+                }
+                dr.Close();
             }
-            else
+            catch (Exception ex)
             {
-                lblEstatus.Text = "El equipo que está consultando, con los datos de cédula y recibo colocados, no existe en nuestros registros.";
+                EstablecerObjetos(false);
+                lblEstatus.Text = ex.Message;
             }
-            dr.Close();
+
         }
         private void EstablecerObjetos(bool EsVisible)
         {

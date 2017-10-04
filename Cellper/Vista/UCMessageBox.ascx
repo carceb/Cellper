@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCMessageBox.ascx.cs" Inherits="Teach.UCMessageBox" %>
 <asp:Literal ID="scripts" runat="server"></asp:Literal>
-   <script type="text/javascript" language="javascript">
+   <script type="text/javascript" >
 
           function inicializar() {
               $(document).ready(function () {

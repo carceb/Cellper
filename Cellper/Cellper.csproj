@@ -101,6 +101,7 @@
     <Content Include="consultaassets\fonts\fontawesome-webfont.svg" />
     <Content Include="consultaassets\js\ie\html5shiv.js" />
     <Content Include="consultaassets\js\ie\respond.min.js" />
+    <Content Include="consultaassets\js\jquery.min.js" />
     <Content Include="consultaassets\js\main.js" />
     <Content Include="Vista\FacturarEquipo.aspx" />
     <Content Include="images\consultabg01.jpg" />

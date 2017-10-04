@@ -37,7 +37,7 @@ namespace Cellper
             {
                 while (dr.Read())
                 {
-                    lblFecha.Text = "Fecha recepción: " + dr.GetDateTime(0).ToString();
+                    lblFecha.Text = "Fecha recepción: " + dr.GetString(0).ToString();
                     lblTipoEquipo.Text = "Tipo de equipo: " + dr.GetString(1);
                     lblMarca.Text = "Marca: " + dr.GetString(2);
                     lblModelo.Text = "Modelo: " + dr.GetString(3);
