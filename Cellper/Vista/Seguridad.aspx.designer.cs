@@ -58,6 +58,24 @@ namespace Seguridad {
         protected global::System.Web.UI.WebControls.Button btmAgregarGrupoObjeto;
         
         /// <summary>
+        /// btnAgregarEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarEmpresa;
+        
+        /// <summary>
+        /// btnAgregarSucrusal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarSucrusal;
+        
+        /// <summary>
         /// ControlMenu control.
         /// </summary>
         /// <remarks>

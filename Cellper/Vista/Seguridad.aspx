@@ -55,6 +55,11 @@
                                                     <li><asp:Button Text="3) Objetos >>" runat="server" ID ="btnAgregarObjeto"  OnClick="btnAgregarObjeto_Click"/></li>
                                                     <li><asp:Button Text="4) Objetos/Grupos >>" runat="server" ID ="btmAgregarGrupoObjeto"  OnClick="btmAgregarGrupoObjeto_Click"/></li>
 											    </ul>
+                                                <hr />
+                                                <ul class="actions">
+                                                    <li><asp:Button Text="Agregar Empresa" runat="server" ID ="btnAgregarEmpresa" OnClick="btnAgregarEmpresa_Click" /></li>
+                                                     <li><asp:Button Text="Agregar Sucursal" runat="server" ID ="btnAgregarSucrusal" /></li>
+                                                </ul>
 										    </div>
                                         </div>
 								</section>

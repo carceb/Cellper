@@ -27,12 +27,16 @@ namespace Seguridad
                 btnAgregarGrupo.Visible = true;
                 btnAgregarObjeto.Visible = true;
                 btmAgregarGrupoObjeto.Visible = true;
+                btnAgregarEmpresa.Visible = true;
+                btnAgregarSucrusal.Visible = true;
             }
             else
             {
                 btnAgregarGrupo.Visible = false;
                 btnAgregarObjeto.Visible = false;
                 btmAgregarGrupoObjeto.Visible = false;
+                btnAgregarEmpresa.Visible = false;
+                btnAgregarSucrusal.Visible = false;
             }
         }
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
@@ -53,6 +57,11 @@ namespace Seguridad
         protected void btmAgregarGrupoObjeto_Click(object sender, EventArgs e)
         {
             Response.Redirect("SeguridadObjetoGrupo.aspx");
+        }
+
+        protected void btnAgregarEmpresa_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Empresa.aspx");
         }
     }
 }

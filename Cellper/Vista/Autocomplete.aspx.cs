@@ -121,7 +121,25 @@ namespace Admin
                             item.id = dr["InventarioID"].ToString();
                             item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
                             Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreItem"].ToString() + "_" + dr["InventarioID"].ToString() + "_" + dr["CantidadItem"].ToString() + "_" + dr["CostoItem"].ToString() + "_" + dr["SerialItem"].ToString() + "'>" + item.value + "</li>" + "\n");
-                            //Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreTecnico"].ToString() + "_" + dr["TecnicoID"].ToString() + "_" + dr["CedulaTecnico"].ToString() + "'>" + item.value + "</li>" + "\n");
+                        }
+                        Response.Write("</ul>");
+                        Response.End();
+                    }
+                }
+                if (Request.QueryString["identifier"] == "Empresas")
+                {
+                    DataSet ds = Autocomplete.ObtenerEmpresas(Request.QueryString["query"]);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        Response.Write("<ul>" + "\n");
+                        paginaBase.AutoCompleteResult item;
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            item = new paginaBase.AutoCompleteResult();
+                            item.value = dr["NombreEmpresa"].ToString();
+                            item.id = dr["EmpresaID"].ToString();
+                            item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreEmpresa"].ToString() + "_" + dr["EmpresaID"].ToString() + "_" + dr["RIFEmpresa"].ToString() + "_" + dr["DireccionEmpresa"].ToString() + "_" + dr["TelefonoEmpresa"].ToString() + "_" + dr["EMailEmpresa"].ToString() + "_" + dr["TwitterEmpresa"].ToString() + "_" + dr["InstagramEmpresa"].ToString() + "_" + dr["FacebookEmpresa"].ToString() + "_" + dr["LogoEmpresa"].ToString() + "_" + dr["WebEmpresa"].ToString() + "'>" + item.value + "</li>" + "\n");
                         }
                         Response.Write("</ul>");
                         Response.End();
