@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -16,6 +18,7 @@ namespace Cellper
             if(!IsPostBack)
             {
                 CargarEmpresa();
+                CargarEstatusEmpresa();
             }
         }
         public void CargarEmpresa()
@@ -31,6 +34,32 @@ namespace Cellper
             {
 
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
+            }
+        }
+        private void CargarEstatusEmpresa()
+        {
+            ddlEstatusEmpresa.Items.Clear();
+            ddlEstatusEmpresa.Items.Add(new ListItem("--Seleccione el estatus--", ""));
+            String strConnString = ConfigurationManager
+            .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
+            String strQuery = "";
+
+            strQuery = "SELECT * FROM EstatusEmpresa   ORDER BY EstatusEmpresaID";
+
+            using (SqlConnection con = new SqlConnection(strConnString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = strQuery;
+                    cmd.Connection = con;
+                    con.Open();
+                    ddlEstatusEmpresa.DataSource = cmd.ExecuteReader();
+                    ddlEstatusEmpresa.DataTextField = "NombreEstatusEmpresa";
+                    ddlEstatusEmpresa.DataValueField = "EstatusEmpresaID";
+                    ddlEstatusEmpresa.DataBind();
+                    con.Close();
+                }
             }
         }
 
@@ -61,6 +90,7 @@ namespace Cellper
                     objetoEmpresa.InstagramEmpresa = txtInstagram.Text;
                     objetoEmpresa.FacebookEmpresa = txtFacebook.Text;
                     objetoEmpresa.LogoEmpresa = hdnRutaImagen.Value;
+                    objetoEmpresa.EstatusEmpresaID = Convert.ToInt32(ddlEstatusEmpresa.SelectedValue);
                     if (Empresa.InsertarEmpresa(objetoEmpresa) > 0)
                     {
                         messageBox.ShowMessage("Registro actualizado.");
@@ -140,6 +170,7 @@ namespace Cellper
             hdnRutaImagen.Value = "";
             txtRif.Focus();
             CargarEmpresa();
+            CargarEstatusEmpresa();
         }
 
         protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)

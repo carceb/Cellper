@@ -50,15 +50,24 @@
 
 										    <div class="12u$">
 											    <ul class="actions">
-                                                    <li><asp:Button Text="1) Agregar / modificar usuario >>" runat="server" ID ="btnAgregarUsuario"   CssClass ="special" OnClick="btnAgregarUsuario_Click"/></li>
-                                                    <li><asp:Button Text="2) Grupos >>" runat="server" ID ="btnAgregarGrupo"    OnClick="btnAgregarGrupo_Click"/></li>
-                                                    <li><asp:Button Text="3) Objetos >>" runat="server" ID ="btnAgregarObjeto"  OnClick="btnAgregarObjeto_Click"/></li>
-                                                    <li><asp:Button Text="4) Objetos/Grupos >>" runat="server" ID ="btmAgregarGrupoObjeto"  OnClick="btmAgregarGrupoObjeto_Click"/></li>
+                                                    <li><asp:Button Text="Agregar / modificar usuario" runat="server" ID ="btnAgregarUsuario"   CssClass ="special" OnClick="btnAgregarUsuario_Click"/></li>
 											    </ul>
                                                 <hr />
+											    <div class="content">
+												    <h3><asp:Label runat ="server" ID ="lblOpcionesSeguridad" Text ="Opciones adicionales de seguridad"></asp:Label></h3>
+											    </div>
+                                                 <ul class="actions">
+                                                    <li><asp:Button Text="Grupos" runat="server" ID ="btnAgregarGrupo"    OnClick="btnAgregarGrupo_Click"/></li>
+                                                    <li><asp:Button Text="Objetos" runat="server" ID ="btnAgregarObjeto"  OnClick="btnAgregarObjeto_Click"/></li>
+                                                    <li><asp:Button Text="Objetos/Grupos" runat="server" ID ="btmAgregarGrupoObjeto"  OnClick="btmAgregarGrupoObjeto_Click"/></li>
+                                                 </ul>
+                                                <hr />
+											    <div class="content">
+												    <h3><asp:Label runat ="server" ID ="lblOpcionesEmpresa" Text ="Opciones de Empresa"></asp:Label></h3>
+											    </div>
                                                 <ul class="actions">
                                                     <li><asp:Button Text="Agregar Empresa" runat="server" ID ="btnAgregarEmpresa" OnClick="btnAgregarEmpresa_Click" /></li>
-                                                     <li><asp:Button Text="Agregar Sucursal" runat="server" ID ="btnAgregarSucrusal" /></li>
+                                                    <li><asp:Button Text="Agregar Sucursal" runat="server" ID ="btnAgregarSucrusal" /></li>
                                                 </ul>
 										    </div>
                                         </div>

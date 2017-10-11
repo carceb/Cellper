@@ -29,6 +29,8 @@ namespace Seguridad
                 btmAgregarGrupoObjeto.Visible = true;
                 btnAgregarEmpresa.Visible = true;
                 btnAgregarSucrusal.Visible = true;
+                lblOpcionesEmpresa.Visible = true;
+                lblOpcionesSeguridad.Visible = true;
             }
             else
             {
@@ -37,6 +39,8 @@ namespace Seguridad
                 btmAgregarGrupoObjeto.Visible = false;
                 btnAgregarEmpresa.Visible = false;
                 btnAgregarSucrusal.Visible = false;
+                lblOpcionesEmpresa.Visible = false;
+                lblOpcionesSeguridad.Visible = false;
             }
         }
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)

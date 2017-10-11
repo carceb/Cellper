@@ -19,11 +19,12 @@ public class CEmpresa
         private string _instagramEmpresa;
         private string _facebookEmpresa;
         private string _logoEmpresa;
+        private int _estatusEmpresaID;
 
         public CEmpresa()
         {
         }
-        public CEmpresa(int _empresaID, string _RIFEmpresa, string _nombreEmpresa, string _direccionEmpresa, string telefonoEmpresa, string _EMailEmpresa, string _webEmpresa, string _twitterEmpresa, string _instagramEmpresa, string _facebookEmpresa, string _logoEmpresa)
+        public CEmpresa(int _empresaID, string _RIFEmpresa, string _nombreEmpresa, string _direccionEmpresa, string telefonoEmpresa, string _EMailEmpresa, string _webEmpresa, string _twitterEmpresa, string _instagramEmpresa, string _facebookEmpresa, string _logoEmpresa, int _estatusEmpresaID)
         {
             this.EmpresaID = _empresaID;
             this.RIFEmpresa = _RIFEmpresa;
@@ -36,6 +37,7 @@ public class CEmpresa
             this.InstagramEmpresa = _instagramEmpresa;
             this.FacebookEmpresa = _facebookEmpresa;
             this.LogoEmpresa = _logoEmpresa;
+            this._estatusEmpresaID = _estatusEmpresaID;
         }
 
         public int EmpresaID
@@ -178,6 +180,18 @@ public class CEmpresa
             set
             {
                 _logoEmpresa = value;
+            }
+        }
+        public int EstatusEmpresaID
+        {
+            get
+            {
+                return _estatusEmpresaID;
+            }
+
+            set
+            {
+                _estatusEmpresaID = value;
             }
         }
 

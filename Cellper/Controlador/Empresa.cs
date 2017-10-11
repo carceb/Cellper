@@ -26,7 +26,8 @@ namespace Cellper
                     DBHelper.MakeParam("@TwitterEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.TwitterEmpresa),
                     DBHelper.MakeParam("@InstagramEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.InstagramEmpresa),
                     DBHelper.MakeParam("@FacebookEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.FacebookEmpresa),
-                    DBHelper.MakeParam("@LogoEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.LogoEmpresa)
+                    DBHelper.MakeParam("@LogoEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.LogoEmpresa),
+                    DBHelper.MakeParam("@EstatusEmpresaID", SqlDbType.Int, 0, objetoEmpresa.EstatusEmpresaID)
                 };
 
                 return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Empresa_Insertar", dbParams));

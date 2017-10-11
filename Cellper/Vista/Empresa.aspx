@@ -49,6 +49,7 @@
 		            document.getElementById("txtInstagram").value = par[8];
 		            document.getElementById("txtFacebook").value = par[9];
 		            document.getElementById("hdnRutaImagen").value = par[10];
+		            document.getElementById("ddlEstatusEmpresa").value = par[12];
 
 			        var bt = document.getElementById("ButtonTest");
 			        bt.click();
@@ -113,6 +114,11 @@
 											</div>
 											<div class="6u 12u$(xsmall)">
 												<asp:TextBox runat="server" ID="txtFacebook"  MaxLength="100" placeholder ="Facebook"/>
+											</div>
+											<div class="6u 12u$(xsmall)">
+												<div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlEstatusEmpresa" runat="server" AppendDataBoundItems="true"></asp:DropDownList>
+												</div>
 											</div>
 											<div class="6u 12u$(xsmall)">
                                                 <asp:Label runat="server" ID="lblFile" Text ="Logo: "></asp:Label>
@@ -187,6 +193,11 @@
 														   <asp:TemplateField HeaderText="Facebook" HeaderStyle-Width="100">
 															  <ItemTemplate>
 																  <asp:Label runat="server" ID="lblFacebook" Text='<%# Eval("FacebookEmpresa") %>'></asp:Label>
+															  </ItemTemplate>
+														  </asp:TemplateField>
+														   <asp:TemplateField HeaderText="Facebook" HeaderStyle-Width="100">
+															  <ItemTemplate>
+																  <asp:Label runat="server" ID="lblEstatus" Text='<%# Eval("NombreEstatusEmpresa") %>'></asp:Label>
 															  </ItemTemplate>
 														  </asp:TemplateField>
 														   <asp:TemplateField HeaderText="Logo" HeaderStyle-Width="100">

@@ -31,6 +31,15 @@ namespace Seguridad {
         protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
         
         /// <summary>
+        /// lblOpcionesSeguridad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpcionesSeguridad;
+        
+        /// <summary>
         /// btnAgregarGrupo control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Seguridad {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btmAgregarGrupoObjeto;
+        
+        /// <summary>
+        /// lblOpcionesEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpcionesEmpresa;
         
         /// <summary>
         /// btnAgregarEmpresa control.
