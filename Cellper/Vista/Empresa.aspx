@@ -48,9 +48,7 @@
 		            document.getElementById("txtTwitter").value = par[7];
 		            document.getElementById("txtInstagram").value = par[8];
 		            document.getElementById("txtFacebook").value = par[9];
-
-
-
+		            document.getElementById("hdnRutaImagen").value = par[10];
 
 			        var bt = document.getElementById("ButtonTest");
 			        bt.click();
@@ -58,25 +56,8 @@
 
 		        function Confirmacion() {
 
-			        return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
+			        return confirm("¿Realmente desea eliminar esta empresa?, se borraran todas sus sucursales, usuarios, inventario y movimientos, este proceso no se podrá deshacer");
 		        }
-		        function ConfirmacionGarantia() {
-
-			        //return confirm("¿Desea enviar este equipo a garantía?, no podrá deshacer");
-			        return document.write("<a href=´#openModal´></a>");
-			
-		        }
-		        function Recibo() {
-			        document.write("<a href=´#openModal´></a>");
-			
-		        }
-		        function LimpiarTextos() {
-			        document.getElementById("hdnCedula").value = "0";
-			        document.getElementById("txtCedula").value = "";
-			        document.getElementById("txtNombre").value = "";
-			        document.getElementById("txtTelefono").value = "";
-		        }
-
 	     </script>
 		
 	</head>
@@ -111,12 +92,15 @@
 											</div>
 											<div class="6u 12u$(xsmall)">
 												<asp:TextBox runat="server" ID="txtDireccion"  MaxLength="100"  placeholder ="Dirección"/>
+                                                <ASP:RequiredFieldValidator id="rqrValidaDireccion" runat="server" errormessage="Debe colocar la dirección de la empresa"  controltovalidate="txtDireccion" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
 											</div>
 											<div class="6u 12u$(xsmall)">
 												<asp:TextBox runat="server" ID="txtTelefono"  MaxLength="100" placeholder ="Teléfono"/>
+                                                <ASP:RequiredFieldValidator id="rqrValidaTelefono" runat="server" errormessage="Debe colocar el numéro de teléfono de la empresa"  controltovalidate="txtTelefono" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
 											</div>
 											<div class="6u 12u$(xsmall)">
 												<asp:TextBox runat="server" ID="txtEmail"  MaxLength="50" placeholder ="Correo Electronico"/>
+                                                <ASP:RequiredFieldValidator id="rqrValidaEmail" runat="server" errormessage="Debe colocar el E-Mail"  controltovalidate="txtEmail" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
 											</div>
 											<div class="6u 12u$(xsmall)">
 												<asp:TextBox runat="server" ID="txtWeb"  MaxLength="100" placeholder ="Sitio Web"/>
@@ -131,13 +115,15 @@
 												<asp:TextBox runat="server" ID="txtFacebook"  MaxLength="100" placeholder ="Facebook"/>
 											</div>
 											<div class="6u 12u$(xsmall)">
-												<asp:TextBox runat="server" ID="txtLOGO"  MaxLength="100" placeholder ="LOGO"/>
+                                                <asp:Label runat="server" ID="lblFile" Text ="Logo: "></asp:Label>
+                                                <asp:FileUpload id="FileUploadControl" runat="server" />
+                                                <asp:HiddenField runat ="server" ID ="hdnRutaImagen"  Value=""/> 
 											</div>
 
 											<div class="12u$">
 												<ul class="actions">
-													<li><asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special"  /></li>
-													<li><asp:Button Text="Nuevo registro" runat="server" ID ="btnLimpiar"   CausesValidation="False"  /></li>
+													<li><asp:Button Text="Guardar" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"  /></li>
+													<li><asp:Button Text="Nuevo registro" runat="server" ID ="btnLimpiar"   CausesValidation="False" OnClick="btnLimpiar_Click"  /></li>
 													<li><asp:Button Text="TEST" runat="server" ID ="ButtonTest"  style="display:none"  CausesValidation="False"  /></li>
 												</ul>
 											</div>
@@ -146,7 +132,7 @@
 													  CssClass="subtitulo" 
 													  EmptyDataText="No existen Registros" 
 													  GridLines="Horizontal" 
-													  AutoGenerateColumns="False" 
+													  AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand" 
 													  
 													   >
 														<HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
@@ -205,14 +191,12 @@
 														  </asp:TemplateField>
 														   <asp:TemplateField HeaderText="Logo" HeaderStyle-Width="100">
 															  <ItemTemplate>
-																  <asp:Label runat="server" ID="lblFalla" Text='<%# Eval("LogoEmpresa") %>'></asp:Label>
+                                                                  <asp:Image runat="server" ID="imgLogo"  ImageUrl ='<%# Eval("LogoEmpresa") %>' Width="50" Height="50"></asp:Image>
 															  </ItemTemplate>   
 														  </asp:TemplateField>
-
-
 														   <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100">
 															  <ItemTemplate>
-																<asp:ImageButton runat="server" ID="btnEliminarRegistro" AlternateText="Eliminar" ToolTip="Eliminar Registro" ImageUrl="~/Images/eliminar.png"  CommandName="Eliminar" CommandArgument='<%# Eval("EmpresaID") %>' CausesValidation ="false"/> 
+																<asp:ImageButton runat="server" ID="btnEliminarRegistro" AlternateText="Eliminar"  OnClientClick="return Confirmacion();" ToolTip="Eliminar Registro" ImageUrl="~/Images/eliminar.png"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("EmpresaID") %>' CausesValidation ="false"/> 
 															  </ItemTemplate>
 														  </asp:TemplateField>
 													  </Columns>

@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Cellper
 {
-    public class CEmpresa
+    
+public class CEmpresa
     {
         private int _empresaID;
         private string _RIFEmpresa;
@@ -19,6 +20,9 @@ namespace Cellper
         private string _facebookEmpresa;
         private string _logoEmpresa;
 
+        public CEmpresa()
+        {
+        }
         public CEmpresa(int _empresaID, string _RIFEmpresa, string _nombreEmpresa, string _direccionEmpresa, string telefonoEmpresa, string _EMailEmpresa, string _webEmpresa, string _twitterEmpresa, string _instagramEmpresa, string _facebookEmpresa, string _logoEmpresa)
         {
             this.EmpresaID = _empresaID;

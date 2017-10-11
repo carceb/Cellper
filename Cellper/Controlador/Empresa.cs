@@ -20,10 +20,10 @@ namespace Cellper
                     DBHelper.MakeParam("@RIFEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.RIFEmpresa),
                     DBHelper.MakeParam("@NombreEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.NombreEmpresa),
                     DBHelper.MakeParam("@DireccionEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.DireccionEmpresa),
-                    DBHelper.MakeParam("@TelefonoEmpresa", SqlDbType.Int, 0, objetoEmpresa.TelefonoEmpresa),
+                    DBHelper.MakeParam("@TelefonoEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.TelefonoEmpresa),
                     DBHelper.MakeParam("@EMailEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.EMailEmpresa),
-                    DBHelper.MakeParam("@WebEmpresa", SqlDbType.Int, 0, objetoEmpresa.WebEmpresa),
-                    DBHelper.MakeParam("@TwitterEmpresa", SqlDbType.Int, 0, objetoEmpresa.TwitterEmpresa),
+                    DBHelper.MakeParam("@WebEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.WebEmpresa),
+                    DBHelper.MakeParam("@TwitterEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.TwitterEmpresa),
                     DBHelper.MakeParam("@InstagramEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.InstagramEmpresa),
                     DBHelper.MakeParam("@FacebookEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.FacebookEmpresa),
                     DBHelper.MakeParam("@LogoEmpresa", SqlDbType.VarChar, 0, objetoEmpresa.LogoEmpresa)
@@ -47,6 +47,14 @@ namespace Cellper
 
            return DBHelper.ExecuteDataSet("usp_Empresa_ObtenerEmpresa", dbParams);
 
+        }
+        public static int EliminarEmpresa(int empresaID)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@EmpresaID", SqlDbType.Int, 0, empresaID),
+                };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Empresa_EliminarEmpresa", dbParams));
         }
     }
 }
